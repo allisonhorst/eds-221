@@ -1,0 +1,11 @@
+scientific-programming-essentials-for-environmental-data-science
+setup
+types
+methods
+iteration
+conditionals
+logicals
+functions
+tidydata
+tidyverse
+troubleshooting

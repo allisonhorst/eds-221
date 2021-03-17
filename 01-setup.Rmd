@@ -1,0 +1,3 @@
+# Setup {#setup}
+
+Intro to programming and the tools we're using. 

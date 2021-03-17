@@ -1,0 +1,35 @@
+/*------- Fonts -------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+h1 {
+  font-family: Arvo;
+}
+
+h2 {
+  font-family: Arvo;
+}
+
+p {
+  font-family: Open Sans;
+}
+
+
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+.book .book-summary ul.summary {
+  font-family: Open Sans;
+}

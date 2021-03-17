@@ -1,0 +1,23 @@
+--- 
+title: "EDS 221: Scientific Programming Essentials"
+author: "Allison Horst"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This book was created for EDS 221 (Scientific Programming Essentials) in the Master of Environmental Data Science program at UC Santa Barbara. It is not comprehensive, and accompanies lecture, computational lab and discussion materials."
+---
+
+# Scientific programming essentials for environmental data science
+
+As nicely summarized in the title of a [2018 NCEAS post](https://www.nceas.ucsb.edu/news/next-generation-environmental-scientists-are-data-scientists): *"The next generation of environmental scientists are data scientists"*.
+
+Over the next year in MEDS you'll build skills to responsibly apply advanced methods in environmental modeling, spatial data analysis, and machine learning to investigate and solve environmental problems. 
+
+To get there, however, you'll need a strong foundation in programming basics like: understanding types and structures of data, basic data wrangling and visualization, algorithm development with functions, loops, and conditionals, and how to troubleshoot. While working in the weeds of programming, we'll also learn and reinforce transferable habits for reproducible workflows, robust file paths, version control, data organization, and more. 
+
+Upon these building blocks established in EDS 221, you'll be able to incrementally grow your advanced environmental data science toolkit to enter the workplace at the leading edge of quantitative methods in the field.
+
+
