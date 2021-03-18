@@ -1,1 +1,107 @@
 # Functions {#functions}
+
+Writing functions to implement algorithms is a fundamental skill for every environmental data scientist. Functions can reduce repetition, increase efficiency and elegance, and facilitate reuse and sharing. Functions built by other developers will be ingrained into your code, but it's also critical that you can build, test, document, and share **your own** functions. 
+
+
+
+This chapter covers:
+
+- Function structure
+- Writing basic functions
+- Nested functions
+- Functions with iteration and conditions
+- Useful function features
+- Testing
+- Documentation
+- Applied examples
+
+## Function components
+
+At the most basic level, a function takes an input, does something to it (a calculation, transformation, etc.), and returns an output.
+
+For example, we can write a function that doubles the input value. In *function notation* seen in math, that would be: 
+
+$$f(x) = 2x$$
+where $x$ is the input, and $f(x)$ is the output. The function $f$ acts on input $x$ by doubling the input value. 
+
+How can we create a function to do the same thing in R? An R function would look like this:
+
+```{r double_fun}
+double_it <- function(x) {
+  2*x
+}
+```
+
+What are these different pieces of that function?
+
+- `double_it`: this assigns the function a name which we'll need to use it later on.
+- `function(x)`: says we're making a function, and defines the function **formals** (arguments / parameters). This function expects a single input argument, `x` (you can check what the formals are using `formals(function_name)`).
+- `{ 2*x }`: the **body** of the function, where we tell it what to do with the inputs. Note the braces (i.e. squiggly brackets).
+
+Try out the function by inputting both a single value, and a vector of values. Note that vectorization is the default - meaning that the function is applied to each element in a vector. 
+
+```{r}
+double_it(x = 20)
+```
+
+```{r}
+vec <- c(2, 4, 50) # Create a vector with multiple values
+
+double_it(vec) # Function acts on each element in the vector
+```
+
+
+Those are the main pieces. But don't worry, it gets a lot more interesting. Let's start by writing a few of our own functions. 
+
+## Writing simple functions
+
+Let's practice writing a few simple functions using established relationships in environmental science.  
+
+### Example 1: Fish standard weight
+
+"Standard weight" is how much we *expect* a fish to weigh, give the species and fish length, and the nonlinear relationship is given by: 
+
+$$W=aL^b$$
+
+where $L$ is total fish length (centimeters), $W$ is the expected fish weight (grams), and $a$ and $b$ are species-dependent parameter values. 
+
+Write a function to calculate fish weight based on $a$, $b$, and fish length, then estimate the weight of several fish based on the following parameter estimates for Hawaiian fish from Peyton et al. (2015):
+
+- *Chanos chanos* (milkfish): $a$ = 0.0905, $b$ = 2.52
+- *Sphyraena barracuda* (great barracuda): $a$ = 0.0181, $b$ = 3.27
+- *Caranx ignobilis* (giant trevally): $a$ = 0.0353, $b$ = 3.05
+
+Function: 
+
+```{r fish_weight}
+predict_weight <- function(a, length, b) {
+  a*(length^b)
+}
+```
+
+Using the function: 
+
+1. Estimate the mass of a 160 cm long great barracuda. 
+2. Estimate the mass of a 118 cm long milkfish. 
+
+**Thinking ahead:** how might we make this function simpler for a user? For example, maybe a user can input the *species*, and the parameters $a$ and $b$ can be correctly updated for that species? We'll learn how to add this kind of functionality in upcoming sections. 
+
+### Example 2: 
+
+### Example 3: 
+
+## Nested functions
+
+## Functions with iteration and conditionals
+
+## Useful function features
+
+## Testing functions
+
+## Iterating functions
+
+## Resources on building, testing, & documenting functions
+
+- [Ch. 6 - Functions](https://adv-r.hadley.nz/functions.html)  in [*Advanced R*](https://adv-r.hadley.nz/) by Hadley Wickham
+
+

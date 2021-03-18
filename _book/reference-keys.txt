@@ -1,4 +1,6 @@
+fig:unnamed-chunk-2
 scientific-programming-essentials-for-environmental-data-science
+course-introduction
 setup
 types
 methods
@@ -6,6 +8,17 @@ iteration
 conditionals
 logicals
 functions
+function-components
+writing-simple-functions
+example-1-fish-standard-weight
+example-2
+example-3
+nested-functions
+functions-with-iteration-and-conditionals
+useful-function-features
+testing-functions
+iterating-functions
+resources-on-building-testing-documenting-functions
 tidydata
 tidyverse
 troubleshooting

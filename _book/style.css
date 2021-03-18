@@ -10,6 +10,10 @@ h2 {
   font-family: Arvo;
 }
 
+h3 {
+  font-family: Arvo;
+}
+
 p {
   font-family: Open Sans;
 }
@@ -18,10 +22,22 @@ p {
 p.caption {
   color: #777;
   margin-top: 10px;
+  font-size: 13px;
+  font-style: italic;
 }
+
 p code {
   white-space: inherit;
 }
+
+ul {
+  font-family: Open Sans;
+}
+
+li {
+  font-family: Open Sans;
+}
+
 pre {
   word-break: normal;
   word-wrap: normal;

@@ -7,10 +7,30 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This book was created for EDS 221 (Scientific Programming Essentials) in the Master of Environmental Data Science program at UC Santa Barbara. It is not comprehensive, and accompanies lecture, computational lab and discussion materials."
+description: "Evolving course materials for EDS 221 (Scientific Programming Essentials)."
 ---
 
 # Scientific programming essentials for environmental data science
+
+```{r, echo=FALSE, out.width="50%"}
+knitr::include_graphics("images/bren_logo.png")  
+```
+
+### Material disclaimer and use {-}
+
+This book was created by [Allison Horst](www.allisonhorst.com) for EDS 221 (Scientific Programming Essentials) in the Master of Environmental Data Science program in the Bren School of Environmental Science and Management, UC Santa Barbara. It accompanies lecture, computational lab and discussion materials that may or may not be linked to throughout the book. This book is intended as a supplemental resource for some parts of the course. In other words, it is not intended as a standalone textbook. 
+
+All materials in this book are openly available for use and reuse by CC-BY.
+
+### Acknowledgement {-}
+
+I create my courses by standing on shoulders of many giants in R, data science, and education communities. The wealth and quality of open educational resources (OERs) in data science has made teaching in the field fun, innovative, and inspiring. I've tried to thoroughly credit resources that I have pulled from and adapted for this book, and I welcome additions if I have missed any that should be included. Thanks, friends.
+
+## Course introduction
+
+```{r, echo=FALSE, out.width="100%", fig.cap="Slide from Dr. Julia Lowndes' 2019 keynote talk at useR conference (illustration by Allison Horst).", fig.align = "center"}
+knitr::include_graphics("images/eds_r4ds.png")  
+```
 
 As nicely summarized in the title of a [2018 NCEAS post](https://www.nceas.ucsb.edu/news/next-generation-environmental-scientists-are-data-scientists): *"The next generation of environmental scientists are data scientists"*.
 
@@ -19,5 +39,3 @@ Over the next year in MEDS you'll build skills to responsibly apply advanced met
 To get there, however, you'll need a strong foundation in programming basics like: understanding types and structures of data, basic data wrangling and visualization, algorithm development with functions, loops, and conditionals, and how to troubleshoot. While working in the weeds of programming, we'll also learn and reinforce transferable habits for reproducible workflows, robust file paths, version control, data organization, and more. 
 
 Upon these building blocks established in EDS 221, you'll be able to incrementally grow your advanced environmental data science toolkit to enter the workplace at the leading edge of quantitative methods in the field.
-
-
