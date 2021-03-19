@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 Troubleshooting | EDS 221: Scientific Programming Essentials</title>
+  <title>Chapter 11 Troubleshooting | eds-221.utf8</title>
   <meta name="description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 Troubleshooting | EDS 221: Scientific Programming Essentials" />
+  <meta property="og:title" content="Chapter 11 Troubleshooting | eds-221.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,15 +16,14 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 Troubleshooting | EDS 221: Scientific Programming Essentials" />
+  <meta name="twitter:title" content="Chapter 11 Troubleshooting | eds-221.utf8" />
   
   <meta name="twitter:description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
   
 
-<meta name="author" content="Allison Horst" />
+<meta name="author" content="by Allison Horst" />
 
 
-<meta name="date" content="2021-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +50,8 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -136,26 +137,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Scientific programming essentials for environmental data science</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#material-disclaimer-and-use"><i class="fa fa-check"></i>Material disclaimer and use</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgement"><i class="fa fa-check"></i>Acknowledgement</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#course-introduction"><i class="fa fa-check"></i><b>1.1</b> Course introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#links-to-other-course-materials"><i class="fa fa-check"></i><b>1.2</b> Links to other course materials</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#course-setup"><i class="fa fa-check"></i><b>1.3</b> Course setup</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#course-resources"><i class="fa fa-check"></i><b>1.4</b> Course resources</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i><b>2</b> Setup</a></li>
-<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data types and structures</a></li>
-<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="2" data-path="r-py.html"><a href="r-py.html"><i class="fa fa-check"></i><b>2</b> Meet the 221 tools</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-py.html"><a href="r-py.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
+<li class="chapter" data-level="2.2" data-path="r-py.html"><a href="r-py.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="r-py.html"><a href="r-py.html#python"><i class="fa fa-check"></i><b>2.3</b> Python</a></li>
+<li class="chapter" data-level="2.4" data-path="r-py.html"><a href="r-py.html#jupyter-notebooks"><i class="fa fa-check"></i><b>2.4</b> Jupyter Notebooks</a></li>
+<li class="chapter" data-level="2.5" data-path="r-py.html"><a href="r-py.html#playing-nicely-together"><i class="fa fa-check"></i><b>2.5</b> Playing nicely together</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data structures and types</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.1</b> Data structures</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.1.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.1.2</b> Tibbles</a></li>
+<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.1.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.1.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.1.4</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.2</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>4</b> Basic wrangling</a></li>
 <li class="chapter" data-level="5" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>5</b> Iteration</a></li>
 <li class="chapter" data-level="6" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>6</b> Conditionals</a></li>
 <li class="chapter" data-level="7" data-path="logicals.html"><a href="logicals.html"><i class="fa fa-check"></i><b>7</b> Logicals</a></li>
 <li class="chapter" data-level="8" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>8</b> Functions</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="functions.html"><a href="functions.html#function-components"><i class="fa fa-check"></i><b>8.1</b> Function components</a></li>
+<li class="chapter" data-level="8.1" data-path="functions.html"><a href="functions.html#function-components"><i class="fa fa-check"></i><b>8.1</b> Function components</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="functions.html"><a href="functions.html#a-note-on-names"><i class="fa fa-check"></i><b>8.1.1</b> A note on names</a></li>
+</ul></li>
 <li class="chapter" data-level="8.2" data-path="functions.html"><a href="functions.html#writing-simple-functions"><i class="fa fa-check"></i><b>8.2</b> Writing simple functions</a>
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="functions.html"><a href="functions.html#example-1-fish-standard-weight"><i class="fa fa-check"></i><b>8.2.1</b> Example 1: Fish standard weight</a></li>
-<li class="chapter" data-level="8.2.2" data-path="functions.html"><a href="functions.html#example-2"><i class="fa fa-check"></i><b>8.2.2</b> Example 2:</a></li>
-<li class="chapter" data-level="8.2.3" data-path="functions.html"><a href="functions.html#example-3"><i class="fa fa-check"></i><b>8.2.3</b> Example 3:</a></li>
+<li class="chapter" data-level="8.2.2" data-path="functions.html"><a href="functions.html#example-2-wind-turbines"><i class="fa fa-check"></i><b>8.2.2</b> Example 2: Wind turbines</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="functions.html"><a href="functions.html#nested-functions"><i class="fa fa-check"></i><b>8.3</b> Nested functions</a></li>
-<li class="chapter" data-level="8.4" data-path="functions.html"><a href="functions.html#functions-with-iteration-and-conditionals"><i class="fa fa-check"></i><b>8.4</b> Functions with iteration and conditionals</a></li>
+<li class="chapter" data-level="8.3" data-path="functions.html"><a href="functions.html#functions-with-conditionals"><i class="fa fa-check"></i><b>8.3</b> Functions with conditionals</a></li>
+<li class="chapter" data-level="8.4" data-path="functions.html"><a href="functions.html#functions-with-iteration"><i class="fa fa-check"></i><b>8.4</b> Functions with iteration</a></li>
 <li class="chapter" data-level="8.5" data-path="functions.html"><a href="functions.html#useful-function-features"><i class="fa fa-check"></i><b>8.5</b> Useful function features</a></li>
 <li class="chapter" data-level="8.6" data-path="functions.html"><a href="functions.html#testing-functions"><i class="fa fa-check"></i><b>8.6</b> Testing functions</a></li>
 <li class="chapter" data-level="8.7" data-path="functions.html"><a href="functions.html#iterating-functions"><i class="fa fa-check"></i><b>8.7</b> Iterating functions</a></li>
@@ -177,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EDS 221: Scientific Programming Essentials</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="images/bren_logo_sm.png" style="width:50.0%" /></p></a>
           </h1>
         </div>
 

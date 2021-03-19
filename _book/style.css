@@ -1,21 +1,21 @@
 /*------- Fonts -------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo&family=Open+Sans:wght@300;400;600;700&display=swap');
 
-h1 {
-  font-family: Arvo;
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap');
+
+h1, h2, h3 {
+  font-family: Aleo;
 }
 
-h2 {
-  font-family: Arvo;
-}
-
-h3 {
-  font-family: Arvo;
+h4 {
+  font-family: Nunito Sans;
 }
 
 p {
-  font-family: Open Sans;
+  font-family: Nunito Sans;
 }
 
 
@@ -26,16 +26,34 @@ p.caption {
   font-style: italic;
 }
 
+caption {
+  color: dimgray;
+  font-size: 12px;
+  font-family: Nunito Sans;
+}
+
 p code {
   white-space: inherit;
 }
 
+.book .book-body .page-wrapper .page-inner section.normal em {
+  font-family: Nunito Sans;
+  font-style: normal;
+  text-transform: none;
+  color: #003660;
+}
+
+body {
+  font-family: Nunito Sans;
+  color: black;
+}
+
 ul {
-  font-family: Open Sans;
+  font-family: Nunito Sans;
 }
 
 li {
-  font-family: Open Sans;
+  font-family: Nunito Sans;
 }
 
 pre {
@@ -47,5 +65,5 @@ pre code {
 }
 
 .book .book-summary ul.summary {
-  font-family: Open Sans;
+  font-family: Nunito Sans;
 }

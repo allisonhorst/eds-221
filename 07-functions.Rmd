@@ -1,5 +1,12 @@
 # Functions {#functions}
 
+```{r, include = FALSE}
+library(tidyverse)
+library(gt)
+library(kableExtra)
+```
+
+
 Writing functions to implement algorithms is a fundamental skill for every environmental data scientist. Functions can reduce repetition, increase efficiency and elegance, and facilitate reuse and sharing. Functions built by other developers will be ingrained into your code, but it's also critical that you can build, test, document, and share **your own** functions. 
 
 
@@ -34,9 +41,9 @@ double_it <- function(x) {
 
 What are these different pieces of that function?
 
-- `double_it`: this assigns the function a name which we'll need to use it later on.
-- `function(x)`: says we're making a function, and defines the function **formals** (arguments / parameters). This function expects a single input argument, `x` (you can check what the formals are using `formals(function_name)`).
-- `{ 2*x }`: the **body** of the function, where we tell it what to do with the inputs. Note the braces (i.e. squiggly brackets).
+- **function name**: Here, the function is named `double_it`
+- **formals**: The `function(x)` piece defines the function *formals* (arguments / parameters). This function expects a single input argument, `x` (you can check what the formals are using `formals(function_name)`).
+- **body**: here, `{ 2*x }` is the body of the function - that's where we tell it what to do with the inputs. Note the braces (i.e. squiggly brackets) are often on separate lines from the algorithm itself.
 
 Try out the function by inputting both a single value, and a vector of values. Note that vectorization is the default - meaning that the function is applied to each element in a vector. 
 
@@ -53,9 +60,26 @@ double_it(vec) # Function acts on each element in the vector
 
 Those are the main pieces. But don't worry, it gets a lot more interesting. Let's start by writing a few of our own functions. 
 
+### A note on names
+
+It's important to be thoughtful when naming functions. We generally want to follow standard practices for good names (concise, descriptive, code and coder-friendly), but you may also consider the following: 
+- Start with a verb that describes what the function *does* (e.g. `sort`, `build`, `predict`)
+- End with a noun describing the thing it works with or creates (e.g. `image`, `model`, `mass`)
+- Combine them with a coder-friendly case (like `lower_snake_case`)
+
+For example, here are some suggestions that may be useful function names:
+
+    `sum_imports`, `predict_offsets`, `plot_simulations`
+    
+In contrast, here are some function names that may be less useful, memorable, and intuitive for you and collaborators: 
+
+    `fun_1`, `calc`, `x2`
+    
+It is likely that there will be a tradeoff between conciseness and descriptiveness. While there aren't *rules* about naming functions, I recommend erring on the side of descriptiveness to make reading and writing code a bit more intuitive. With tab-completion, the decrease in efficiency is minimal. 
+
 ## Writing simple functions
 
-Let's practice writing a few simple functions using established relationships in environmental science.  
+Let's practice writing a few simple functions using established relationships in environmental science. 
 
 ### Example 1: Fish standard weight
 
@@ -65,11 +89,25 @@ $$W=aL^b$$
 
 where $L$ is total fish length (centimeters), $W$ is the expected fish weight (grams), and $a$ and $b$ are species-dependent parameter values. 
 
-Write a function to calculate fish weight based on $a$, $b$, and fish length, then estimate the weight of several fish based on the following parameter estimates for Hawaiian fish from Peyton et al. (2015):
+Write a function to calculate fish weight based on $a$, $b$, and fish length, then estimate the weight of several fish based on the following parameter estimates for Hawaiian fish from @peyton_lengthweight_2016:
 
-- *Chanos chanos* (milkfish): $a$ = 0.0905, $b$ = 2.52
-- *Sphyraena barracuda* (great barracuda): $a$ = 0.0181, $b$ = 3.27
-- *Caranx ignobilis* (giant trevally): $a$ = 0.0353, $b$ = 3.05
+```{r, echo = FALSE}
+fish_lwr <- tribble(
+  ~sci_name, ~common_name, ~a_est, ~b_est,
+  "Chanos chanos", "Milkfish", 0.0905, 2.52,
+  "Sphyraena barracuda", "Great barracuda", 0.0181, 3.27,
+  "Caranx ignobilis", "Giant trevally", 0.0353, 3.05
+)
+
+fish_lwr %>% 
+  kable(col.names = c("Scientific name", "Common name", "a", "b"),
+        caption = "Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).", 
+        align = c("l","l","c","c"),
+        ) %>% 
+  kable_styling(bootstrap_options = "striped", 
+                full_width = FALSE) %>% 
+  column_spec(1, italic = TRUE)
+```
 
 Function: 
 
@@ -84,15 +122,67 @@ Using the function:
 1. Estimate the mass of a 160 cm long great barracuda. 
 2. Estimate the mass of a 118 cm long milkfish. 
 
-**Thinking ahead:** how might we make this function simpler for a user? For example, maybe a user can input the *species*, and the parameters $a$ and $b$ can be correctly updated for that species? We'll learn how to add this kind of functionality in upcoming sections. 
+**Thinking ahead:** Does this pass your smell test for a user-friendly and user-helpful function? How might we make this function simpler for a user? For example, maybe a user can input the *species*, and the parameters $a$ and $b$ can be correctly sourced from a table? We'll learn how to add this kind of functionality in upcoming sections. 
 
-### Example 2: 
+### Example 2: Wind turbines
 
-### Example 3: 
+The full power in wind hitting a turbine is: 
 
-## Nested functions
+$$P = 0.5\rho Av^3$$
 
-## Functions with iteration and conditionals
+where $P$ is power in Watts (joules/second), $\rho$ is the air density (kg/m^3^), $A$ is the area covered by the turbine blades (square meters), and $v$ is the wind velocity (m/s). 
+
+However, the [Betz Limit](https://energyeducation.ca/encyclopedia/Betz_limit) means that turbines can only collect ~60% of the total wind power, which updates the theoretical "collectable" power (before accounting for inefficiencies, losses, etc.) to: 
+
+$$P = 0.3\rho Av^3$$
+Write a function to calculate *maximum collectable* wind power (Watts) by a turbine requiring three inputs: 
+
+- Air density (in kg/m^3^)
+- Rotor radius (in meters)
+- Wind velocity (in m/s)
+
+Write the function:  
+
+```{r}
+calc_windpower <- function(rho, radius, windspeed) {
+  
+  0.3*rho*pi*(radius^2)*(windspeed^3)
+  
+}
+```
+
+Can we clean this up a bit by calculating the area first, within the function? Sure! 
+
+```{r, eval = FALSE}
+calc_windpower <- function(rho, radius, windspeed) {
+ 
+  # Calculate turbine area (meters squared):
+  turbine_area = pi*(radius^2)
+  
+  # Calculate collectable power:
+  0.3*rho*turbine_area*(windspeed^3)
+}
+```
+
+Now let's use the function we've created. 
+
+The largest turbine in the world (as of March 2021) is the [GE Haliade-X](https://www.ge.com/renewableenergy/wind-energy/offshore-wind/haliade-x-offshore-turbine), an offshore turbine prototype in Rotterdam, the Netherlands, with a 220 meter rotor diameter.
+
+Assuming a windspeed of 7.7 m/s (based on long-term averages for North sea North Sea platforms from @coelingh_analysis_1998) and an air density of 1.225 kg/m^3^ (at sea level), estimate the wind power that can be collected. 
+
+```{r}
+calc_windpower(rho = 1.225, radius = 110, windspeed = 7.7) # Watts
+```
+
+## Functions with conditionals
+
+In the examples above, we change input values, but what the function *does* doesn't change based on those input values.
+
+Sometimes, we'll want our function to do something different (e.g. a different calculation, use a different constant value) based on the input values. 
+
+
+
+## Functions with iteration
 
 ## Useful function features
 

@@ -37,8 +37,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={EDS 221: Scientific Programming Essentials},
-  pdfauthor={Allison Horst},
+  pdfauthor={by Allison Horst},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -110,15 +109,36 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{EDS 221: Scientific Programming Essentials}
-\author{Allison Horst}
-\date{2021-03-18}
+\title{\includegraphics[width=0.5\textwidth,height=\textheight]{images/bren_logo_sm.png}}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS}
+\author{by Allison Horst}
+\date{}
 
 \begin{document}
 \maketitle
@@ -130,21 +150,21 @@
 \hypertarget{scientific-programming-essentials-for-environmental-data-science}{%
 \chapter{Scientific programming essentials for environmental data science}\label{scientific-programming-essentials-for-environmental-data-science}}
 
-\includegraphics[width=0.5\linewidth]{images/bren_logo}
-
 \hypertarget{material-disclaimer-and-use}{%
 \subsection*{Material disclaimer and use}\label{material-disclaimer-and-use}}
 \addcontentsline{toc}{subsection}{Material disclaimer and use}
 
-This book was created by \href{www.allisonhorst.com}{Allison Horst} for EDS 221 (Scientific Programming Essentials) in the Master of Environmental Data Science program in the Bren School of Environmental Science and Management, UC Santa Barbara. It accompanies lecture, computational lab and discussion materials that may or may not be linked to throughout the book. This book is intended as a supplemental resource for some parts of the course. In other words, it is not intended as a standalone textbook.
+This book was created by \href{www.allisonhorst.com}{Allison Horst} for EDS 221 (Scientific Programming Essentials) in the Bren School's 1-year \href{https://bren.ucsb.edu/masters-programs/master-environmental-data-science}{Master of Environmental Data Science program} at UC Santa Barbara. It accompanies lecture, computational lab and discussion materials that may or may not be linked to throughout the book. This book is intended as a supplemental resource for some parts of the course. In other words, it is not intended as a standalone textbook.
 
 All materials in this book are openly available for use and reuse by CC-BY.
 
-\hypertarget{acknowledgement}{%
-\subsection*{Acknowledgement}\label{acknowledgement}}
-\addcontentsline{toc}{subsection}{Acknowledgement}
+Thank you in advance for suggestions and corrections, which can be submitted as issue to this \href{https://github.com/allisonhorst/eds-221}{GitHub repo}.
 
-I create my courses by standing on shoulders of many giants in R, data science, and education communities. The wealth and quality of open educational resources (OERs) in data science has made teaching in the field fun, innovative, and inspiring. I've tried to thoroughly credit resources that I have pulled from and adapted for this book, and I welcome additions if I have missed any that should be included. Thanks, friends.
+\hypertarget{acknowledgements}{%
+\subsection*{Acknowledgements}\label{acknowledgements}}
+\addcontentsline{toc}{subsection}{Acknowledgements}
+
+I create my courses while standing on shoulders of generous teaching and developing giants in R, data science, and education communities. The wealth and quality of open educational resources (OERs) in data science has made teaching in the field fun, innovative, and inspiring. I've tried to thoroughly credit authors resources that I have pulled from and adapted for this book, and I welcome additions if I have missed any that should be included.
 
 \hypertarget{course-introduction}{%
 \section{Course introduction}\label{course-introduction}}
@@ -155,31 +175,103 @@ I create my courses by standing on shoulders of many giants in R, data science, 
 
 }
 
-\caption{Slide from Dr. Julia Lowndes' 2019 keynote talk at useR conference (illustration by Allison Horst).}\label{fig:unnamed-chunk-2}
+\caption{Slide from Dr. Julia Lowndes' 2019 keynote talk at useR conference (illustration by Allison Horst).}\label{fig:unnamed-chunk-1}
 \end{figure}
 
-As nicely summarized in the title of a \href{https://www.nceas.ucsb.edu/news/next-generation-environmental-scientists-are-data-scientists}{2018 NCEAS post}: \emph{``The next generation of environmental scientists are data scientists''}.
+As nicely summarized in the title of a \href{https://www.nceas.ucsb.edu/news/next-generation-environmental-scientists-are-data-scientists}{2018 NCEAS post}, \textbf{``the next generation of environmental scientists are data scientists''}. Over the next year in MEDS you'll build skills to responsibly apply advanced methods in environmental modeling, spatial data analysis, machine learning, and more to investigate, analyze and communicate with complex environmental data.
 
-Over the next year in MEDS you'll build skills to responsibly apply advanced methods in environmental modeling, spatial data analysis, and machine learning to investigate and solve environmental problems.
+To get there, you'll need a strong foundation in programming basics like: understanding types and structures of data, basic data wrangling and visualization, algorithm development with functions, loops, and conditionals, and how to troubleshoot. While working in the weeds of programming, we'll also learn and reinforce transferable habits for reproducible workflows, robust file paths, version control, data organization, project management, and more.
 
-To get there, however, you'll need a strong foundation in programming basics like: understanding types and structures of data, basic data wrangling and visualization, algorithm development with functions, loops, and conditionals, and how to troubleshoot. While working in the weeds of programming, we'll also learn and reinforce transferable habits for reproducible workflows, robust file paths, version control, data organization, and more.
+In EDS 221 you'll also start building versatility by learning fundamental programming skills in different languages (R, Python) and integrated development environments (IDEs) like RStudio and PyCharm, while documenting our work in R Markdown and Jupyter Notebooks.
 
-Upon these building blocks established in EDS 221, you'll be able to incrementally grow your advanced environmental data science toolkit to enter the workplace at the leading edge of quantitative methods in the field.
+Upon the building blocks established in EDS 221, you'll be prepared to incrementally grow your advanced environmental data science toolkit throughout MEDS, then enter the workplace at the leading edge of quantitative methods in the field.
 
-\hypertarget{setup}{%
-\chapter{Setup}\label{setup}}
+\hypertarget{links-to-other-course-materials}{%
+\section{Links to other course materials}\label{links-to-other-course-materials}}
 
-Intro to programming and the tools we're using.
+\begin{itemize}
+\tightlist
+\item
+  Syllabus
+\item
+  Code of Conduct
+\item
+  Course website
+\end{itemize}
+
+\hypertarget{course-setup}{%
+\section{Course setup}\label{course-setup}}
+
+We will use the following in EDS 221. You should have pre-installed recent versions before starting the course.
+
+\begin{itemize}
+\tightlist
+\item
+  R (version XXXXX or higher)
+\item
+  RStudio Desktop (version XXXXX or higher)
+\item
+  RStudio Cloud (create a free account)
+\item
+  Python (version XXXXX or higher)
+\item
+  Pycharm (version XXXX or higher)
+\item
+  Jupyter ()
+\end{itemize}
+
+\hypertarget{course-resources}{%
+\section{Course resources}\label{course-resources}}
+
+\hypertarget{r-py}{%
+\chapter{Meet the 221 tools}\label{r-py}}
+
+\hypertarget{r}{%
+\section{R}\label{r}}
+
+\hypertarget{rstudio}{%
+\section{RStudio}\label{rstudio}}
+
+\hypertarget{python}{%
+\section{Python}\label{python}}
+
+\hypertarget{jupyter-notebooks}{%
+\section{Jupyter Notebooks}\label{jupyter-notebooks}}
+
+\hypertarget{playing-nicely-together}{%
+\section{Playing nicely together}\label{playing-nicely-together}}
 
 \hypertarget{types}{%
-\chapter{Data types and structures}\label{types}}
+\chapter{Data structures and types}\label{types}}
 
-Data structures info\ldots{}
+How we work with data is largely dependent on the \emph{type} and \emph{structure} of data we're working with. That's more than just ``is this a number or letters?'' We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we're correctly predicting how data will change based on what we do with it.
 
-\hypertarget{methods}{%
-\chapter{Methods}\label{methods}}
+In this chapter, we'll learn about different structures of data, and the types of data they can contain.
 
-We describe our methods in this chapter.
+\hypertarget{data-structures}{%
+\section{Data structures}\label{data-structures}}
+
+\hypertarget{vectors}{%
+\subsection{Vectors}\label{vectors}}
+
+\hypertarget{tibbles}{%
+\subsection{Tibbles}\label{tibbles}}
+
+\hypertarget{matrices}{%
+\subsection{Matrices}\label{matrices}}
+
+\hypertarget{lists}{%
+\subsection{Lists}\label{lists}}
+
+\hypertarget{data-types}{%
+\section{Data types}\label{data-types}}
+
+See: \url{https://r4ds.had.co.nz/vectors.html}
+
+\hypertarget{basic-wrangling}{%
+\chapter{Basic wrangling}\label{basic-wrangling}}
+
+Indexing, subsetting, etc.
 
 \hypertarget{iteration}{%
 \chapter{Iteration}\label{iteration}}
@@ -244,11 +336,11 @@ What are these different pieces of that function?
 \begin{itemize}
 \tightlist
 \item
-  \texttt{double\_it}: this assigns the function a name which we'll need to use it later on.
+  \textbf{function name}: Here, the function is named \texttt{double\_it}
 \item
-  \texttt{function(x)}: says we're making a function, and defines the function \textbf{formals} (arguments / parameters). This function expects a single input argument, \texttt{x} (you can check what the formals are using \texttt{formals(function\_name)}).
+  \textbf{formals}: The \texttt{function(x)} piece defines the function \emph{formals} (arguments / parameters). This function expects a single input argument, \texttt{x} (you can check what the formals are using \texttt{formals(function\_name)}).
 \item
-  \texttt{\{\ 2*x\ \}}: the \textbf{body} of the function, where we tell it what to do with the inputs. Note the braces (i.e.~squiggly brackets).
+  \textbf{body}: here, \texttt{\{\ 2*x\ \}} is the body of the function - that's where we tell it what to do with the inputs. Note the braces (i.e.~squiggly brackets) are often on separate lines from the algorithm itself.
 \end{itemize}
 
 Try out the function by inputting both a single value, and a vector of values. Note that vectorization is the default - meaning that the function is applied to each element in a vector.
@@ -277,6 +369,28 @@ Try out the function by inputting both a single value, and a vector of values. N
 
 Those are the main pieces. But don't worry, it gets a lot more interesting. Let's start by writing a few of our own functions.
 
+\hypertarget{a-note-on-names}{%
+\subsection{A note on names}\label{a-note-on-names}}
+
+It's important to be thoughtful when naming functions. We generally want to follow standard practices for good names (concise, descriptive, code and coder-friendly), but you may also consider the following:
+- Start with a verb that describes what the function \emph{does} (e.g.~\texttt{sort}, \texttt{build}, \texttt{predict})
+- End with a noun describing the thing it works with or creates (e.g.~\texttt{image}, \texttt{model}, \texttt{mass})
+- Combine them with a coder-friendly case (like \texttt{lower\_snake\_case})
+
+For example, here are some suggestions that may be useful function names:
+
+\begin{verbatim}
+`sum_imports`, `predict_offsets`, `plot_simulations`
+\end{verbatim}
+
+In contrast, here are some function names that may be less useful, memorable, and intuitive for you and collaborators:
+
+\begin{verbatim}
+`fun_1`, `calc`, `x2`
+\end{verbatim}
+
+It is likely that there will be a tradeoff between conciseness and descriptiveness. While there aren't \emph{rules} about naming functions, I recommend erring on the side of descriptiveness to make reading and writing code a bit more intuitive. With tab-completion, the decrease in efficiency is minimal.
+
 \hypertarget{writing-simple-functions}{%
 \section{Writing simple functions}\label{writing-simple-functions}}
 
@@ -291,17 +405,24 @@ Let's practice writing a few simple functions using established relationships in
 
 where \(L\) is total fish length (centimeters), \(W\) is the expected fish weight (grams), and \(a\) and \(b\) are species-dependent parameter values.
 
-Write a function to calculate fish weight based on \(a\), \(b\), and fish length, then estimate the weight of several fish based on the following parameter estimates for Hawaiian fish from Peyton et al.~(2015):
+Write a function to calculate fish weight based on \(a\), \(b\), and fish length, then estimate the weight of several fish based on the following parameter estimates for Hawaiian fish from \citet{peyton_lengthweight_2016}:
 
-\begin{itemize}
-\tightlist
-\item
-  \emph{Chanos chanos} (milkfish): \(a\) = 0.0905, \(b\) = 2.52
-\item
-  \emph{Sphyraena barracuda} (great barracuda): \(a\) = 0.0181, \(b\) = 3.27
-\item
-  \emph{Caranx ignobilis} (giant trevally): \(a\) = 0.0353, \(b\) = 3.05
-\end{itemize}
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-5}Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).}
+\centering
+\begin{tabular}[t]{>{}l|l|c|c}
+\hline
+Scientific name & Common name & a & b\\
+\hline
+\em{Chanos chanos} & Milkfish & 0.0905 & 2.52\\
+\hline
+\em{Sphyraena barracuda} & Great barracuda & 0.0181 & 3.27\\
+\hline
+\em{Caranx ignobilis} & Giant trevally & 0.0353 & 3.05\\
+\hline
+\end{tabular}
+\end{table}
 
 Function:
 
@@ -324,19 +445,84 @@ Using the function:
   Estimate the mass of a 118 cm long milkfish.
 \end{enumerate}
 
-\textbf{Thinking ahead:} how might we make this function simpler for a user? For example, maybe a user can input the \emph{species}, and the parameters \(a\) and \(b\) can be correctly updated for that species? We'll learn how to add this kind of functionality in upcoming sections.
+\textbf{Thinking ahead:} Does this pass your smell test for a user-friendly and user-helpful function? How might we make this function simpler for a user? For example, maybe a user can input the \emph{species}, and the parameters \(a\) and \(b\) can be correctly sourced from a table? We'll learn how to add this kind of functionality in upcoming sections.
 
-\hypertarget{example-2}{%
-\subsection{Example 2:}\label{example-2}}
+\hypertarget{example-2-wind-turbines}{%
+\subsection{Example 2: Wind turbines}\label{example-2-wind-turbines}}
 
-\hypertarget{example-3}{%
-\subsection{Example 3:}\label{example-3}}
+The full power in wind hitting a turbine is:
 
-\hypertarget{nested-functions}{%
-\section{Nested functions}\label{nested-functions}}
+\[P = 0.5\rho Av^3\]
 
-\hypertarget{functions-with-iteration-and-conditionals}{%
-\section{Functions with iteration and conditionals}\label{functions-with-iteration-and-conditionals}}
+where \(P\) is power in Watts (joules/second), \(\rho\) is the air density (kg/m\textsuperscript{3}), \(A\) is the area covered by the turbine blades (square meters), and \(v\) is the wind velocity (m/s).
+
+However, the \href{https://energyeducation.ca/encyclopedia/Betz_limit}{Betz Limit} means that turbines can only collect \textasciitilde60\% of the total wind power, which updates the theoretical ``collectable'' power (before accounting for inefficiencies, losses, etc.) to:
+
+\[P = 0.3\rho Av^3\]
+Write a function to calculate \emph{maximum collectable} wind power (Watts) by a turbine requiring three inputs:
+
+\begin{itemize}
+\tightlist
+\item
+  Air density (in kg/m\textsuperscript{3})
+\item
+  Rotor radius (in meters)
+\item
+  Wind velocity (in m/s)
+\end{itemize}
+
+Write the function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{calc\_windpower }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(rho, radius, windspeed) \{}
+  
+  \FloatTok{0.3}\SpecialCharTok{*}\NormalTok{rho}\SpecialCharTok{*}\NormalTok{pi}\SpecialCharTok{*}\NormalTok{(radius}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}\SpecialCharTok{*}\NormalTok{(windspeed}\SpecialCharTok{\^{}}\DecValTok{3}\NormalTok{)}
+  
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Can we clean this up a bit by calculating the area first, within the function? Sure!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{calc\_windpower }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(rho, radius, windspeed) \{}
+ 
+  \CommentTok{\# Calculate turbine area (meters squared):}
+\NormalTok{  turbine\_area }\OtherTok{=}\NormalTok{ pi}\SpecialCharTok{*}\NormalTok{(radius}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+  
+  \CommentTok{\# Calculate collectable power:}
+  \FloatTok{0.3}\SpecialCharTok{*}\NormalTok{rho}\SpecialCharTok{*}\NormalTok{turbine\_area}\SpecialCharTok{*}\NormalTok{(windspeed}\SpecialCharTok{\^{}}\DecValTok{3}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Now let's use the function we've created.
+
+The largest turbine in the world (as of March 2021) is the \href{https://www.ge.com/renewableenergy/wind-energy/offshore-wind/haliade-x-offshore-turbine}{GE Haliade-X}, an offshore turbine prototype in Rotterdam, the Netherlands, with a 220 meter rotor diameter.
+
+Assuming a windspeed of 7.7 m/s (based on long-term averages for North sea North Sea platforms from \citet{coelingh_analysis_1998}) and an air density of 1.225 kg/m\textsuperscript{3} (at sea level), estimate the wind power that can be collected.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{calc\_windpower}\NormalTok{(}\AttributeTok{rho =} \FloatTok{1.225}\NormalTok{, }\AttributeTok{radius =} \DecValTok{110}\NormalTok{, }\AttributeTok{windspeed =} \FloatTok{7.7}\NormalTok{) }\CommentTok{\# Watts}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6377710
+\end{verbatim}
+
+\hypertarget{functions-with-conditionals}{%
+\section{Functions with conditionals}\label{functions-with-conditionals}}
+
+In the examples above, we change input values, but what the function \emph{does} doesn't change based on those input values.
+
+Sometimes, we'll want our function to do something different (e.g.~a different calculation, use a different constant value) based on the input values.
+
+\hypertarget{functions-with-iteration}{%
+\section{Functions with iteration}\label{functions-with-iteration}}
 
 \hypertarget{useful-function-features}{%
 \section{Useful function features}\label{useful-function-features}}

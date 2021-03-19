@@ -1,3 +1,21 @@
-# Data types and structures {#types}
+# Data structures and types {#types}
 
-Data structures info...
+How we work with data is largely dependent on the *type* and *structure* of data we're working with. That's more than just "is this a number or letters?" We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we're correctly predicting how data will change based on what we do with it. 
+
+In this chapter, we'll learn about different structures of data, and the types of data they can contain.
+
+## Data structures
+
+### Vectors
+
+### Tibbles
+
+### Matrices
+
+### Lists
+
+## Data types
+
+See: https://r4ds.had.co.nz/vectors.html
+
+
