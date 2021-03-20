@@ -92,9 +92,9 @@ for (i in 1:(length(triangle_sides) - 1)) {
 
 **In Python:**
 
-Recall: Python indexing starts at ZERO (i.e., the first element in a vector is referenced with `vec[0]`), and the syntax for squaring a value is `**`.
+Recall: Python indexing starts at ZERO (i.e., the first element in a vector is referenced with `vec[0]`), and the syntax for raising something to a power is `**` (e.g. `x**2`).
 
-Another weird one: the `range()` function in Python "...returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops **before** a specified number." So to create a sequence 0, 1, 2, 3, in Python you can use `range(4)`.
+**A weird one:** the `range()` function in Python "...returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops **before** a specified number." So to create a sequence 0, 1, 2, 3, in Python you can use `range(4)`.
 
 ```{python}
 # Import math library (sqrt() function is not native in Python):
