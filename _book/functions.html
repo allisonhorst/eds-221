@@ -163,7 +163,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.2</b> Data types</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>4</b> Basic wrangling</a></li>
-<li class="chapter" data-level="5" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>5</b> Iteration</a></li>
+<li class="chapter" data-level="5" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>5</b> Iteration</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="iteration.html"><a href="iteration.html#iteration-in-programming"><i class="fa fa-check"></i><b>5.1</b> Iteration in programming</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="iteration.html"><a href="iteration.html#a-real-world-example-of-iteration-in-environmental-data-science"><i class="fa fa-check"></i><b>5.1.1</b> A real-world example of iteration in environmental data science</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="iteration.html"><a href="iteration.html#generic-for-loop-structure"><i class="fa fa-check"></i><b>5.2</b> Generic for loop structure</a></li>
+<li class="chapter" data-level="5.3" data-path="iteration.html"><a href="iteration.html#a-basic-for-loop-in-r-and-python"><i class="fa fa-check"></i><b>5.3</b> A basic for loop in R and Python</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>6</b> Conditionals</a></li>
 <li class="chapter" data-level="7" data-path="logicals.html"><a href="logicals.html"><i class="fa fa-check"></i><b>7</b> Logicals</a></li>
 <li class="chapter" data-level="8" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>8</b> Functions</a>
@@ -229,9 +237,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[f(x) = 2x\]</span>
 where <span class="math inline">\(x\)</span> is the input, and <span class="math inline">\(f(x)\)</span> is the output. The function <span class="math inline">\(f\)</span> acts on input <span class="math inline">\(x\)</span> by doubling the input value.</p>
 <p>How can we create a function to do the same thing in R? An R function would look like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="functions.html#cb1-1" aria-hidden="true" tabindex="-1"></a>double_it <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb1-2"><a href="functions.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span><span class="sc">*</span>x</span>
-<span id="cb1-3"><a href="functions.html#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="functions.html#cb11-1" aria-hidden="true" tabindex="-1"></a>double_it <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb11-2"><a href="functions.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span><span class="sc">*</span>x</span>
+<span id="cb11-3"><a href="functions.html#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>What are these different pieces of that function?</p>
 <ul>
 <li><strong>function name</strong>: Here, the function is named <code>double_it</code></li>
@@ -239,11 +247,11 @@ where <span class="math inline">\(x\)</span> is the input, and <span class="math
 <li><strong>body</strong>: here, <code>{ 2*x }</code> is the body of the function - that’s where we tell it what to do with the inputs. Note the braces (i.e. squiggly brackets) are often on separate lines from the algorithm itself.</li>
 </ul>
 <p>Try out the function by inputting both a single value, and a vector of values. Note that vectorization is the default - meaning that the function is applied to each element in a vector.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="functions.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">double_it</span>(<span class="at">x =</span> <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="functions.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">double_it</span>(<span class="at">x =</span> <span class="dv">20</span>)</span></code></pre></div>
 <pre><code>## [1] 40</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="functions.html#cb4-1" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">50</span>) <span class="co"># Create a vector with multiple values</span></span>
-<span id="cb4-2"><a href="functions.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="functions.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">double_it</span>(vec) <span class="co"># Function acts on each element in the vector</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="functions.html#cb14-1" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">50</span>) <span class="co"># Create a vector with multiple values</span></span>
+<span id="cb14-2"><a href="functions.html#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="functions.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">double_it</span>(vec) <span class="co"># Function acts on each element in the vector</span></span></code></pre></div>
 <pre><code>## [1]   4   8 100</code></pre>
 <p>Those are the main pieces. But don’t worry, it gets a lot more interesting. Let’s start by writing a few of our own functions.</p>
 <div id="a-note-on-names" class="section level3" number="8.1.1">
@@ -270,7 +278,7 @@ where <span class="math inline">\(x\)</span> is the input, and <span class="math
 <p>Write a function to calculate fish weight based on <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and fish length, then estimate the weight of several fish based on the following parameter estimates for Hawaiian fish from <span class="citation"><a href="references.html#ref-peyton_lengthweight_2016" role="doc-biblioref">Peyton et al.</a> (<a href="references.html#ref-peyton_lengthweight_2016" role="doc-biblioref">2016</a>)</span>:</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-5">Table 8.1: </span>Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).
+<span id="tab:unnamed-chunk-11">Table 8.1: </span>Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).
 </caption>
 <thead>
 <tr>
@@ -334,9 +342,9 @@ Giant trevally
 </tbody>
 </table>
 <p>Function:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="functions.html#cb8-1" aria-hidden="true" tabindex="-1"></a>predict_weight <span class="ot">&lt;-</span> <span class="cf">function</span>(a, length, b) {</span>
-<span id="cb8-2"><a href="functions.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  a<span class="sc">*</span>(length<span class="sc">^</span>b)</span>
-<span id="cb8-3"><a href="functions.html#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="functions.html#cb18-1" aria-hidden="true" tabindex="-1"></a>predict_weight <span class="ot">&lt;-</span> <span class="cf">function</span>(a, length, b) {</span>
+<span id="cb18-2"><a href="functions.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  a<span class="sc">*</span>(length<span class="sc">^</span>b)</span>
+<span id="cb18-3"><a href="functions.html#cb18-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Using the function:</p>
 <ol style="list-style-type: decimal">
 <li>Estimate the mass of a 160 cm long great barracuda.</li>
@@ -358,24 +366,24 @@ Write a function to calculate <em>maximum collectable</em> wind power (Watts) by
 <li>Wind velocity (in m/s)</li>
 </ul>
 <p>Write the function:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="functions.html#cb9-1" aria-hidden="true" tabindex="-1"></a>calc_windpower <span class="ot">&lt;-</span> <span class="cf">function</span>(rho, radius, windspeed) {</span>
-<span id="cb9-2"><a href="functions.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-3"><a href="functions.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span><span class="sc">*</span>rho<span class="sc">*</span>pi<span class="sc">*</span>(radius<span class="sc">^</span><span class="dv">2</span>)<span class="sc">*</span>(windspeed<span class="sc">^</span><span class="dv">3</span>)</span>
-<span id="cb9-4"><a href="functions.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-5"><a href="functions.html#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="functions.html#cb19-1" aria-hidden="true" tabindex="-1"></a>calc_windpower <span class="ot">&lt;-</span> <span class="cf">function</span>(rho, radius, windspeed) {</span>
+<span id="cb19-2"><a href="functions.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-3"><a href="functions.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span><span class="sc">*</span>rho<span class="sc">*</span>pi<span class="sc">*</span>(radius<span class="sc">^</span><span class="dv">2</span>)<span class="sc">*</span>(windspeed<span class="sc">^</span><span class="dv">3</span>)</span>
+<span id="cb19-4"><a href="functions.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-5"><a href="functions.html#cb19-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Can we clean this up a bit by calculating the area first, within the function? Sure!</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="functions.html#cb10-1" aria-hidden="true" tabindex="-1"></a>calc_windpower <span class="ot">&lt;-</span> <span class="cf">function</span>(rho, radius, windspeed) {</span>
-<span id="cb10-2"><a href="functions.html#cb10-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb10-3"><a href="functions.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate turbine area (meters squared):</span></span>
-<span id="cb10-4"><a href="functions.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  turbine_area <span class="ot">=</span> pi<span class="sc">*</span>(radius<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb10-5"><a href="functions.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-6"><a href="functions.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate collectable power:</span></span>
-<span id="cb10-7"><a href="functions.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span><span class="sc">*</span>rho<span class="sc">*</span>turbine_area<span class="sc">*</span>(windspeed<span class="sc">^</span><span class="dv">3</span>)</span>
-<span id="cb10-8"><a href="functions.html#cb10-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="functions.html#cb20-1" aria-hidden="true" tabindex="-1"></a>calc_windpower <span class="ot">&lt;-</span> <span class="cf">function</span>(rho, radius, windspeed) {</span>
+<span id="cb20-2"><a href="functions.html#cb20-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-3"><a href="functions.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate turbine area (meters squared):</span></span>
+<span id="cb20-4"><a href="functions.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  turbine_area <span class="ot">=</span> pi<span class="sc">*</span>(radius<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb20-5"><a href="functions.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-6"><a href="functions.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate collectable power:</span></span>
+<span id="cb20-7"><a href="functions.html#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span><span class="sc">*</span>rho<span class="sc">*</span>turbine_area<span class="sc">*</span>(windspeed<span class="sc">^</span><span class="dv">3</span>)</span>
+<span id="cb20-8"><a href="functions.html#cb20-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now let’s use the function we’ve created.</p>
 <p>The largest turbine in the world (as of March 2021) is the <a href="https://www.ge.com/renewableenergy/wind-energy/offshore-wind/haliade-x-offshore-turbine">GE Haliade-X</a>, an offshore turbine prototype in Rotterdam, the Netherlands, with a 220 meter rotor diameter.</p>
 <p>Assuming a windspeed of 7.7 m/s (based on long-term averages for North sea North Sea platforms from <span class="citation"><a href="references.html#ref-coelingh_analysis_1998" role="doc-biblioref">Coelingh, Wijk, and Holtslag</a> (<a href="references.html#ref-coelingh_analysis_1998" role="doc-biblioref">1998</a>)</span>) and an air density of 1.225 kg/m<sup>3</sup> (at sea level), estimate the wind power that can be collected.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="functions.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_windpower</span>(<span class="at">rho =</span> <span class="fl">1.225</span>, <span class="at">radius =</span> <span class="dv">110</span>, <span class="at">windspeed =</span> <span class="fl">7.7</span>) <span class="co"># Watts</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="functions.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_windpower</span>(<span class="at">rho =</span> <span class="fl">1.225</span>, <span class="at">radius =</span> <span class="dv">110</span>, <span class="at">windspeed =</span> <span class="fl">7.7</span>) <span class="co"># Watts</span></span></code></pre></div>
 <pre><code>## [1] 6377710</code></pre>
 </div>
 </div>

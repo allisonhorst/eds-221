@@ -1,5 +1,5 @@
 fig:unnamed-chunk-1
-tab:unnamed-chunk-5
+tab:unnamed-chunk-11
 scientific-programming-essentials-for-environmental-data-science
 course-introduction
 links-to-other-course-materials
@@ -20,6 +20,12 @@ lists
 data-types
 basic-wrangling
 iteration
+iteration-in-programming
+a-real-world-example-of-iteration-in-environmental-data-science
+generic-for-loop-structure
+a-basic-for-loop-in-r-and-python
+example-1-a-vector-of-very-good-dogs
+example-2-hypotenuses
 conditionals
 logicals
 functions

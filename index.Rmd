@@ -49,9 +49,9 @@ Upon the building blocks established in EDS 221, you'll be prepared to increment
 
 We will use the following in EDS 221. You should have pre-installed recent versions before starting the course. 
 
-- R (version XXXXX or higher)
-- RStudio Desktop (version XXXXX or higher)
-- RStudio Cloud (create a free account)
+- R (Version 4.0.2 "Taking Off Again", or higher)
+- RStudio Desktop (version 1.4.1103 "Wax Begonia", or higher)
+- RStudio Cloud (create a free account [here](https://rstudio.cloud/))
 - Python (version XXXXX or higher)
 - Pycharm (version XXXX or higher)
 - Jupyter ()

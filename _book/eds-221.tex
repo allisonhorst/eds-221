@@ -207,11 +207,11 @@ We will use the following in EDS 221. You should have pre-installed recent versi
 \begin{itemize}
 \tightlist
 \item
-  R (version XXXXX or higher)
+  R (Version 4.0.2 ``Taking Off Again'', or higher)
 \item
-  RStudio Desktop (version XXXXX or higher)
+  RStudio Desktop (version 1.4.1103 ``Wax Begonia'', or higher)
 \item
-  RStudio Cloud (create a free account)
+  RStudio Cloud (create a free account \href{https://rstudio.cloud/}{here})
 \item
   Python (version XXXXX or higher)
 \item
@@ -276,7 +276,184 @@ Indexing, subsetting, etc.
 \hypertarget{iteration}{%
 \chapter{Iteration}\label{iteration}}
 
-Iteration
+From Miriam-Webster Dictionary:
+
+"\textbf{Iteration:} (\emph{noun}) the action or a process of iterating or repeating, such as:
+
+\begin{itemize}
+\tightlist
+\item
+  a procedure in which repetition of a sequence of operations yields results successively closer to a desired result
+\item
+  the repetition of a sequence of computer instructions a specified number of times or until a condition is met"
+\end{itemize}
+
+\hypertarget{iteration-in-programming}{%
+\section{Iteration in programming}\label{iteration-in-programming}}
+
+In programming, iteration is repeating instructions. Usually it's to spare yourself from having to manually do a repetitious thing. Well-written iteration can also make code more readable, usable, and efficient (definitely to write, sometimes to run).
+
+For example, let's consider a few scenarios that may prompt you to use iteration:
+
+\begin{itemize}
+\tightlist
+\item
+  Your data contains 382 columns (variables), and you want to find the mean and standard deviation for each variable
+\item
+  You have 250 csv files and you want to read them all in and combine them into a single data frame
+\item
+  In a single data frame you have annual observations for fish passage from 1970 - 2019 recorded at 25 dams in Oregon, and you want to create and save a single graph for passage at each dam
+\end{itemize}
+
+\ldots so basically, anything where you're like ``Welp, I guess I'm going to be doing the same thing over and over and over and over\ldots{}'' should inspire you to consider iteration.
+
+\hypertarget{a-real-world-example-of-iteration-in-environmental-data-science}{%
+\subsection{A real-world example of iteration in environmental data science}\label{a-real-world-example-of-iteration-in-environmental-data-science}}
+
+\hypertarget{generic-for-loop-structure}{%
+\section{Generic for loop structure}\label{generic-for-loop-structure}}
+
+When we iterate in code, most often that means we're writing some version of a for loop, which we can read as ``For these elements in this thing, do this thing to each and return the output, then move on to the next element until you reach the end or a stopping point.'' There are a bunch of variations on that, but that's the overarching idea.
+
+For example, in the image below our vector is a parade of friendly monsters getting passed through a for loop. There are conditions within the for loop dictating which type of accessory each monster will get, based on their shape. Then the outcome is returned with \texttt{print()}.
+
+\begin{figure}
+\centering
+\includegraphics[width=6.96875in,height=\textheight]{images/for_loop_monsters.png}
+\caption{Monsters passing through a for loop, getting assigned sunglasses or a hat based on their shape.}
+\end{figure}
+
+In words, how can we describe what's happening in this for loop? As each monster is passed individually through the loop, \textbf{if it is a triangle}, then it gets sunglasses added to it -- that's why the first element in the output vector is a triangle monster with sunglasses. Then we move on to the second (orange) monster. Since they are also a triangle, they're assigned sunglasses. However, when we get to the \textbf{third} (purple) monster, it is \textbf{not} a triangle, and anything monster shape other than a triangle is assigned a \textbf{hat} - so we see the third output is the purple circle monster with a hat.
+
+\ldots and so on until all elements have been passed through the for loop or a stopping point is otherwise reached.
+
+\hypertarget{a-basic-for-loop-in-r-and-python}{%
+\section{A basic for loop in R and Python}\label{a-basic-for-loop-in-r-and-python}}
+
+Let's take a look at some basic for loops, written in both R and Python.
+
+\hypertarget{example-1-a-vector-of-very-good-dogs}{%
+\subsubsection{Example 1: A vector of very good dogs}\label{example-1-a-vector-of-very-good-dogs}}
+
+Here's our scenario: starting with a vector of dog names ``Teddy'', ``Khora'', and ``Waffle'', write a for loop that returns the statement ``{[}dog name here{]} is a very good dog!''
+
+\textbf{In R:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create the vector of names:}
+\NormalTok{dog\_names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Teddy"}\NormalTok{, }\StringTok{"Khora"}\NormalTok{, }\StringTok{"Waffle"}\NormalTok{)}
+
+\CommentTok{\# Run it through the loop:}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ dog\_names) \{}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(i, }\StringTok{"is a very good dog!"}\NormalTok{))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Teddy is a very good dog!"
+## [1] "Khora is a very good dog!"
+## [1] "Waffle is a very good dog!"
+\end{verbatim}
+
+\textbf{In Python:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create the vector of names:}
+\NormalTok{dog\_names }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Teddy\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Khora\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Waffle\textquotesingle{}}\NormalTok{]}
+
+\CommentTok{\# Run it through the for loop:}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in}\NormalTok{ dog\_names:}
+    \BuiltInTok{print}\NormalTok{(i }\OperatorTok{+} \StringTok{" is a very good dog!"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Teddy is a very good dog!
+## Khora is a very good dog!
+## Waffle is a very good dog!
+\end{verbatim}
+
+\hypertarget{example-2-hypotenuses}{%
+\subsubsection{Example 2: Hypotenuses!}\label{example-2-hypotenuses}}
+
+For a vector of values \texttt{2,\ 3,\ 4,\ 5,\ 6,\ 7}, for any two sequential values, find the length of the hypotenuse if the two values are the lengths of sides of a right triangle. In other words, we'll find the hypotenuse length for right triangles with side lengths 2 \& 3, 3 \& 4, 4 \& 5, etc.
+
+Recall the Pythagorean theorem:
+
+\[a^2 + b^2 = c^2\]
+
+\textbf{In R:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Make the vector of values: }
+\NormalTok{triangle\_sides }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+
+\CommentTok{\# Create the loop to calculate the hypotenuses: }
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{(}\FunctionTok{length}\NormalTok{(triangle\_sides) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)) \{}
+\NormalTok{  hypotenuse }\OtherTok{=} \FunctionTok{sqrt}\NormalTok{(triangle\_sides[i]}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ triangle\_sides[i }\SpecialCharTok{+} \DecValTok{1}\NormalTok{]}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+  \FunctionTok{print}\NormalTok{(hypotenuse)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.605551
+## [1] 5
+## [1] 6.403124
+## [1] 7.81025
+## [1] 9.219544
+\end{verbatim}
+
+\textbf{In Python:}
+
+Recall: Python indexing starts at ZERO (i.e., the first element in a vector is referenced with \texttt{vec{[}0{]}}), and the syntax for squaring a value is \texttt{**}.
+
+Another weird one: the \texttt{range()} function in Python ``\ldots returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops \textbf{before} a specified number.'' So to create a sequence 0, 1, 2, 3, in Python you can use \texttt{range(4)}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Import math library (sqrt() function is not native in Python):}
+\ImportTok{import}\NormalTok{ math}
+
+\CommentTok{\# Make the vector of values:}
+\NormalTok{triangle\_sides }\OperatorTok{=}\NormalTok{ [}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{]}
+
+\CommentTok{\# Create the loop to calculate the hypotenuses: }
+\NormalTok{index\_no }\OperatorTok{=} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{, }\BuiltInTok{len}\NormalTok{(triangle\_sides) }\OperatorTok{{-}} \DecValTok{1}\NormalTok{)}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in}\NormalTok{ index\_no:}
+\NormalTok{  hypotenuse }\OperatorTok{=}\NormalTok{ math.sqrt(triangle\_sides[i]}\OperatorTok{**}\DecValTok{2} \OperatorTok{+}\NormalTok{ triangle\_sides[i }\OperatorTok{+} \DecValTok{1}\NormalTok{]}\OperatorTok{**}\DecValTok{2}\NormalTok{)}
+  \BuiltInTok{print}\NormalTok{(hypotenuse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 3.605551275463989
+## 5.0
+## 6.4031242374328485
+## 7.810249675906654
+## 9.219544457292887
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Aside re: range...this returns sequence 0, 1, 2, 3}
+\NormalTok{demo\_vec }\OperatorTok{=} \BuiltInTok{range}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in}\NormalTok{ demo\_vec:}
+  \BuiltInTok{print}\NormalTok{(i)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 0
+## 1
+## 2
+## 3
+\end{verbatim}
 
 \hypertarget{conditionals}{%
 \chapter{Conditionals}\label{conditionals}}
@@ -409,7 +586,7 @@ Write a function to calculate fish weight based on \(a\), \(b\), and fish length
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-5}Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).}
+\caption{\label{tab:unnamed-chunk-11}Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).}
 \centering
 \begin{tabular}[t]{>{}l|l|c|c}
 \hline
