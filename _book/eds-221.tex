@@ -37,7 +37,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdfauthor={by Allison Horst},
+  pdftitle={EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS},
+  pdfauthor={Allison Horst},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -129,15 +130,8 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{\includegraphics[width=0.5\textwidth,height=\textheight]{images/bren_logo_sm.png}}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS}
-\author{by Allison Horst}
+\title{EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS}
+\author{Allison Horst}
 \date{}
 
 \begin{document}
@@ -156,13 +150,15 @@
 
 This book was created by \href{www.allisonhorst.com}{Allison Horst} for EDS 221 (Scientific Programming Essentials) in the Bren School's 1-year \href{https://bren.ucsb.edu/masters-programs/master-environmental-data-science}{Master of Environmental Data Science program} at UC Santa Barbara. It accompanies lecture, computational lab and discussion materials that may or may not be linked to throughout the book. This book is intended as a supplemental resource for some parts of the course. In other words, it is not intended as a standalone textbook.
 
-All materials in this book are openly available for use and reuse by CC-BY.
+All materials in this book are openly available for use and reuse by Creative Commons Attribution and Share-Alike license.
+
+\href{https://creativecommons.org/licenses/}{\includegraphics[width=1.29167in,height=\textheight]{images/cc_by_sa.png}}
 
 Thank you in advance for suggestions and corrections, which can be submitted as issue to this \href{https://github.com/allisonhorst/eds-221}{GitHub repo}.
 
-\hypertarget{acknowledgements}{%
-\subsection*{Acknowledgements}\label{acknowledgements}}
-\addcontentsline{toc}{subsection}{Acknowledgements}
+\hypertarget{acknowledgments}{%
+\subsection*{Acknowledgments}\label{acknowledgments}}
+\addcontentsline{toc}{subsection}{Acknowledgments}
 
 I create my courses while standing on shoulders of generous teaching and developing giants in R, data science, and education communities. The wealth and quality of open educational resources (OERs) in data science has made teaching in the field fun, innovative, and inspiring. I've tried to thoroughly credit authors resources that I have pulled from and adapted for this book, and I welcome additions if I have missed any that should be included.
 
@@ -186,17 +182,17 @@ In EDS 221 you'll also start building versatility by learning fundamental progra
 
 Upon the building blocks established in EDS 221, you'll be prepared to incrementally grow your advanced environmental data science toolkit throughout MEDS, then enter the workplace at the leading edge of quantitative methods in the field.
 
-\hypertarget{links-to-other-course-materials}{%
-\section{Links to other course materials}\label{links-to-other-course-materials}}
+\hypertarget{links-to-course-materials}{%
+\section{Links to course materials}\label{links-to-course-materials}}
 
 \begin{itemize}
 \tightlist
 \item
-  Syllabus
+  \href{https://docs.google.com/document/d/1OGbc6U3STKdsThUKd9Nj5UgzeB7djgM130ku1UUH1gU/edit?usp=sharing}{EDS 221 Syllabus}
 \item
   Code of Conduct
 \item
-  Course website
+  EDS 221 GitHub site
 \end{itemize}
 
 \hypertarget{course-setup}{%
@@ -207,21 +203,30 @@ We will use the following in EDS 221. You should have pre-installed recent versi
 \begin{itemize}
 \tightlist
 \item
-  R (Version 4.0.2 ``Taking Off Again'', or higher)
+  \href{https://www.r-project.org/}{R (Version 4.0.2 ``Taking Off Again'', or higher)}
 \item
-  RStudio Desktop (version 1.4.1103 ``Wax Begonia'', or higher)
+  \href{https://rstudio.com/products/rstudio/}{RStudio Desktop (version 1.4.1103 ``Wax Begonia'', or higher)}
 \item
-  RStudio Cloud (create a free account \href{https://rstudio.cloud/}{here})
+  \href{https://rstudio.cloud/}{RStudio Cloud account}
 \item
   Python (version XXXXX or higher)
 \item
   Pycharm (version XXXX or higher)
-\item
-  Jupyter ()
 \end{itemize}
 
 \hypertarget{course-resources}{%
 \section{Course resources}\label{course-resources}}
+
+\begin{itemize}
+\item
+  \href{https://rstudio-education.github.io/hopr/}{Hands-on Programming with R} by Garrett Grolemund
+\item
+  \href{https://r4ds.had.co.nz/}{R for Data Science} by Garrett Grolemund and Hadley Wickham
+\item
+  \href{https://adv-r.hadley.nz/}{Advanced R} by Hadley Wickham
+\item
+  \href{https://learnpythonbreakpython.com/}{Learn Python Break Python} by Scott Grant
+\end{itemize}
 
 \hypertarget{r-py}{%
 \chapter{Meet the 221 tools}\label{r-py}}
@@ -237,9 +242,6 @@ We will use the following in EDS 221. You should have pre-installed recent versi
 
 \hypertarget{jupyter-notebooks}{%
 \section{Jupyter Notebooks}\label{jupyter-notebooks}}
-
-\hypertarget{playing-nicely-together}{%
-\section{Playing nicely together}\label{playing-nicely-together}}
 
 \hypertarget{types}{%
 \chapter{Data structures and types}\label{types}}
@@ -268,10 +270,229 @@ In this chapter, we'll learn about different structures of data, and the types o
 
 See: \url{https://r4ds.had.co.nz/vectors.html}
 
+\hypertarget{tidydata}{%
+\chapter{Tidy data}\label{tidydata}}
+
+Note: all artwork in this chapter are from an illustrated collaborative \href{https://www.openscapes.org/blog/2020/10/12/tidy-data/}{Openscapes blog post} by Dr.~Julia Lowndes and Dr.~Allison Horst \citep{lowndes_tidy_2020}.
+
+Tidy data is a predictable way to organize data that makes it more coder and collaborator friendly. As described by Hadley Wickham, \textbf{in \emph{tidy data} each column is a variable, each row is an observation, and each cell contains a single value (measurement)} \citep{wickham_tidy_2014}.
+
+\includegraphics[width=6.25in,height=\textheight]{images/tidydata_1.jpg}
+
+This may seem like a mundane topic, but tidy data provides a way of thinking about and organizing data that will become fundamental to how you input, wrangling, and work with environmental data - it becomes part of a systematic approach to working with data that \textbf{will make you a better data scientist and collaborator}.
+
+\hypertarget{common-ways-data-are-untidy}{%
+\section{Common ways data are untidy}\label{common-ways-data-are-untidy}}
+
+One way to understand tidy data is to consider what makes some data sets \emph{untidy}. Let's explore some examples of untidy data, and for each think about (1) why it's untidy, and (2) how we would wrangle it to make it tidy data.
+
+\hypertarget{untidy-example-1-a-single-variable-across-multiple-columns}{%
+\subsection{Untidy example 1: A single variable across multiple columns}\label{untidy-example-1-a-single-variable-across-multiple-columns}}
+
+One of the most common ways that data can be untidy is if a single variable is broken up by group across multiple columns. For example, the following data contains the weights of three dogs, measured over four years:
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-2}Dog weight (pounds) in untidy format, where a single variable (weight) is spread out across different levels of the year variable.}
+\centering
+\begin{tabular}[t]{l|r|r|r|r}
+\hline
+dog & 2018 & 2019 & 2020 & 2021\\
+\hline
+Teddy & 36.4 & 39.2 & 44.8 & 47.5\\
+\hline
+Khora & 41.6 & 48.3 & 52.9 & 50.1\\
+\hline
+Waffle & NA & NA & 20.4 & 23.7\\
+\hline
+\end{tabular}
+\end{table}
+
+In this example, there are really only 3 variables: dog name, dog weight, and year. But as organized, there are \textbf{5} columns - this should be our first indication that the data is not tidy. Instead of each variable occupying its own column, the \textbf{weight} measurements have been split up across multiple columns, separated by the different levels of \textbf{year}. Sometimes you will hear this called ``wide format'' when a single variable is spread across multiple columns.\\
+~\\
+\textbf{What would this data look like if it were tidy?}\\
+~\\
+To be in tidy data, each variable (\textbf{dog}, \textbf{weight}, and \textbf{year}) should have its own column. In this example, starting from the wide format data we need to reshape \textbf{weight} observations into a single column. Year will need to populate a new column, with year values repeated as necessary to align with the long-format weights. We'll also need to repeat the dog names to accommodate the number of observations for each.\\
+~\\
+Later on, we'll hear how to reshape data from wide-to-long format (e.g.~using \texttt{tidyr::pivot\_longer()} in R), but for now think about the tidy format of the same data, shown below:
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-3}Dog weight (pounds) in tidy format, where each variable is in its own column.}
+\centering
+\begin{tabular}[t]{l|l|r}
+\hline
+dog & year & weight\\
+\hline
+Teddy & 2018 & 36.4\\
+\hline
+Teddy & 2019 & 39.2\\
+\hline
+Teddy & 2020 & 44.8\\
+\hline
+Teddy & 2021 & 47.5\\
+\hline
+Khora & 2018 & 41.6\\
+\hline
+Khora & 2019 & 48.3\\
+\hline
+Khora & 2020 & 52.9\\
+\hline
+Khora & 2021 & 50.1\\
+\hline
+Waffle & 2018 & NA\\
+\hline
+Waffle & 2019 & NA\\
+\hline
+Waffle & 2020 & 20.4\\
+\hline
+Waffle & 2021 & 23.7\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{untidy-example-2-multiple-values-in-a-single-cell}{%
+\subsection{Untidy example 2: multiple values in a single cell}\label{untidy-example-2-multiple-values-in-a-single-cell}}
+
+Another way that data can be untidy is if there are multiple ``measurements'' (or values) in a single cell. Keep in mind that a ``value'' doesn't have to be numeric - it's just a measurement or description for a recorded variable.
+
+Sometimes raw data will contain multiple values in a single cell. For example, here we see that the make, model and year of cars are all in a single column called \textbf{type}:
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}Car descriptions in untidy format.}
+\centering
+\begin{tabular}[t]{l|l|l}
+\hline
+type & color & condition\\
+\hline
+1994 Toyota Corolla & silver & poor\\
+\hline
+2005 Subaru Outback & green & average\\
+\hline
+1977 Datsun 710 & blue & excellent\\
+\hline
+\end{tabular}
+\end{table}
+
+An important thing is to be future-thinking about data, and expect that \textbf{even if you don't think a specific question is important now, it may be important in the future} -- and having data in tidy format will make it easier to answer a wider range of questions with limited frustration. For example, maybe in the future (and if this were part of a larger data set) we would want to assess the condition of cars by year, or the color of cars by make and model. No matter how you slice those questions, having each variable in its own column will make them easier to explore and answer with code.\\
+~\\
+In the future, you'll learn how to separate components of a single column into multiple columns (e.g.~using the \texttt{tidyr::separate()} function), which in this example would help to create a tidy version of the data that looks like this:\\
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-5}Car descriptions in tidy format.}
+\centering
+\begin{tabular}[t]{l|l|l|l|l}
+\hline
+year & make & model & color & condition\\
+\hline
+1994 & Toyota & Corolla & silver & poor\\
+\hline
+2005 & Subaru & Outback & green & average\\
+\hline
+1977 & Datsun & 710 & blue & excellent\\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Untidy example 3: multiple observations in a single row}
+
+Occasionally, you will see environmental data where information for \emph{multiple observations are stored in a single row}. For example, this is common when research divers are estimating numbers of a certain species within different size bins. For example, a dive record may contain information like this:
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-6}Spiny lobster counts by size.}
+\centering
+\begin{tabular}[t]{l|r|r}
+\hline
+species & size\_cm & count\\
+\hline
+spiny lobster & 4.5 & 2\\
+\hline
+spiny lobster & 5.0 & 4\\
+\hline
+spiny lobster & 5.5 & 0\\
+\hline
+spiny lobster & 6.0 & 1\\
+\hline
+spiny lobster & 6.5 & 3\\
+\hline
+\end{tabular}
+\end{table}
+
+So in this case, we have multiple lobster observations occupying single rows (e.g.~the second row actually contains data for four lobsters). On the spectrum of untidy data, this isn't too bad - but it can make it much easier (and less risky) to visualize and analyze the data if each observation is in its own row. We'll learn how to convert a \textbf{frequency table} (like this one, which contains counts) into \textbf{case format} (which does have a single row per observation, so that the data look something like this:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+\hline
+species & size\_cm\\
+\hline
+spiny lobster & 4.5\\
+\hline
+spiny lobster & 4.5\\
+\hline
+spiny lobster & 5.0\\
+\hline
+spiny lobster & 5.0\\
+\hline
+spiny lobster & 5.0\\
+\hline
+spiny lobster & 5.0\\
+\hline
+spiny lobster & 6.0\\
+\hline
+spiny lobster & 6.5\\
+\hline
+spiny lobster & 6.5\\
+\hline
+spiny lobster & 6.5\\
+\hline
+\end{tabular}
+\end{table}
+
+Now, each individual lobster occupies its own row, and the data are in tidy format.
+
+\hypertarget{tidy-data-makes-coding-easier}{%
+\section{Tidy data makes coding easier}\label{tidy-data-makes-coding-easier}}
+
+The process of creating tidy data is useful in an of itself, because it requires us to be deliberate and thoughtful about how we structure our data, and makes us define our \emph{variables}, \emph{observations} and \emph{measurements}. We will learn why that benefits us and our collaborators in the next section. Here, let's learn why tidy data is code- and coder-friendly.
+
+\hypertarget{code-working-for-you}{%
+\subsection{Code working for you}\label{code-working-for-you}}
+
+\hypertarget{parse-explore}{%
+\subsection{Parse \& explore}\label{parse-explore}}
+
+\hypertarget{safer-summary-statistics}{%
+\subsection{Safer summary statistics}\label{safer-summary-statistics}}
+
+\includegraphics[width=6.26042in,height=\textheight]{images/tidydata_2.jpg}
+
+\includegraphics{images/tidydata_3.jpg}
+
+\hypertarget{tidy-data-for-collaboration}{%
+\section{Tidy data for collaboration}\label{tidy-data-for-collaboration}}
+
+\includegraphics[width=5.22917in,height=\textheight]{images/tidydata_4.jpg}
+
+\includegraphics{images/tidydata_5.jpg}
+
+\includegraphics{images/tidydata_6.jpg}
+
+\includegraphics{images/tidydata_7.jpg}
+
 \hypertarget{basic-wrangling}{%
 \chapter{Basic wrangling}\label{basic-wrangling}}
 
 Indexing, subsetting, etc.
+
+\hypertarget{logicals}{%
+\chapter{Logical operators}\label{logicals}}
+
+\hypertarget{conditionals}{%
+\chapter{Conditionals}\label{conditionals}}
 
 \hypertarget{iteration}{%
 \chapter{Iteration}\label{iteration}}
@@ -310,8 +531,8 @@ For example, let's consider a few scenarios that may prompt you to use iteration
 \hypertarget{a-real-world-example-of-iteration-in-environmental-data-science}{%
 \subsection{A real-world example of iteration in environmental data science}\label{a-real-world-example-of-iteration-in-environmental-data-science}}
 
-\hypertarget{generic-for-loop-structure}{%
-\section{Generic for loop structure}\label{generic-for-loop-structure}}
+\hypertarget{generic-for-loop-anatomy}{%
+\section{Generic for loop anatomy}\label{generic-for-loop-anatomy}}
 
 When we iterate in code, most often that means we're writing some version of a for loop, which we can read as ``For these elements in this thing, do this thing to each and return the output, then move on to the next element until you reach the end or a stopping point.'' There are a bunch of variations on that, but that's the overarching idea.
 
@@ -327,13 +548,16 @@ In words, how can we describe what's happening in this for loop? As each monster
 
 \ldots and so on until all elements have been passed through the for loop or a stopping point is otherwise reached.
 
-\hypertarget{a-basic-for-loop-in-r-and-python}{%
-\section{A basic for loop in R and Python}\label{a-basic-for-loop-in-r-and-python}}
+\hypertarget{anatomy-of-a-for-loop}{%
+\subsection{Anatomy of a for loop}\label{anatomy-of-a-for-loop}}
+
+\hypertarget{basic-for-loops-in-r-and-python}{%
+\section{Basic for loops in R and Python}\label{basic-for-loops-in-r-and-python}}
 
 Let's take a look at some basic for loops, written in both R and Python.
 
-\hypertarget{example-1-a-vector-of-very-good-dogs}{%
-\subsubsection{Example 1: A vector of very good dogs}\label{example-1-a-vector-of-very-good-dogs}}
+\hypertarget{example-a-vector-of-very-good-dogs}{%
+\subsubsection{Example: A vector of very good dogs}\label{example-a-vector-of-very-good-dogs}}
 
 Here's our scenario: starting with a vector of dog names ``Teddy'', ``Khora'', and ``Waffle'', write a for loop that returns the statement ``{[}dog name here{]} is a very good dog!''
 
@@ -376,8 +600,18 @@ Here's our scenario: starting with a vector of dog names ``Teddy'', ``Khora'', a
 ## Waffle is a very good dog!
 \end{verbatim}
 
-\hypertarget{example-2-hypotenuses}{%
-\subsubsection{Example 2: Hypotenuses!}\label{example-2-hypotenuses}}
+Note that there's nothing special about \texttt{i} here - that's just an identifier for ``each element in this vector''. It can be whatever object name you want, but make sure you're referring to the correct thing later on in the loop body. For example, that code could have been written in R as:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (treats }\ControlFlowTok{in}\NormalTok{ dog\_names) \{}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(treats, }\StringTok{"is a very good dog!"}\NormalTok{))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{example-hypotenuses}{%
+\subsubsection{Example: Hypotenuses!}\label{example-hypotenuses}}
 
 For a vector of values \texttt{2,\ 3,\ 4,\ 5,\ 6,\ 7}, for any two sequential values, find the length of the hypotenuse if the two values are the lengths of sides of a right triangle. In other words, we'll find the hypotenuse length for right triangles with side lengths 2 \& 3, 3 \& 4, 4 \& 5, etc.
 
@@ -439,9 +673,10 @@ Recall: Python indexing starts at ZERO (i.e., the first element in a vector is r
 ## 9.219544457292887
 \end{verbatim}
 
+What does that \texttt{index\_no} vector contain? It's a sequence starting at 0 and increasing by 1 (the default increment) to a value below \texttt{len(triangle\_sides)\ -\ 1}. Since the length of the \texttt{triangle\_sides} vector is 6, that value is 5\ldots and the vector continues to the value before the end value in \texttt{range()}. Frankly, it seems very weird to me, but that's what it's doing.
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Aside re: range...this returns sequence 0, 1, 2, 3}
 \NormalTok{demo\_vec }\OperatorTok{=} \BuiltInTok{range}\NormalTok{(}\DecValTok{4}\NormalTok{)}
 \ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in}\NormalTok{ demo\_vec:}
   \BuiltInTok{print}\NormalTok{(i)}
@@ -455,11 +690,232 @@ Recall: Python indexing starts at ZERO (i.e., the first element in a vector is r
 ## 3
 \end{verbatim}
 
-\hypertarget{conditionals}{%
-\chapter{Conditionals}\label{conditionals}}
+\hypertarget{iteration-with-conditions}{%
+\section{Iteration with conditions}\label{iteration-with-conditions}}
 
-\hypertarget{logicals}{%
-\chapter{Logicals}\label{logicals}}
+In the examples of for loops so far, we did the same repeated thing to each element. Sometimes, however, we'll want to change what we do to an element based on some characteristic - like in the monster parade example above, where the looped assigned a different accessory based on the monster shape.
+
+We can add conditions within a for loop to specify \textbf{what thing} we want to to elements based on \textbf{some condition} we set.
+
+The general anatomy of that process looks like this:
+
+{[}ANATOMY OF A FOR LOOP WITH CONDITIONS{]}
+
+Let's consider some examples.
+
+\hypertarget{example-feed-the-pets.}{%
+\subsubsection{Example: Feed the pets.}\label{example-feed-the-pets.}}
+
+Given our vector of 3 pets below, write a for loop that returns ``kibble'' if it is a dog, but ``alfalfa'' if it is a horse.
+
+The pets are: \texttt{dog,\ horse,\ dog}
+
+\textbf{In R:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Make the vector of pets:}
+\NormalTok{pet\_type }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"dog"}\NormalTok{, }\StringTok{"horse"}\NormalTok{, }\StringTok{"dog"}\NormalTok{)}
+
+\CommentTok{\# Run it through the for loop: }
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ pet\_type) \{}
+  
+  \ControlFlowTok{if}\NormalTok{(i }\SpecialCharTok{==} \StringTok{"dog"}\NormalTok{) \{}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"kibble"}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \ControlFlowTok{else}\NormalTok{ \{}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"alfalfa"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "kibble"
+## [1] "alfalfa"
+## [1] "kibble"
+\end{verbatim}
+
+\textbf{In Python:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Make the vector of pets:}
+\NormalTok{pet\_type }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}dog\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}horse\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}dog\textquotesingle{}}\NormalTok{]}
+
+\CommentTok{\# Run it through the for loop: }
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in}\NormalTok{ pet\_type:}
+  \ControlFlowTok{if}\NormalTok{ i }\OperatorTok{==} \StringTok{\textquotesingle{}dog\textquotesingle{}}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"kibble"}\NormalTok{)}
+  \ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"alfalfa"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## kibble
+## alfalfa
+## kibble
+\end{verbatim}
+
+\hypertarget{example-bins}{%
+\subsubsection{Example: Bins}\label{example-bins}}
+
+For a vector of values (\texttt{2,\ 6,\ 1,\ 18}), if the value is four or less 5, return ``low'', if the value is great than four and less than 12, return ``moderate'', and if the value is greater than or equal to 12 return ``high''.
+
+\textbf{In R:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Make the vector: }
+\NormalTok{numbers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{18}\NormalTok{)}
+
+\CommentTok{\# Run it through the loop with conditions: }
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ numbers) \{}
+  
+  \ControlFlowTok{if}\NormalTok{ (i }\SpecialCharTok{\textless{}=} \DecValTok{4}\NormalTok{) \{}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"low"}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (i }\SpecialCharTok{\textgreater{}} \DecValTok{4} \SpecialCharTok{\&}\NormalTok{ i }\SpecialCharTok{\textless{}} \DecValTok{12}\NormalTok{) \{}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"moderate"}\NormalTok{)}
+\NormalTok{  \}}
+  
+  \ControlFlowTok{else}\NormalTok{ \{}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"high"}\NormalTok{)}
+\NormalTok{  \}}
+  
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "low"
+## [1] "moderate"
+## [1] "low"
+## [1] "high"
+\end{verbatim}
+
+\textbf{In Python:}
+
+Note that we use \texttt{elif} for the \emph{else-if} statement in the body.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{numbers }\OperatorTok{=}\NormalTok{ [}\DecValTok{2}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{18}\NormalTok{]}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in}\NormalTok{ r.numbers:}
+  \ControlFlowTok{if}\NormalTok{ i }\OperatorTok{\textless{}=} \DecValTok{4}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"low"}\NormalTok{)}
+  \ControlFlowTok{elif} \DecValTok{12} \OperatorTok{\textgreater{}}\NormalTok{ i }\OperatorTok{\textgreater{}=} \DecValTok{4}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"moderate"}\NormalTok{)}
+  \ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"high"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## low
+## moderate
+## low
+## high
+\end{verbatim}
+
+\hypertarget{while-loop}{%
+\section{While loop}\label{while-loop}}
+
+A \emph{while loop} will execute a command (or set of commands) as long as a condition is true. Once the condition is \emph{not true}, the loop is exited.
+
+\textbf{While loop in R:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Initiate }
+\NormalTok{i }\OtherTok{\textless{}{-}} \DecValTok{0}
+
+\CommentTok{\# Create a while loop that exits once i is NOT less than 5}
+\ControlFlowTok{while}\NormalTok{ (i }\SpecialCharTok{\textless{}} \DecValTok{5}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(i)}
+\NormalTok{  i }\OtherTok{=}\NormalTok{ i }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+\end{verbatim}
+
+\textbf{While loop in Python:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{i }\OperatorTok{=} \DecValTok{0}
+
+\ControlFlowTok{while}\NormalTok{ i }\OperatorTok{\textless{}} \DecValTok{5}\NormalTok{:}
+  \BuiltInTok{print}\NormalTok{(i)}
+\NormalTok{  i }\OperatorTok{=}\NormalTok{ i }\OperatorTok{+} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 0
+## 1
+## 2
+## 3
+## 4
+\end{verbatim}
+
+\hypertarget{a-while-loop-break-statement}{%
+\subsection{A while loop break statement}\label{a-while-loop-break-statement}}
+
+Using a \emph{break statement}, we can write a while loop that is exited if the break condition occurs, \emph{even if the while condition is still true.}
+
+\hypertarget{r-python-side-by-side-comparisons}{%
+\section{R / Python side-by-side comparisons}\label{r-python-side-by-side-comparisons}}
+
+Example
+
+R
+
+Python
+
+Basic for loop
+
+\texttt{for\ (i\ in\ vec)\ \{}
+
+\texttt{print(i)}
+
+\texttt{\}}
+
+\texttt{for\ i\ in\ vec:}
+
+\texttt{print(i)}
+
+For loop with condition
+
+\texttt{for\ (i\ in\ vec)\ \{}
+
+\texttt{if\ i\ \textgreater{}\ 5\ \{}
+
+\texttt{print("this")}
+
+\texttt{\}}
+
+\texttt{else\ \{}
+
+\texttt{print("that")}
+
+\texttt{\}}
+
+\texttt{\}}
+
+python example
 
 \hypertarget{functions}{%
 \chapter{Functions}\label{functions}}
@@ -586,7 +1042,7 @@ Write a function to calculate fish weight based on \(a\), \(b\), and fish length
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-11}Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).}
+\caption{\label{tab:unnamed-chunk-24}Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).}
 \centering
 \begin{tabular}[t]{>{}l|l|c|c}
 \hline
@@ -718,9 +1174,6 @@ Sometimes, we'll want our function to do something different (e.g.~a different c
 \item
   \href{https://adv-r.hadley.nz/functions.html}{Ch. 6 - Functions} in \href{https://adv-r.hadley.nz/}{\emph{Advanced R}} by Hadley Wickham
 \end{itemize}
-
-\hypertarget{tidydata}{%
-\chapter{Tidy data}\label{tidydata}}
 
 \hypertarget{tidyverse}{%
 \chapter{Data wrangling \& viz in the tidyverse}\label{tidyverse}}

@@ -38,9 +38,9 @@ p code {
 
 .book .book-body .page-wrapper .page-inner section.normal em {
   font-family: Nunito Sans;
-  font-style: normal;
+  font-style: italic;
   text-transform: none;
-  color: #003660;
+  color: black;
 }
 
 body {

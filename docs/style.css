@@ -1,0 +1,69 @@
+/*------- Fonts -------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Aleo&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap');
+
+h1, h2, h3 {
+  font-family: Aleo;
+}
+
+h4 {
+  font-family: Nunito Sans;
+}
+
+p {
+  font-family: Nunito Sans;
+}
+
+
+p.caption {
+  color: #777;
+  margin-top: 10px;
+  font-size: 13px;
+  font-style: italic;
+}
+
+caption {
+  color: dimgray;
+  font-size: 12px;
+  font-family: Nunito Sans;
+}
+
+p code {
+  white-space: inherit;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal em {
+  font-family: Nunito Sans;
+  font-style: italic;
+  text-transform: none;
+  color: black;
+}
+
+body {
+  font-family: Nunito Sans;
+  color: black;
+}
+
+ul {
+  font-family: Nunito Sans;
+}
+
+li {
+  font-family: Nunito Sans;
+}
+
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+.book .book-summary ul.summary {
+  font-family: Nunito Sans;
+}

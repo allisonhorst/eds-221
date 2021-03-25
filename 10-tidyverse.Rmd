@@ -1,0 +1,3 @@
+# Data wrangling with tidyverse and pandas {#wrangling}
+
+We've learned some strategies to subset, reshape and update data using base tools and functions. In this chapter, we'll use functions from R packages and Python libraries to wrangle our data in alternative ways that may be more streamlined and/or readable.

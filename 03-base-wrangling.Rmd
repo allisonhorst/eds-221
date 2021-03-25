@@ -1,3 +1,0 @@
-# Basic wrangling
-
-Indexing, subsetting, etc.

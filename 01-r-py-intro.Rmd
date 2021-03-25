@@ -7,5 +7,3 @@
 ## Python
 
 ## Jupyter Notebooks
-
-## Playing nicely together
