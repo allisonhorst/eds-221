@@ -162,6 +162,16 @@ Thank you in advance for suggestions and corrections, which can be submitted as 
 
 I create my courses while standing on shoulders of generous teaching and developing giants in R, data science, and education communities. The wealth and quality of open educational resources (OERs) in data science has made teaching in the field fun, innovative, and inspiring. I've tried to thoroughly credit authors resources that I have pulled from and adapted for this book, and I welcome additions if I have missed any that should be included.
 
+That includes leaning heavily on:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://adv-r.had.co.nz/}{Advanced R} by Hadley Wickham \citep{wickham_advanced_2019}
+\item
+  Introducing Python by Bill Lubanovic \citep{lubanovic_introducing_2014}
+\end{itemize}
+
 \hypertarget{course-introduction}{%
 \section{Course introduction}\label{course-introduction}}
 
@@ -240,15 +250,189 @@ We will use the following in EDS 221. You should have pre-installed recent versi
 \hypertarget{python}{%
 \section{Python}\label{python}}
 
+You probably have Python 3 already installed if you have a recent-ish computer. If not, you'll want to install it. How can you run some Python code without anything else?
+
+\begin{itemize}
+\item
+  Open the Terminal on your device (Cmd + Spacebar), open the Terminal
+\item
+  Run \texttt{python} (press Enter) - this will tell you which version of Python you're using, and switch over into a Python interpreter.
+\item
+  Now you're using this as a Python editor (you should see the \texttt{\textgreater{}\textgreater{}\textgreater{}} starting each line, prompting Python code. Try running some basic code, like:
+\item
+  \texttt{print("data\ science")}
+\item
+  \texttt{2\ +\ 10}
+\item
+  \texttt{for\ i\ in\ 1,\ 2,\ 3,\ "hooray":\ print(i)} {[}press Enter twice to run\ldots otherwise it's like ``are you really done with this loop?''{]}
+\item
+  \texttt{help()} will open interactive Python help\ldots then go exploring following along with some of the instructions there!
+\end{itemize}
+
+Can you run Python entirely through the Terminal? Sure. But that'd be a bummer. Instead, we'll learn some more data scienctist-friendly places to write, run and explore Python code. Including\ldots{}
+
 \hypertarget{jupyter-notebooks}{%
 \section{Jupyter Notebooks}\label{jupyter-notebooks}}
 
+\hypertarget{py-stuff-to-add-here-or-somewhere}{%
+\subsection{Py stuff to add here or somewhere:}\label{py-stuff-to-add-here-or-somewhere}}
+
+Random things on Allison's to-add list
+
+\begin{itemize}
+\tightlist
+\item
+  Zero index (offset) differs from one index
+\item
+  Open Python interpreter (run \texttt{\$\ python} in Terminal to return info about your Python version, and open the interpreter starting with \texttt{\textgreater{}\textgreater{}\textgreater{}})
+\item
+  Pressing `Enter' twice: doesn't know if you want to add more (R assumes you don't want to), e.g.~at the end of a for loop
+\item
+  Save Python script (written in plain text file) save as test.py, go to that dir, run \texttt{\$\ python\ test.py} to actually run your python script (e.g.~do this in RStudio to demo)
+\item
+  Type, id, value (what kind of data, what it's called, the value compatible with the type (ref Lubanovic))
+\end{itemize}
+
 \hypertarget{types}{%
-\chapter{Data structures and types}\label{types}}
+\chapter{Data types and structures}\label{types}}
 
-How we work with data is largely dependent on the \emph{type} and \emph{structure} of data we're working with. That's more than just ``is this a number or letters?'' We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we're correctly predicting how data will change based on what we do with it.
+How we work with data depends largely on the \emph{type} and \emph{structure} of data we're working with. That's more than just ``is this a number or letters?'' We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we're correctly predicting how data will change based on what we do with it.
 
-In this chapter, we'll learn about different structures of data, and the types of data they can contain.
+In this chapter, we'll learn about different types and structures of data, and some essentials of creating and working with them.
+
+\hypertarget{data-types}{%
+\section{Data types}\label{data-types}}
+
+There are more types of data, but we'll focus on four: strings, logicals, integers, and doubles. Throughout the rest of the MEDS program you may use others, but they are uncommon in environmental data science. In this section we'll learn the common types of elements, then what they become once combined.
+
+\hypertarget{types-of-data-elements}{%
+\subsection{Types of data elements}\label{types-of-data-elements}}
+
+When I say ``elements'' here, I mean single units of information. Like a single number, or identifier, or name. Like \texttt{12}, or \texttt{north} or \texttt{site\_12a}. Here's some language to help distinguish those types of elements:
+
+\begin{itemize}
+\item
+  \textbf{strings:} (also called: character string) elements that contain letters or symbols (anything non-numeric), or numbers that have been coerced to be understood as strings, like \texttt{"MEDS"}, \texttt{"Bren\ School"}, \texttt{"plot\ 17"}, and \texttt{"19.4"}. Note that the quotations around the last one is what makes it understood as a string, instead of a number.
+\item
+  \textbf{logicals / booleans:} elements that indicate \texttt{TRUE} or \texttt{FALSE}. In R, the string \texttt{TRUE} / \texttt{1} are recognized as TRUE, and \texttt{FALSE} / \texttt{0} are recognized as FALSE. In Python, these are called logicals or booleans, and \texttt{True} / \texttt{1} are recognized as TRUE, and \texttt{False} / \texttt{0} are recognized as FALSE.
+\item
+  \textbf{integers:} whole numbers (no decimal places), like \texttt{10}, \texttt{-65}, and \texttt{249}. In R, these are specified with a whole number followed immediately by \texttt{L}, e.g.~\texttt{12L}
+\item
+  \textbf{doubles / float:} numbers that can have decimal places, like \texttt{1.275}, \texttt{10.5}, and \texttt{0.068}. Double allows for twice the precision of a float. For very small or very large numbers, this designation might be important - or just err on the side of doubles.
+\end{itemize}
+
+\hypertarget{atomic-vectors-in-r}{%
+\subsection{Atomic vectors in R}\label{atomic-vectors-in-r}}
+
+Combining elements creates a vector (in R), similar to a list or single-dimensional array (often used in R and Python). We'll learn later on that \emph{lists} are vectors that can contain different data types.
+
+Given our common element types, what type of atomic vector is the outcome of their combination?
+
+In R, there are four (common) types of atomic vectors: character (contains strings), logical (contains only logicals), and numeric (doubles and integers). Since the entire atomic vector can only be \emph{one} of these, what is the hierarchy that determines the output vector type? See the schematic from \href{https://adv-r.hadley.nz/vectors-chap.html\#atomic-vectors}{Section 3.2 in Advanced R}, which visualizes:
+
+\begin{itemize}
+\tightlist
+\item
+  A vector consisting of any combination of integers and doubles will be \emph{numeric}
+\item
+  A vector consisting of all strings, or any combination of strings and numeric values, will be \emph{character}
+\item
+  A vector with logicals and numeric values will be \emph{numeric}
+\item
+  A vector with logicals and strings will be \emph{character}
+\end{itemize}
+
+\hypertarget{try-it-out}{%
+\subsubsection{Try it out}\label{try-it-out}}
+
+In R, we create a vector using \texttt{c()}, and return the class of an object using \texttt{class()}. For example, in the Console entering \texttt{class(c(1,\ 2,\ "cat"))} will return \texttt{character}.
+
+Similarly, find the class of the following vectors:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{c(3,\ TRUE,\ "Teddy")}
+\item
+  \texttt{c(5L,\ 10.6,\ 281L)}
+\item
+  \texttt{c("blue",\ "purple",\ 4.9)}
+\item
+  \texttt{c(0.91,\ 0.36,\ 0.64,\ "missing")}
+\item
+  \texttt{c("small",\ "medium",\ FALSE,\ "medium")}
+\end{itemize}
+
+OK but what if you \textbf{do} want to create a sequence of elements that maintain different types? Then you'll need a list, which you can create using the \texttt{list()} function:
+
+\texttt{taco\_price\ \textless{}-\ list(1,\ 2.5,\ "free")}
+
+Notice in that example we \emph{assign} the list to a name, \texttt{taco\_price}, using \texttt{\textless{}-}. In R, we tend to use the \texttt{\textless{}-} assignment operator to name things, but in Python we use \texttt{=}.
+
+For more information, read \href{https://adv-r.hadley.nz/vectors-chap.html}{Chapter 3 in Advanced R} by Hadley Wickham
+
+\hypertarget{in-python}{%
+\subsection{In Python}\label{in-python}}
+
+In the Python interpreter (Terminal \textgreater{} \texttt{python} to start), type \texttt{help()} to bring up the help documentation. From the list, you'll see that \texttt{TYPES} is an option. Check it out for lots of useful information. Here's a short version:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{list:} a sequence of elements that you \textbf{can} reassign, made with square brackets and elements separated by commas (e.g.~\texttt{vec\ =\ {[}"one",\ \textquotesingle{}angry\textquotesingle{},\ "moose"{]}}), or \texttt{vec\ =\ {[}4,\ 10,\ "banana"{]}}. Note that strings can be created using either double or single quotes.
+\end{itemize}
+
+An example of list creation and reassignment in Python:
+
+\begin{verbatim}
+my_list = [1, 5, 8] # Create the list
+
+my_list[1] = 9 # Changes the second element to value 9
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{tuple:} a sequence of elements that you \emph{can't} reassign, made with parentheses and elements separated by commas (e.g.~\texttt{my\_tuple\ =\ (1,\ 2,\ 10)}).
+\end{itemize}
+
+What does it mean that elements in a tuple \emph{cannot} be reassigned? Try running the following and see what happens:
+
+\begin{verbatim}
+my_tuple = (19, 45, 218)
+
+my_tuple[2] = 63
+# TypeError: 'tuple' object does not support item assignment
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{dictionary:} a sequence of elements\ldots{}
+\end{itemize}
+
+Some of these will be more clear once we get started working with them, and we'll also learn more along the way.
+
+\hypertarget{side-by-side-comparison-of-data-types-in-r-python}{%
+\subsection{Side-by-side comparison of data types in R \& Python}\label{side-by-side-comparison-of-data-types-in-r-python}}
+
+\begin{itemize}
+\tightlist
+\item
+  integer (both): numbers without decimals (whole numbers)
+\item
+  float (both): numbers with decimals
+\item
+  string / character
+\item
+  Boolean / logical
+\item
+  Lists / dictionaries (Py)?
+\item
+  tuples v. lists v. vectors
+\end{itemize}
+
+See: \url{https://r4ds.had.co.nz/vectors.html}
 
 \hypertarget{data-structures}{%
 \section{Data structures}\label{data-structures}}
@@ -265,10 +449,32 @@ In this chapter, we'll learn about different structures of data, and the types o
 \hypertarget{lists}{%
 \subsection{Lists}\label{lists}}
 
-\hypertarget{data-types}{%
-\section{Data types}\label{data-types}}
+\hypertarget{allison-random-notes}{%
+\section{Allison random notes}\label{allison-random-notes}}
 
-See: \url{https://r4ds.had.co.nz/vectors.html}
+See Lubanovic Ch. 2 for Python info
+
+\begin{itemize}
+\item
+  Use \texttt{=} to assign values in Py, more often \texttt{\textless{}-} to assign in R
+\item
+  Store some simple values in the Py interpreter (Terminal)
+\item
+  Add a basic operators section? Only difference of meaningful note is \^{} versus ** (Py exponential)
+\end{itemize}
+
+\hypertarget{converting-between-classes}{%
+\subsection{Converting between classes}\label{converting-between-classes}}
+
+Python:
+
+\begin{itemize}
+\tightlist
+\item
+  Numeric to boolean: \texttt{bool()} anything non-zero is TRUE, anything 0 (or ``False'') is FALSE
+\item
+  Numeric or boolean to integer: \texttt{int()} (lops off end, doesn't round)
+\end{itemize}
 
 \hypertarget{tidydata}{%
 \chapter{Tidy data}\label{tidydata}}
@@ -486,7 +692,7 @@ The process of creating tidy data is useful in an of itself, because it requires
 \hypertarget{basic-wrangling}{%
 \chapter{Basic wrangling}\label{basic-wrangling}}
 
-Indexing, subsetting, etc.
+Indexing, subsetting, converting, etc.
 
 \hypertarget{logicals}{%
 \chapter{Logical operators}\label{logicals}}
@@ -1182,6 +1388,54 @@ We've learned some strategies to subset, reshape and update data using base tool
 
 \hypertarget{troubleshooting}{%
 \chapter{Troubleshooting}\label{troubleshooting}}
+
+\hypertarget{py-r}{%
+\chapter{Py-R differences}\label{py-r}}
+
+\hypertarget{overarching-things}{%
+\subsection{Overarching things}\label{overarching-things}}
+
+\begin{itemize}
+\tightlist
+\item
+  zero indexing in Py (versus 1-index in R)
+\item
+  ** instead of \^{} for exponents
+\item
+  elif versus else if
+\item
+  type() versus class()
+\end{itemize}
+
+\hypertarget{strings-differences}{%
+\subsection{Strings differences:}\label{strings-differences}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{+} to combine strings in Python
+\item
+  \texttt{*} to duplicate a string in Python (e.g.~versus rep() in R)
+\item
+  \texttt{len()} versus \texttt{nchar()} for number of characters in a string
+\item
+  df \%\textgreater\% function() versus df.function()
+\item
+  replace() versus str\_replace()
+\item
+  strip() versus str\_trim() or str\_squish() to remove whitespace
+\item
+  f-string versus glue or paste?
+\end{itemize}
+
+\hypertarget{number-sequences}{%
+\subsection{Number sequences:}\label{number-sequences}}
+
+\begin{itemize}
+\tightlist
+\item
+  range() versus seq()
+\end{itemize}
 
   \bibliography{book.bib,packages.bib}
 

@@ -1,8 +1,98 @@
-# Data structures and types {#types}
+# Data types and structures {#types}
 
-How we work with data is largely dependent on the *type* and *structure* of data we're working with. That's more than just "is this a number or letters?" We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we're correctly predicting how data will change based on what we do with it. 
+How we work with data depends largely on the *type* and *structure* of data we're working with. That's more than just "is this a number or letters?" We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we're correctly predicting how data will change based on what we do with it. 
 
-In this chapter, we'll learn about different structures of data, and the types of data they can contain.
+In this chapter, we'll learn about different types and structures of data, and some essentials of creating and working with them.
+
+## Data types
+
+There are more types of data, but we'll focus on four: strings, logicals, integers, and doubles. Throughout the rest of the MEDS program you may use others, but they are uncommon in environmental data science. In this section we'll learn the common types of elements, then what they become once combined. 
+
+### Types of data elements
+
+When I say "elements" here, I mean single units of information. Like a single number, or identifier, or name. Like `12`, or `north` or `site_12a`. Here's some language to help distinguish those types of elements: 
+
+- **strings:** (also called: character string) elements that contain letters or symbols (anything non-numeric), or numbers that have been coerced to be understood as strings, like `"MEDS"`, `"Bren School"`, `"plot 17"`, and `"19.4"`. Note that the quotations around the last one is what makes it understood as a string, instead of a number.
+
+- **logicals / booleans:** elements that indicate `TRUE` or `FALSE`. In R, the string `TRUE` / `1` are recognized as TRUE, and `FALSE` / `0` are recognized as FALSE. In Python, these are called logicals or booleans, and `True` / `1` are recognized as TRUE, and `False` / `0` are recognized as FALSE. 
+
+- **integers:** whole numbers (no decimal places), like `10`, `-65`, and `249`. In R, these are specified with a whole number followed immediately by `L`, e.g. `12L`
+
+- **doubles / float:** numbers that can have decimal places, like `1.275`, `10.5`, and `0.068`. Double allows for twice the precision of a float. For very small or very large numbers, this designation might be important - or just err on the side of doubles. 
+
+### Atomic vectors in R
+
+Combining elements creates a vector (in R), similar to a list or single-dimensional array (often used in R and Python). We'll learn later on that *lists* are vectors that can contain different data types.
+
+Given our common element types, what type of atomic vector is the outcome of their combination? 
+
+In R, there are four (common) types of atomic vectors: character (contains strings), logical (contains only logicals), and numeric (doubles and integers). Since the entire atomic vector can only be *one* of these, what is the hierarchy that determines the output vector type? See the schematic from [Section 3.2 in Advanced R](https://adv-r.hadley.nz/vectors-chap.html#atomic-vectors), which visualizes: 
+
+- A vector consisting of any combination of integers and doubles will be *numeric*
+- A vector consisting of all strings, or any combination of strings and numeric values, will be *character*
+- A vector with logicals and numeric values will be *numeric*
+- A vector with logicals and strings will be *character*
+
+#### Try it out
+
+In R, we create a vector using `c()`, and return the class of an object using `class()`. For example, in the Console entering `class(c(1, 2, "cat"))` will return `character`.
+
+Similarly, find the class of the following vectors: 
+
+- `c(3, TRUE, "Teddy")`
+- `c(5L, 10.6, 281L)`
+- `c("blue", "purple", 4.9)`
+- `c(0.91, 0.36, 0.64, "missing")`
+- `c("small", "medium", FALSE, "medium")`
+
+OK but what if you **do** want to create a sequence of elements that maintain different types? Then you'll need a list, which you can create using the `list()` function: 
+
+`taco_price <- list(1, 2.5, "free")`
+
+Notice in that example we *assign* the list to a name, `taco_price`, using `<-`. In R, we tend to use the `<-` assignment operator to name things, but in Python we use `=`.
+
+For more information, read [Chapter 3 in Advanced R](https://adv-r.hadley.nz/vectors-chap.html) by Hadley Wickham
+
+### In Python
+
+In the Python interpreter (Terminal > `python` to start), type `help()` to bring up the help documentation. From the list, you'll see that `TYPES` is an option. Check it out for lots of useful information. Here's a short version: 
+
+- **list:** a sequence of elements that you **can** reassign, made with square brackets and elements separated by commas (e.g. `vec = ["one", 'angry', "moose"]`), or `vec = [4, 10, "banana"]`. Note that strings can be created using either double or single quotes.
+
+An example of list creation and reassignment in Python: 
+
+```
+my_list = [1, 5, 8] # Create the list
+
+my_list[1] = 9 # Changes the second element to value 9
+```
+
+
+- **tuple:** a sequence of elements that you *can't* reassign, made with parentheses and elements separated by commas (e.g. `my_tuple = (1, 2, 10)`). 
+
+What does it mean that elements in a tuple *cannot* be reassigned? Try running the following and see what happens: 
+
+```
+my_tuple = (19, 45, 218)
+
+my_tuple[2] = 63
+# TypeError: 'tuple' object does not support item assignment
+```
+
+- **dictionary:** a sequence of elements...
+
+Some of these will be more clear once we get started working with them, and we'll also learn more along the way. 
+
+### Side-by-side comparison of data types in R & Python
+
+- integer (both): numbers without decimals (whole numbers)
+- float (both): numbers with decimals
+- string / character
+- Boolean / logical
+- Lists / dictionaries (Py)?
+- tuples v. lists v. vectors
+
+See: https://r4ds.had.co.nz/vectors.html
 
 ## Data structures
 
@@ -14,8 +104,21 @@ In this chapter, we'll learn about different structures of data, and the types o
 
 ### Lists
 
-## Data types
-
-See: https://r4ds.had.co.nz/vectors.html
 
 
+
+## Allison random notes
+
+See Lubanovic Ch. 2 for Python info
+
+- Use `=` to assign values in Py, more often `<-` to assign in R
+- Store some simple values in the Py interpreter (Terminal)
+
+- Add a basic operators section? Only difference of meaningful note is ^ versus ** (Py exponential)
+
+### Converting between classes
+
+Python:
+
+- Numeric to boolean: `bool()` anything non-zero is TRUE, anything 0 (or "False") is FALSE
+- Numeric or boolean to integer: `int()` (lops off end, doesn't round)

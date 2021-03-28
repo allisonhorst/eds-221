@@ -6,4 +6,27 @@
 
 ## Python
 
+You probably have Python 3 already installed if you have a recent-ish computer. If not, you'll want to install it. How can you run some Python code without anything else? 
+
+- Open the Terminal on your device (Cmd + Spacebar), open the Terminal
+- Run `python` (press Enter) - this will tell you which version of Python you're using, and switch over into a Python interpreter. 
+- Now you're using this as a Python editor (you should see the `>>>` starting each line, prompting Python code. Try running some basic code, like: 
+
+- `print("data science")`
+- `2 + 10`
+- `for i in 1, 2, 3, "hooray": print(i)` [press Enter twice to run...otherwise it's like "are you really done with this loop?"]
+- `help()` will open interactive Python help...then go exploring following along with some of the instructions there! 
+
+Can you run Python entirely through the Terminal? Sure. But that'd be a bummer. Instead, we'll learn some more data scienctist-friendly places to write, run and explore Python code. Including...
+
 ## Jupyter Notebooks
+
+### Py stuff to add here or somewhere: 
+
+Random things on Allison's to-add list
+
+- Zero index (offset) differs from one index 
+- Open Python interpreter (run `$ python` in Terminal to return info about your Python version, and open the interpreter starting with `>>>`)
+- Pressing 'Enter' twice: doesn't know if you want to add more (R assumes you don't want to), e.g. at the end of a for loop
+- Save Python script (written in plain text file) save as test.py, go to that dir, run `$ python test.py` to actually run your python script (e.g. do this in RStudio to demo)
+- Type, id, value (what kind of data, what it's called, the value compatible with the type (ref Lubanovic))

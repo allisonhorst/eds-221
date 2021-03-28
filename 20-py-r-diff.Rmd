@@ -1,0 +1,27 @@
+# Py-R differences {#py-r}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Overarching things
+
+- zero indexing in Py (versus 1-index in R)
+- ** instead of ^ for exponents
+- elif versus else if
+- type() versus class()
+
+### Strings differences: 
+
+- `+` to combine strings in Python
+- `*` to duplicate a string in Python (e.g. versus rep() in R)
+- `len()` versus `nchar()` for number of characters in a string
+- df %>% function() versus df.function()
+- replace() versus str_replace()
+- strip() versus str_trim() or str_squish() to remove whitespace
+- f-string versus glue or paste? 
+
+### Number sequences:
+
+- range() versus seq()

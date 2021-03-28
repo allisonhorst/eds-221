@@ -25,6 +25,11 @@ Thank you in advance for suggestions and corrections, which can be submitted as 
 
 I create my courses while standing on shoulders of generous teaching and developing giants in R, data science, and education communities. The wealth and quality of open educational resources (OERs) in data science has made teaching in the field fun, innovative, and inspiring. I've tried to thoroughly credit authors resources that I have pulled from and adapted for this book, and I welcome additions if I have missed any that should be included.
 
+That includes leaning heavily on: 
+
+- [Advanced R](http://adv-r.had.co.nz/) by Hadley Wickham [@wickham_advanced_2019]
+- Introducing Python by Bill Lubanovic [@lubanovic_introducing_2014]
+
 ## Course introduction
 
 ```{r, echo=FALSE, out.width="100%", fig.cap="Slide from Dr. Julia Lowndes' 2019 keynote talk at useR conference (illustration by Allison Horst).", fig.align = "center"}
