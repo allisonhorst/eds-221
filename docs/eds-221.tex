@@ -181,10 +181,10 @@ That includes leaning heavily on:
 
 }
 
-\caption{Slide from Dr. Julia Lowndes' 2019 keynote talk at useR conference (illustration by Allison Horst).}\label{fig:unnamed-chunk-1}
+\caption{Illustration from Dr. Julia Lowndes' 2019 keynote talk at useR conference (by Allison Horst), adapted from the classic R for Data Science workflow schematic by Grolemund and Wickham}\label{fig:unnamed-chunk-1}
 \end{figure}
 
-As nicely summarized in the title of a \href{https://www.nceas.ucsb.edu/news/next-generation-environmental-scientists-are-data-scientists}{2018 NCEAS post}, \textbf{``the next generation of environmental scientists are data scientists''}. Over the next year in MEDS you'll build skills to responsibly apply advanced methods in environmental modeling, spatial data analysis, machine learning, and more to investigate, analyze and communicate with complex environmental data.
+As nicely summarized in the title of a \href{https://www.nceas.ucsb.edu/news/next-generation-environmental-scientists-are-data-scientists}{2018 NCEAS post}, \textbf{``the next generation of environmental scientists are data scientists''}. The explosion in environmental data volume, heterogeneity and availability in recent years has made managing, wrangling, analyzing and communicating with data a critical skill in environmental workplaces. Over the next year in MEDS you'll build skills to responsibly apply advanced methods in environmental modeling, spatial data analysis, machine learning, and more to investigate, analyze and communicate with complex environmental data.
 
 To get there, you'll need a strong foundation in programming basics like: understanding types and structures of data, basic data wrangling and visualization, algorithm development with functions, loops, and conditionals, and how to troubleshoot. While working in the weeds of programming, we'll also learn and reinforce transferable habits for reproducible workflows, robust file paths, version control, data organization, project management, and more.
 
@@ -213,7 +213,13 @@ We will use the following in EDS 221. You should have pre-installed recent versi
 \begin{itemize}
 \tightlist
 \item
-  \href{https://www.r-project.org/}{R (Version 4.0.2 ``Taking Off Again'', or higher)}
+  \href{https://www.r-project.org/}{R (Version 4.0.2 ``Taking Off Again'', or higher)}. You need to have an updated version of R installed on your computer - see the course syllabus to see expected minimum version. Get it \href{https://www.r-project.org/}{here} if you haven't already.
+\end{itemize}
+
+Can you write and run R \emph{just} with the \emph{R} console (i.e., by opening the R application)? Yes. In fact, we'll try it. But you'll quickly want to move into an Integrated Development Environment (IDE) with more options and a user-friendly interface. Which is why you'll also need\ldots{}
+
+\begin{itemize}
+\tightlist
 \item
   \href{https://rstudio.com/products/rstudio/}{RStudio Desktop (version 1.4.1103 ``Wax Begonia'', or higher)}
 \item
@@ -239,13 +245,36 @@ We will use the following in EDS 221. You should have pre-installed recent versi
 \end{itemize}
 
 \hypertarget{r-py}{%
-\chapter{Meet the 221 tools}\label{r-py}}
+\chapter{Programming, R, and Python}\label{r-py}}
+
+\hypertarget{what-is-programming}{%
+\section{What is programming?}\label{what-is-programming}}
+
+Programming is the process of designing then telling a computer instructions to do something useful for you, usually by taking an input and producing some meaningful output.
+
+For example, if you've found a mean value using the \texttt{AVERAGE()} function in Excel, that's programming. But have you ever looked back at an analysis you've done in Excel weeks or months (or years) later, and tried to follow your work start to finish? It's\ldots not great.
+
+Throughout your MEDS courses you'll learn to programming by writing \emph{code} to keep clear, complete and readable records of everything we do with environmental data - from accessing it to preparing final reports. In doing so, you'll build workflows to make your data science reproducible, so that you, your collaborators, or other people can re-run your code completely from start-to-finish.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/workflows} 
+
+}
+
+\caption{How it started, and how we hope it's going after MEDS.}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+Scripted code will become the core component of our reproducible data science. There are \textbf{hundreds} of coding languages - to feel immediately overwhelmed, you're encouraged to check out Wikipedia's \href{https://en.wikipedia.org/wiki/List_of_programming_languages}{list of notable programming languages} \citep{enwiki_1014039839}. But \textbf{don't panic}, we're going to build programming skills in just two of those during EDS 221 - R and Python - because they are some of the most commonly used languages in environmental data science across sectors.
+
+Is it possible that you'll join a team using a different language? Sure. However, a strong foundation in a few representative programming languages, along with a basic set of tools for reproducible, collaborative work, will allow you to transfer your skills quickly to other languages, IDEs, or teams as they arise in your career.
+
+So let's start with our most critical tool: our coding languages.
 
 \hypertarget{r}{%
 \section{R}\label{r}}
 
-\hypertarget{rstudio}{%
-\section{RStudio}\label{rstudio}}
+R is a programming language - a language with unique syntax and expectations for how you will give your computer instructions.
 
 \hypertarget{python}{%
 \section{Python}\label{python}}
@@ -269,10 +298,13 @@ You probably have Python 3 already installed if you have a recent-ish computer. 
   \texttt{help()} will open interactive Python help\ldots then go exploring following along with some of the instructions there!
 \end{itemize}
 
-Can you run Python entirely through the Terminal? Sure. But that'd be a bummer. Instead, we'll learn some more data scienctist-friendly places to write, run and explore Python code. Including\ldots{}
+Can you run Python entirely through the Terminal? Sure. But that'd be a bummer. Instead, we'll learn some more data scientist-friendly places to write, run and explore Python code, including in Py scripts, Jupyter Notebooks, and even in R Markdown.
 
-\hypertarget{jupyter-notebooks}{%
-\section{Jupyter Notebooks}\label{jupyter-notebooks}}
+\hypertarget{rstudio}{%
+\section{RStudio}\label{rstudio}}
+
+\hypertarget{jupyter-notebooks-not-sure}{%
+\section{Jupyter Notebooks (??? not sure)}\label{jupyter-notebooks-not-sure}}
 
 \hypertarget{py-stuff-to-add-here-or-somewhere}{%
 \subsection{Py stuff to add here or somewhere:}\label{py-stuff-to-add-here-or-somewhere}}
@@ -479,7 +511,7 @@ Python:
 \hypertarget{tidydata}{%
 \chapter{Tidy data}\label{tidydata}}
 
-Note: all artwork in this chapter are from an illustrated collaborative \href{https://www.openscapes.org/blog/2020/10/12/tidy-data/}{Openscapes blog post} by Dr.~Julia Lowndes and Dr.~Allison Horst \citep{lowndes_tidy_2020}.
+\textbf{Note:} all artwork in this chapter are from an illustrated collaborative \href{https://www.openscapes.org/blog/2020/10/12/tidy-data/}{Openscapes blog post} by Dr.~Julia Lowndes and Dr.~Allison Horst \citep{lowndes_tidy_2020}, and many of the ideas here are building upon the main points in that post.
 
 Tidy data is a predictable way to organize data that makes it more coder and collaborator friendly. As described by Hadley Wickham, \textbf{in \emph{tidy data} each column is a variable, each row is an observation, and each cell contains a single value (measurement)} \citep{wickham_tidy_2014}.
 
@@ -499,7 +531,7 @@ One of the most common ways that data can be untidy is if a single variable is b
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-2}Dog weight (pounds) in untidy format, where a single variable (weight) is spread out across different levels of the year variable.}
+\caption{\label{tab:unnamed-chunk-3}Dog weight (pounds) in untidy format, where a single variable (weight) is spread out across different levels of the year variable.}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -524,7 +556,7 @@ Later on, we'll hear how to reshape data from wide-to-long format (e.g.~using \t
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-3}Dog weight (pounds) in tidy format, where each variable is in its own column.}
+\caption{\label{tab:unnamed-chunk-4}Dog weight (pounds) in tidy format, where each variable is in its own column.}
 \centering
 \begin{tabular}[t]{l|l|r}
 \hline
@@ -566,7 +598,7 @@ Sometimes raw data will contain multiple values in a single cell. For example, h
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-4}Car descriptions in untidy format.}
+\caption{\label{tab:unnamed-chunk-5}Car descriptions in untidy format.}
 \centering
 \begin{tabular}[t]{l|l|l}
 \hline
@@ -587,7 +619,7 @@ In the future, you'll learn how to separate components of a single column into m
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-5}Car descriptions in tidy format.}
+\caption{\label{tab:unnamed-chunk-6}Car descriptions in tidy format.}
 \centering
 \begin{tabular}[t]{l|l|l|l|l}
 \hline
@@ -608,7 +640,7 @@ Occasionally, you will see environmental data where information for \emph{multip
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-6}Spiny lobster counts by size.}
+\caption{\label{tab:unnamed-chunk-7}Spiny lobster counts by size.}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -660,13 +692,112 @@ spiny lobster & 6.5\\
 
 Now, each individual lobster occupies its own row, and the data are in tidy format.
 
-\hypertarget{tidy-data-makes-coding-easier}{%
-\section{Tidy data makes coding easier}\label{tidy-data-makes-coding-easier}}
+\hypertarget{tidy-data-for-predictable-input}{%
+\section{Tidy data for predictable input}\label{tidy-data-for-predictable-input}}
 
-The process of creating tidy data is useful in an of itself, because it requires us to be deliberate and thoughtful about how we structure our data, and makes us define our \emph{variables}, \emph{observations} and \emph{measurements}. We will learn why that benefits us and our collaborators in the next section. Here, let's learn why tidy data is code- and coder-friendly.
+Tidy data structure will become so ingrained into your brain over the next year that you'll almost forget a universe when you didn't automatically strive to create tidy data. Estimates for the fraction of a data scientist's time spent wrangling and cleaning data (rather than analyzing / modeling / gaining valuable insights from data) ranges from \textasciitilde45 - 80\%. That should make us especially inspired to create the data we hope to see in the world. In other words, on the data collection end of data science we should strive to input data in an organized, predictable format (e.g.~as tidy data), and as cleanly as possible (i.e.~consistent, machine-friendly values).\\
+
+\begin{quote}
+\textbf{Question:} Are there times when tidy data structure is \emph{not} the best format?
+
+\textbf{Answer:} Yup. There are very few ``rules'' in data science, and there will certainly be exceptions.
+\end{quote}
+
+Tidy data gives us a predictable, organized data structure to strive for (unless we have good reason not to). Collecting data in tidy format from the get-go can reduce the time spent data wrangling / reshaping, and increase the time we can spend gaining insights to help solve environmental problems.
+
+An evergreen paper to learn about data organization - in spreadsheets, and anywhere else - is \href{https://www-tandfonline-com.proxy.library.ucsb.edu:9443/doi/full/10.1080/00031305.2017.1375989}{\emph{Data organization in spreadsheets}} by \citet{broman_data_2018}. This is required reading for EDS 221, and beautifully highlights a number of other important considerations for data organization. I recommend you re-read it every year for the rest of your data science life.
+
+\hypertarget{tidy-data-for-easier-analysis}{%
+\section{Tidy data for easier analysis}\label{tidy-data-for-easier-analysis}}
+
+The process of creating tidy data is useful in an of itself, because it requires us to be deliberate and thoughtful about how we structure our data, and makes us define our \emph{variables}, \emph{observations} and \emph{measurements}. We will learn why that benefits us and our collaborators in the next section. Here, let's learn why tidy data is often code- and coder-friendly organization.
 
 \hypertarget{code-working-for-you}{%
 \subsection{Code working for you}\label{code-working-for-you}}
+
+One (of many) benefits of working with tidy data is that it can save you tedious and sometimes dangerous manual subsetting and calculations for different groups. That's because in most programming languages, there are functions that can recognize different groups existing withing a variable automatically, and you can then perform operations (e.g.~to calculate means, create exploratory plots, etc.) by those auto-recognized groups.\\
+~\\
+What?\\
+~\\
+OK let's break it down a bit, by considering the different ways we could tackle a summary statistics challenge.\\
+~\\
+Here is our mock data for dog hiking mileage and duration:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+name\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+miles\strut
+\end{minipage} & \begin{minipage}[b]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
+time\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+Teddy\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+6.8\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
+35:02\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+Khora\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+10.3\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
+61:47\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+Teddy\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+3.1\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
+15:28\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+Teddy\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+12.0\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
+87:09\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+Khora\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+4.9\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
+20:56\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+Teddy\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+8.5\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
+63:34\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+Khora\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+2.7\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
+12:01\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+Teddy\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
+5.9\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
+43:40\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+If we want to calculate the mean miles for each dog, how might we go about doing that?
+
+We could manually create individual subsets for each dog (i.e., separate the two groups manually), then calculate the mean for each. That might not seem too bad for just two groups, but what if our data had 5 different dogs? Or 20 dogs? Or 1,000 dogs? Then creating and storing subsets manually before applying a function across all of them quickly becomes a big task.\\
+~\\
+\textbf{Or instead}, we could expect code exists that could automatically recognize then create groups within the \texttt{name} column, and apply a function to each group. The second is more efficient - instead of actually creating separate subsets from the data, we just have our code recognize groups automatically, then apply a function (or functions) to each group, without ever separating the data in the first place. For simplest execution, it does require that your group values (here, dog names) are in a single column, which is one reason why organizing data in tidy format is useful for more efficient coding.
 
 \hypertarget{parse-explore}{%
 \subsection{Parse \& explore}\label{parse-explore}}
@@ -1248,7 +1379,7 @@ Write a function to calculate fish weight based on \(a\), \(b\), and fish length
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-24}Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).}
+\caption{\label{tab:unnamed-chunk-25}Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).}
 \centering
 \begin{tabular}[t]{>{}l|l|c|c}
 \hline

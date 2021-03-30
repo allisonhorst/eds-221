@@ -1,6 +1,6 @@
 # Tidy data {#tidydata}
 
-Note: all artwork in this chapter are from an illustrated collaborative [Openscapes blog post](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Dr. Julia Lowndes and Dr. Allison Horst [@lowndes_tidy_2020].
+**Note:** all artwork in this chapter are from an illustrated collaborative [Openscapes blog post](https://www.openscapes.org/blog/2020/10/12/tidy-data/) by Dr. Julia Lowndes and Dr. Allison Horst [@lowndes_tidy_2020], and many of the ideas here are building upon the main points in that post.
 
 Tidy data is a predictable way to organize data that makes it more coder and collaborator friendly. As described by Hadley Wickham, **in *tidy data* each column is a variable, each row is an observation, and each cell contains a single value (measurement)** [@wickham_tidy_2014].
 
@@ -105,11 +105,57 @@ invert_counted %>%
 
 Now, each individual lobster occupies its own row, and the data are in tidy format.
 
-## Tidy data makes coding easier
+## Tidy data for predictable input
 
-The process of creating tidy data is useful in an of itself, because it requires us to be deliberate and thoughtful about how we structure our data, and makes us define our *variables*, *observations* and *measurements*. We will learn why that benefits us and our collaborators in the next section. Here, let's learn why tidy data is code- and coder-friendly.
+Tidy data structure will become so ingrained into your brain over the next year that you'll almost forget a universe when you didn't automatically strive to create tidy data. Estimates for the fraction of a data scientist's time spent wrangling and cleaning data (rather than analyzing / modeling / gaining valuable insights from data) ranges from \~45 - 80%. That should make us especially inspired to create the data we hope to see in the world. In other words, on the data collection end of data science we should strive to input data in an organized, predictable format (e.g. as tidy data), and as cleanly as possible (i.e. consistent, machine-friendly values).\
+
+> **Question:** Are there times when tidy data structure is *not* the best format?
+>
+> **Answer:** Yup. There are very few "rules" in data science, and there will certainly be exceptions.
+
+Tidy data gives us a predictable, organized data structure to strive for (unless we have good reason not to). Collecting data in tidy format from the get-go can reduce the time spent data wrangling / reshaping, and increase the time we can spend gaining insights to help solve environmental problems.
+
+An evergreen paper to learn about data organization - in spreadsheets, and anywhere else - is [*Data organization in spreadsheets*](https://www-tandfonline-com.proxy.library.ucsb.edu:9443/doi/full/10.1080/00031305.2017.1375989) by @broman_data_2018. This is required reading for EDS 221, and beautifully highlights a number of other important considerations for data organization. I recommend you re-read it every year for the rest of your data science life.
+
+## Tidy data for easier analysis
+
+The process of creating tidy data is useful in an of itself, because it requires us to be deliberate and thoughtful about how we structure our data, and makes us define our *variables*, *observations* and *measurements*. We will learn why that benefits us and our collaborators in the next section. Here, let's learn why tidy data is often code- and coder-friendly organization.
 
 ### Code working for you
+
+One (of many) benefits of working with tidy data is that it can save you tedious and sometimes dangerous manual subsetting and calculations for different groups. That's because in most programming languages, there are functions that can recognize different groups existing withing a variable automatically, and you can then perform operations (e.g. to calculate means, create exploratory plots, etc.) by those auto-recognized groups. \
+\
+What? \
+\
+OK let's break it down a bit, by considering the different ways we could tackle a summary statistics challenge. \
+\
+Here is our mock data for dog hiking mileage and duration:
+
++----------+----------+-------+
+| name     | miles    | time  |
++==========+==========+=======+
+| Teddy    | 6.8      | 35:02 |
++----------+----------+-------+
+| Khora    | 10.3     | 61:47 |
++----------+----------+-------+
+| Teddy    | 3.1      | 15:28 |
++----------+----------+-------+
+| Teddy    | 12.0     | 87:09 |
++----------+----------+-------+
+| Khora    | 4.9      | 20:56 |
++----------+----------+-------+
+| Teddy    | 8.5      | 63:34 |
++----------+----------+-------+
+| Khora    | 2.7      | 12:01 |
++----------+----------+-------+
+| Teddy    | 5.9      | 43:40 |
++----------+----------+-------+
+
+If we want to calculate the mean miles for each dog, how might we go about doing that?
+
+We could manually create individual subsets for each dog (i.e., separate the two groups manually), then calculate the mean for each. That might not seem too bad for just two groups, but what if our data had 5 different dogs? Or 20 dogs? Or 1,000 dogs? Then creating and storing subsets manually before applying a function across all of them quickly becomes a big task.\
+\
+**Or instead**, we could expect code exists that could automatically recognize then create groups within the `name` column, and apply a function to each group. The second is more efficient - instead of actually creating separate subsets from the data, we just have our code recognize groups automatically, then apply a function (or functions) to each group, without ever separating the data in the first place. For simplest execution, it does require that your group values (here, dog names) are in a single column, which is one reason why organizing data in tidy format is useful for more efficient coding.
 
 ### Parse & explore
 

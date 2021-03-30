@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Meet the 221 tools | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS</title>
+  <title>Chapter 2 Programming, R, and Python | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS</title>
   <meta name="description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Meet the 221 tools | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
+  <meta property="og:title" content="Chapter 2 Programming, R, and Python | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Meet the 221 tools | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
+  <meta name="twitter:title" content="Chapter 2 Programming, R, and Python | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
   
   <meta name="twitter:description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
   
@@ -143,14 +143,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#course-setup"><i class="fa fa-check"></i><b>1.3</b> Course setup</a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#course-resources"><i class="fa fa-check"></i><b>1.4</b> Course resources</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-py.html"><a href="r-py.html"><i class="fa fa-check"></i><b>2</b> Meet the 221 tools</a>
+<li class="chapter" data-level="2" data-path="r-py.html"><a href="r-py.html"><i class="fa fa-check"></i><b>2</b> Programming, R, and Python</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="r-py.html"><a href="r-py.html#r"><i class="fa fa-check"></i><b>2.1</b> R</a></li>
-<li class="chapter" data-level="2.2" data-path="r-py.html"><a href="r-py.html#rstudio"><i class="fa fa-check"></i><b>2.2</b> RStudio</a></li>
+<li class="chapter" data-level="2.1" data-path="r-py.html"><a href="r-py.html#what-is-programming"><i class="fa fa-check"></i><b>2.1</b> What is programming?</a></li>
+<li class="chapter" data-level="2.2" data-path="r-py.html"><a href="r-py.html#r"><i class="fa fa-check"></i><b>2.2</b> R</a></li>
 <li class="chapter" data-level="2.3" data-path="r-py.html"><a href="r-py.html#python"><i class="fa fa-check"></i><b>2.3</b> Python</a></li>
-<li class="chapter" data-level="2.4" data-path="r-py.html"><a href="r-py.html#jupyter-notebooks"><i class="fa fa-check"></i><b>2.4</b> Jupyter Notebooks</a>
+<li class="chapter" data-level="2.4" data-path="r-py.html"><a href="r-py.html#rstudio"><i class="fa fa-check"></i><b>2.4</b> RStudio</a></li>
+<li class="chapter" data-level="2.5" data-path="r-py.html"><a href="r-py.html#jupyter-notebooks-not-sure"><i class="fa fa-check"></i><b>2.5</b> Jupyter Notebooks (??? not sure)</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="r-py.html"><a href="r-py.html#py-stuff-to-add-here-or-somewhere"><i class="fa fa-check"></i><b>2.4.1</b> Py stuff to add here or somewhere:</a></li>
+<li class="chapter" data-level="2.5.1" data-path="r-py.html"><a href="r-py.html#py-stuff-to-add-here-or-somewhere"><i class="fa fa-check"></i><b>2.5.1</b> Py stuff to add here or somewhere:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data types and structures</a>
@@ -181,13 +182,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.1" data-path="tidydata.html"><a href="tidydata.html#untidy-example-1-a-single-variable-across-multiple-columns"><i class="fa fa-check"></i><b>4.1.1</b> Untidy example 1: A single variable across multiple columns</a></li>
 <li class="chapter" data-level="4.1.2" data-path="tidydata.html"><a href="tidydata.html#untidy-example-2-multiple-values-in-a-single-cell"><i class="fa fa-check"></i><b>4.1.2</b> Untidy example 2: multiple values in a single cell</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-makes-coding-easier"><i class="fa fa-check"></i><b>4.2</b> Tidy data makes coding easier</a>
+<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-input"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable input</a></li>
+<li class="chapter" data-level="4.3" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-easier-analysis"><i class="fa fa-check"></i><b>4.3</b> Tidy data for easier analysis</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="tidydata.html"><a href="tidydata.html#code-working-for-you"><i class="fa fa-check"></i><b>4.2.1</b> Code working for you</a></li>
-<li class="chapter" data-level="4.2.2" data-path="tidydata.html"><a href="tidydata.html#parse-explore"><i class="fa fa-check"></i><b>4.2.2</b> Parse &amp; explore</a></li>
-<li class="chapter" data-level="4.2.3" data-path="tidydata.html"><a href="tidydata.html#safer-summary-statistics"><i class="fa fa-check"></i><b>4.2.3</b> Safer summary statistics</a></li>
+<li class="chapter" data-level="4.3.1" data-path="tidydata.html"><a href="tidydata.html#code-working-for-you"><i class="fa fa-check"></i><b>4.3.1</b> Code working for you</a></li>
+<li class="chapter" data-level="4.3.2" data-path="tidydata.html"><a href="tidydata.html#parse-explore"><i class="fa fa-check"></i><b>4.3.2</b> Parse &amp; explore</a></li>
+<li class="chapter" data-level="4.3.3" data-path="tidydata.html"><a href="tidydata.html#safer-summary-statistics"><i class="fa fa-check"></i><b>4.3.3</b> Safer summary statistics</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-collaboration"><i class="fa fa-check"></i><b>4.3</b> Tidy data for collaboration</a></li>
+<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for collaboration</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a></li>
 <li class="chapter" data-level="6" data-path="logicals.html"><a href="logicals.html"><i class="fa fa-check"></i><b>6</b> Logical operators</a></li>
@@ -258,12 +260,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="r-py" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Meet the 221 tools</h1>
-<div id="r" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> R</h2>
+<h1><span class="header-section-number">Chapter 2</span> Programming, R, and Python</h1>
+<div id="what-is-programming" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> What is programming?</h2>
+<p>Programming is the process of designing then telling a computer instructions to do something useful for you, usually by taking an input and producing some meaningful output.</p>
+<p>For example, if you’ve found a mean value using the <code>AVERAGE()</code> function in Excel, that’s programming. But have you ever looked back at an analysis you’ve done in Excel weeks or months (or years) later, and tried to follow your work start to finish? It’s…not great.</p>
+<p>Throughout your MEDS courses you’ll learn to programming by writing <em>code</em> to keep clear, complete and readable records of everything we do with environmental data - from accessing it to preparing final reports. In doing so, you’ll build workflows to make your data science reproducible, so that you, your collaborators, or other people can re-run your code completely from start-to-finish.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/workflows.jpg" alt="How it started, and how we hope it's going after MEDS." width="100%" />
+<p class="caption">
+Figure 2.1: How it started, and how we hope it’s going after MEDS.
+</p>
 </div>
-<div id="rstudio" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> RStudio</h2>
+<p>Scripted code will become the core component of our reproducible data science. There are <strong>hundreds</strong> of coding languages - to feel immediately overwhelmed, you’re encouraged to check out Wikipedia’s <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">list of notable programming languages</a> <span class="citation">(<a href="py-r.html#ref-enwiki_1014039839" role="doc-biblioref">Wikipedia contributors 2021</a>)</span>. But <strong>don’t panic</strong>, we’re going to build programming skills in just two of those during EDS 221 - R and Python - because they are some of the most commonly used languages in environmental data science across sectors.</p>
+<p>Is it possible that you’ll join a team using a different language? Sure. However, a strong foundation in a few representative programming languages, along with a basic set of tools for reproducible, collaborative work, will allow you to transfer your skills quickly to other languages, IDEs, or teams as they arise in your career.</p>
+<p>So let’s start with our most critical tool: our coding languages.</p>
+</div>
+<div id="r" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> R</h2>
+<p>R is a programming language - a language with unique syntax and expectations for how you will give your computer instructions.</p>
 </div>
 <div id="python" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Python</h2>
@@ -277,12 +292,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>for i in 1, 2, 3, "hooray": print(i)</code> [press Enter twice to run…otherwise it’s like “are you really done with this loop?”]</p></li>
 <li><p><code>help()</code> will open interactive Python help…then go exploring following along with some of the instructions there!</p></li>
 </ul>
-<p>Can you run Python entirely through the Terminal? Sure. But that’d be a bummer. Instead, we’ll learn some more data scienctist-friendly places to write, run and explore Python code. Including…</p>
+<p>Can you run Python entirely through the Terminal? Sure. But that’d be a bummer. Instead, we’ll learn some more data scientist-friendly places to write, run and explore Python code, including in Py scripts, Jupyter Notebooks, and even in R Markdown.</p>
 </div>
-<div id="jupyter-notebooks" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Jupyter Notebooks</h2>
-<div id="py-stuff-to-add-here-or-somewhere" class="section level3" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Py stuff to add here or somewhere:</h3>
+<div id="rstudio" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> RStudio</h2>
+</div>
+<div id="jupyter-notebooks-not-sure" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Jupyter Notebooks (??? not sure)</h2>
+<div id="py-stuff-to-add-here-or-somewhere" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Py stuff to add here or somewhere:</h3>
 <p>Random things on Allison’s to-add list</p>
 <ul>
 <li>Zero index (offset) differs from one index</li>
