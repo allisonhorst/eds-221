@@ -52,16 +52,7 @@ Upon the building blocks established in EDS 221, you'll be prepared to increment
 
 ## Course setup
 
-We will use the following in EDS 221. You should have pre-installed recent versions before starting the course.
-
--   [R (Version 4.0.2 "Taking Off Again", or higher)](https://www.r-project.org/). You need to have an updated version of R installed on your computer - see the course syllabus to see expected minimum version. Get it [here](https://www.r-project.org/) if you haven't already. 
-
-Can you write and run R *just* with the *R* console (i.e., by opening the R application)? Yes. In fact, we'll try it. But you'll quickly want to move into an Integrated Development Environment (IDE) with more options and a user-friendly interface. Which is why you'll also need...
-
--   [RStudio Desktop (version 1.4.1103 "Wax Begonia", or higher)](https://rstudio.com/products/rstudio/)
--   [RStudio Cloud account](https://rstudio.cloud/)
--   Python (version XXXXX or higher)
--   Pycharm (version XXXX or higher)
+In EDS 221 we will write code in R (in scripts and R Markdown) and Python (in scripts and Jupyter Notebooks). You should be set to go if you followed along with the [MEDS Installation Guide]() during orientation. 
 
 ## Course resources
 

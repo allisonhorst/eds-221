@@ -1,3 +1,93 @@
 # Data wrangling with tidyverse and pandas {#wrangling}
 
-We've learned some strategies to subset, reshape and update data using base tools and functions. In this chapter, we'll use functions from R packages and Python libraries to wrangle our data in alternative ways that may be more streamlined and/or readable.
+```{r, echo = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+We've learned some strategies to subset, reshape and update data using base tools and functions. In this chapter, we'll use functions from R packages and Python libraries to wrangle our data in alternative ways that may be more efficient, intuitive and/or readable for collaborators.
+
+Throughout this chapter, we'll see examples using the penguins data set in the palmerpenguins R package (make sure you have it installed and attached to follow along). 
+
+## Meet the tidyverse and pandas
+
+Names for things that seem weird now will be come so ingrained in your brain that you won't even realize the nonsense you're spewing to non-R or -Python users (we'll practice avoiding that throughout MEDS, but be warned...). A couple of big ones are **tidyverse** and **pandas** - what are they, and how are they useful for us? 
+
+### R wrangling: `dplyr` & `tidyr` packages in the tidyverse
+
+The [tidyverse](https://www.tidyverse.org/) is a collection of R packages built to make data wrangling and visualizations easier for everyone. The packages are *opinionated* - meaning that they use similar syntax so that functions from different packages within the `tidyverse` play nicely together - especially useful once you get into burlier wrangling. 
+
+The two tidyverse packages that we'll focus on here are [dplyr](https://dplyr.tidyverse.org/) and [tidyr](https://tidyr.tidyverse.org/). The `dplyr` package contains powerful and intuitive functions for wrangling data (subsetting, filtering, choosing or moving columns, finding summary statistics by group, etc.). The `tidyr` package contains functions useful for reshaping data into tidy structure (e.g. converting from long-to-wide or wide-to-long format so that each variable is a single column, each row is a single observation, and each cell contains a single value). 
+
+To get `dplyr` and `tidyr`, along with all other packages in the tidyverse, install the `tidyverse` by running `install.packages("tidyverse")` in the R Console. 
+
+### Python wrangling: the `pandas` library 
+
+The [pandas](https://pandas.pydata.org/) library is a "fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
+built on top of the Python programming language" (from https://pandas.pydata.org/). With tools for reading, wrangling, subsetting, and reshaping data, it is the go-to for data manipulation in Python. 
+
+If you already have Anaconda installed, you're all set! The `pandas` library comes along with it (in addition to a bunch of other libraries useful for data wrangling and analysis, like `NumPy` and `matplotlib`). 
+
+## Selecting columns
+
+Make a subset of *columns* (variables, if data are tidy) using: 
+
+- tidyverse: `dplyr::select()`
+- pandas: 
+
+### `dplyr::select()`
+
+Use `dplyr::select()` in R to choose columns by numbered position or column name (recall: use `names()` to return a vector of all column names, or `View()` to bring up the data frame in a new viewing tab).
+
+**Example:** Starting with the penguins data frame, create and store a subset that only contains variables `species` and `island`.
+
+```{r}
+penguin_sp_isl <- penguins %>% 
+  select(species, island)
+
+# Alternative (but I like the formatting above...): 
+penguin_sp_isl <- select(penguins, species, island)
+```
+
+Which return a data frame only containing those two variables. Let's check using `names()`:
+
+```{r}
+names(penguin_sp_isl)
+```
+
+### Selecting columns in Python
+
+We choose columns in Python using the syntax `my_df[['col_a', 'col_b']]`, which will select `col_a` and `col_b` from a pandas DataFrame stored as `my_df`. 
+
+In the Python example below, we store the `penguins` data frame as a Python DataFrame, then create a subset that only contains `species` and `island`: 
+
+```{python}
+# Store the existing R object `penguins` as a Python DataFrame:
+py_penguins = r.penguins
+
+# Then make a subset only containing `species` and `island`:
+penguin_sp_isl = py_penguins[["species", "island"]]
+
+# Check out the first few lines to see variables included:
+penguin_sp_isl.head()
+```
+## Subsetting rows based on conditions
+
+Creating subsets that match conditions you specify will absolutely be one of the most common data wrangling things you do. 
+
+### `dplyr::filter()`
+
+Create subsets of data based on...
+
+### Subsetting rows in Python
+
+
+## Adding columns
+
+### `dplyr::mutate()`
+
+
+## Finding grouped statistics
+
+
+## Joining data

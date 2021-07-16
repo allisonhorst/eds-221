@@ -1,3 +1,25 @@
-# Basic wrangling
+# Basic wrangling {#basic-wrangling}
 
-Indexing, subsetting, converting, etc.
+This chapter just scrapes the surface of data wrangling tools you'll want to become familiar with as an environmental data scientist. 
+
+Subsetting, joins, pivots, and working with strings
+
+## Subsetting data
+
+### Subset rows based on conditions
+
+### Keep, omit, relocate, and rename columns (variables)
+
+## Joining data
+
+## Reshaping data
+
+- Long versus wide data
+- `pivot_longer` and `pivot_wider`
+
+
+
+## Working with strings
+
+
+

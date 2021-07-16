@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Functions | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS</title>
   <meta name="description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Functions | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="iteration.html"/>
 <link rel="next" href="wrangling.html"/>
-<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -154,25 +180,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.1" data-path="r-py.html"><a href="r-py.html#py-stuff-to-add-here-or-somewhere"><i class="fa fa-check"></i><b>2.5.1</b> Py stuff to add here or somewhere:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data types and structures</a>
+<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data representation, types and structures in R &amp; Python</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data types</a>
+<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-representation"><i class="fa fa-check"></i><b>3.1</b> Data representation</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.1.1</b> Types of data elements</a></li>
-<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.1.2</b> Atomic vectors in R</a></li>
-<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#in-python"><i class="fa fa-check"></i><b>3.1.3</b> In Python</a></li>
-<li class="chapter" data-level="3.1.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.1.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
+<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#bits.-bytes.-battlestar-galactica."><i class="fa fa-check"></i><b>3.1.1</b> Bits. Bytes. Battlestar Galactica.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#representing-non-integer-and-negative-values"><i class="fa fa-check"></i><b>3.1.2</b> Representing non-integer and negative values</a></li>
+<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#how-are-characters-stored"><i class="fa fa-check"></i><b>3.1.3</b> How are characters stored?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data structures</a>
+<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.2</b> Data types</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.2.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.2.2</b> Tibbles</a></li>
-<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.2.3</b> Matrices</a></li>
-<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.2.4</b> Lists</a></li>
+<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.2.1</b> Types of data elements</a></li>
+<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.2.2</b> Atomic vectors in R</a></li>
+<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#lists-tuples-and-dictionaries-in-python"><i class="fa fa-check"></i><b>3.2.3</b> Lists, tuples and dictionaries in Python</a></li>
+<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.2.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.3</b> Allison random notes</a>
+<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.3</b> Data structures</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.3.1</b> Converting between classes</a></li>
+<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.3.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.3.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.3.2</b> Tibbles</a></li>
+<li class="chapter" data-level="3.3.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.3.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.3.4</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.4</b> Allison random notes</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.4.1</b> Converting between classes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="tidydata.html"><a href="tidydata.html"><i class="fa fa-check"></i><b>4</b> Tidy data</a>
@@ -182,18 +214,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.1" data-path="tidydata.html"><a href="tidydata.html#untidy-example-1-a-single-variable-across-multiple-columns"><i class="fa fa-check"></i><b>4.1.1</b> Untidy example 1: A single variable across multiple columns</a></li>
 <li class="chapter" data-level="4.1.2" data-path="tidydata.html"><a href="tidydata.html#untidy-example-2-multiple-values-in-a-single-cell"><i class="fa fa-check"></i><b>4.1.2</b> Untidy example 2: multiple values in a single cell</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-input"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable input</a></li>
+<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-inputs"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable inputs</a></li>
 <li class="chapter" data-level="4.3" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-easier-analysis"><i class="fa fa-check"></i><b>4.3</b> Tidy data for easier analysis</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="tidydata.html"><a href="tidydata.html#code-working-for-you"><i class="fa fa-check"></i><b>4.3.1</b> Code working for you</a></li>
-<li class="chapter" data-level="4.3.2" data-path="tidydata.html"><a href="tidydata.html#parse-explore"><i class="fa fa-check"></i><b>4.3.2</b> Parse &amp; explore</a></li>
-<li class="chapter" data-level="4.3.3" data-path="tidydata.html"><a href="tidydata.html#safer-summary-statistics"><i class="fa fa-check"></i><b>4.3.3</b> Safer summary statistics</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for collaboration</a></li>
+<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-skills-transfer-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for skills transfer &amp; collaboration</a></li>
+<li class="chapter" data-level="4.5" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-automation-repetition"><i class="fa fa-check"></i><b>4.5</b> Tidy data for automation &amp; repetition</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a></li>
+<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subsetting-data"><i class="fa fa-check"></i><b>5.1</b> Subsetting data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subset-rows-based-on-conditions"><i class="fa fa-check"></i><b>5.1.1</b> Subset rows based on conditions</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#keep-omit-relocate-and-rename-columns-variables"><i class="fa fa-check"></i><b>5.1.2</b> Keep, omit, relocate, and rename columns (variables)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#joining-data"><i class="fa fa-check"></i><b>5.2</b> Joining data</a></li>
+<li class="chapter" data-level="5.3" data-path="basic-wrangling.html"><a href="basic-wrangling.html#reshaping-data"><i class="fa fa-check"></i><b>5.3</b> Reshaping data</a></li>
+<li class="chapter" data-level="5.4" data-path="basic-wrangling.html"><a href="basic-wrangling.html#working-with-strings"><i class="fa fa-check"></i><b>5.4</b> Working with strings</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="logicals.html"><a href="logicals.html"><i class="fa fa-check"></i><b>6</b> Logical operators</a></li>
-<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a></li>
+<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="conditionals.html"><a href="conditionals.html#if-else-statements"><i class="fa fa-check"></i><b>7.1</b> if else statements</a></li>
+<li class="chapter" data-level="7.2" data-path="conditionals.html"><a href="conditionals.html#if-else-if-else-statements"><i class="fa fa-check"></i><b>7.2</b> if else if else statements</a></li>
+<li class="chapter" data-level="7.3" data-path="conditionals.html"><a href="conditionals.html#while-statements"><i class="fa fa-check"></i><b>7.3</b> while statements</a></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>8</b> Iteration</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="iteration.html"><a href="iteration.html#iteration-in-programming"><i class="fa fa-check"></i><b>8.1</b> Iteration in programming</a>
@@ -230,15 +276,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.7" data-path="functions.html"><a href="functions.html#iterating-functions"><i class="fa fa-check"></i><b>9.7</b> Iterating functions</a></li>
 <li class="chapter" data-level="9.8" data-path="functions.html"><a href="functions.html#resources-on-building-testing-documenting-functions"><i class="fa fa-check"></i><b>9.8</b> Resources on building, testing, &amp; documenting functions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a></li>
-<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="12" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>12</b> Py-R differences</a>
+<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a>
 <ul>
-<li class="chapter" data-level="12.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>12.0.1</b> Overarching things</a></li>
-<li class="chapter" data-level="12.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>12.0.2</b> Strings differences:</a></li>
-<li class="chapter" data-level="12.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>12.0.3</b> Number sequences:</a></li>
+<li class="chapter" data-level="10.1" data-path="wrangling.html"><a href="wrangling.html#meet-the-tidyverse-and-pandas"><i class="fa fa-check"></i><b>10.1</b> Meet the tidyverse and pandas</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="wrangling.html"><a href="wrangling.html#r-wrangling-dplyr-tidyr-packages-in-the-tidyverse"><i class="fa fa-check"></i><b>10.1.1</b> R wrangling: <code>dplyr</code> &amp; <code>tidyr</code> packages in the tidyverse</a></li>
+<li class="chapter" data-level="10.1.2" data-path="wrangling.html"><a href="wrangling.html#python-wrangling-the-pandas-library"><i class="fa fa-check"></i><b>10.1.2</b> Python wrangling: the <code>pandas</code> library</a></li>
 </ul></li>
+<li class="chapter" data-level="10.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns"><i class="fa fa-check"></i><b>10.2</b> Selecting columns</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="wrangling.html"><a href="wrangling.html#dplyrselect"><i class="fa fa-check"></i><b>10.2.1</b> <code>dplyr::select()</code></a></li>
+<li class="chapter" data-level="10.2.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns-in-python"><i class="fa fa-check"></i><b>10.2.2</b> Selecting columns in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-based-on-conditions"><i class="fa fa-check"></i><b>10.3</b> Subsetting rows based on conditions</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="wrangling.html"><a href="wrangling.html#dplyrfilter"><i class="fa fa-check"></i><b>10.3.1</b> <code>dplyr::filter()</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-in-python"><i class="fa fa-check"></i><b>10.3.2</b> Subsetting rows in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="wrangling.html"><a href="wrangling.html#adding-columns"><i class="fa fa-check"></i><b>10.4</b> Adding columns</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="wrangling.html"><a href="wrangling.html#dplyrmutate"><i class="fa fa-check"></i><b>10.4.1</b> <code>dplyr::mutate()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="wrangling.html"><a href="wrangling.html#finding-grouped-statistics"><i class="fa fa-check"></i><b>10.5</b> Finding grouped statistics</a></li>
+<li class="chapter" data-level="10.6" data-path="wrangling.html"><a href="wrangling.html#joining-data-1"><i class="fa fa-check"></i><b>10.6</b> Joining data</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
+<li class="chapter" data-level="12" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html"><i class="fa fa-check"></i><b>12</b> Data visualization with <code>ggplot2</code> and <code>seaborn</code></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>12.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="12.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#basic-anatomy-of-graphs-with-ggplot2-in-r-and-seaborn-in-python"><i class="fa fa-check"></i><b>12.2</b> Basic anatomy of graphs with <code>ggplot2</code> in R, and <code>seaborn</code> in Python</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#ggplot2-bare-minimum"><i class="fa fa-check"></i><b>12.2.1</b> <code>ggplot2</code> bare minimum</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#seaborn-bare-minimum"><i class="fa fa-check"></i><b>12.2.2</b> <code>seaborn</code> bare minimum</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapping-variables-onto-graph-aesthetics"><i class="fa fa-check"></i><b>12.3</b> Mapping variables onto graph aesthetics</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapped-variable-aesthetics-in-ggplot2"><i class="fa fa-check"></i><b>12.3.1</b> Mapped variable aesthetics in <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#essential-customization"><i class="fa fa-check"></i><b>12.4</b> Essential customization</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>13</b> Py-R differences</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>13.0.1</b> Overarching things</a></li>
+<li class="chapter" data-level="13.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>13.0.2</b> Strings differences:</a></li>
+<li class="chapter" data-level="13.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>13.0.3</b> Number sequences:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -280,9 +363,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[f(x) = 2x\]</span>
 where <span class="math inline">\(x\)</span> is the input, and <span class="math inline">\(f(x)\)</span> is the output. The function <span class="math inline">\(f\)</span> acts on input <span class="math inline">\(x\)</span> by doubling the input value.</p>
 <p>How can we create a function to do the same thing in R? An R function would look like this:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="functions.html#cb26-1" aria-hidden="true" tabindex="-1"></a>double_it <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb26-2"><a href="functions.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span><span class="sc">*</span>x</span>
-<span id="cb26-3"><a href="functions.html#cb26-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="functions.html#cb33-1" aria-hidden="true" tabindex="-1"></a>double_it <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb33-2"><a href="functions.html#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span><span class="sc">*</span>x</span>
+<span id="cb33-3"><a href="functions.html#cb33-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>What are these different pieces of that function?</p>
 <ul>
 <li><strong>function name</strong>: Here, the function is named <code>double_it</code></li>
@@ -290,11 +373,11 @@ where <span class="math inline">\(x\)</span> is the input, and <span class="math
 <li><strong>body</strong>: here, <code>{ 2*x }</code> is the body of the function - that’s where we tell it what to do with the inputs. Note the braces (i.e. squiggly brackets) are often on separate lines from the algorithm itself.</li>
 </ul>
 <p>Try out the function by inputting both a single value, and a vector of values. Note that vectorization is the default - meaning that the function is applied to each element in a vector.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="functions.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">double_it</span>(<span class="at">x =</span> <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="functions.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">double_it</span>(<span class="at">x =</span> <span class="dv">20</span>)</span></code></pre></div>
 <pre><code>## [1] 40</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="functions.html#cb29-1" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">50</span>) <span class="co"># Create a vector with multiple values</span></span>
-<span id="cb29-2"><a href="functions.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="functions.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">double_it</span>(vec) <span class="co"># Function acts on each element in the vector</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="functions.html#cb36-1" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">50</span>) <span class="co"># Create a vector with multiple values</span></span>
+<span id="cb36-2"><a href="functions.html#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="functions.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">double_it</span>(vec) <span class="co"># Function acts on each element in the vector</span></span></code></pre></div>
 <pre><code>## [1]   4   8 100</code></pre>
 <p>Those are the main pieces. But don’t worry, it gets a lot more interesting. Let’s start by writing a few of our own functions.</p>
 <div id="a-note-on-names" class="section level3" number="9.1.1">
@@ -318,10 +401,10 @@ where <span class="math inline">\(x\)</span> is the input, and <span class="math
 <p>“Standard weight” is how much we <em>expect</em> a fish to weigh, give the species and fish length, and the nonlinear relationship is given by:</p>
 <p><span class="math display">\[W=aL^b\]</span></p>
 <p>where <span class="math inline">\(L\)</span> is total fish length (centimeters), <span class="math inline">\(W\)</span> is the expected fish weight (grams), and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are species-dependent parameter values.</p>
-<p>Write a function to calculate fish weight based on <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and fish length, then estimate the weight of several fish based on the following parameter estimates for Hawaiian fish from <span class="citation"><a href="py-r.html#ref-peyton_lengthweight_2016" role="doc-biblioref">Peyton et al.</a> (<a href="py-r.html#ref-peyton_lengthweight_2016" role="doc-biblioref">2016</a>)</span>:</p>
+<p>Write a function to calculate fish weight based on <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and fish length, then estimate the weight of several fish based on the following parameter estimates for Hawaiian fish from <span class="citation"><a href="#ref-peyton_lengthweight_2016" role="doc-biblioref">Peyton et al.</a> (<a href="#ref-peyton_lengthweight_2016" role="doc-biblioref">2016</a>)</span>:</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-25">Table 9.1: </span>Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).
+<span id="tab:unnamed-chunk-29">Table 9.1: </span>Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).
 </caption>
 <thead>
 <tr>
@@ -385,9 +468,9 @@ Giant trevally
 </tbody>
 </table>
 <p>Function:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="functions.html#cb33-1" aria-hidden="true" tabindex="-1"></a>predict_weight <span class="ot">&lt;-</span> <span class="cf">function</span>(a, length, b) {</span>
-<span id="cb33-2"><a href="functions.html#cb33-2" aria-hidden="true" tabindex="-1"></a>  a<span class="sc">*</span>(length<span class="sc">^</span>b)</span>
-<span id="cb33-3"><a href="functions.html#cb33-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="functions.html#cb40-1" aria-hidden="true" tabindex="-1"></a>predict_weight <span class="ot">&lt;-</span> <span class="cf">function</span>(a, length, b) {</span>
+<span id="cb40-2"><a href="functions.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  a<span class="sc">*</span>(length<span class="sc">^</span>b)</span>
+<span id="cb40-3"><a href="functions.html#cb40-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Using the function:</p>
 <ol style="list-style-type: decimal">
 <li>Estimate the mass of a 160 cm long great barracuda.</li>
@@ -409,24 +492,24 @@ Write a function to calculate <em>maximum collectable</em> wind power (Watts) by
 <li>Wind velocity (in m/s)</li>
 </ul>
 <p>Write the function:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="functions.html#cb34-1" aria-hidden="true" tabindex="-1"></a>calc_windpower <span class="ot">&lt;-</span> <span class="cf">function</span>(rho, radius, windspeed) {</span>
-<span id="cb34-2"><a href="functions.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb34-3"><a href="functions.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span><span class="sc">*</span>rho<span class="sc">*</span>pi<span class="sc">*</span>(radius<span class="sc">^</span><span class="dv">2</span>)<span class="sc">*</span>(windspeed<span class="sc">^</span><span class="dv">3</span>)</span>
-<span id="cb34-4"><a href="functions.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb34-5"><a href="functions.html#cb34-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="functions.html#cb41-1" aria-hidden="true" tabindex="-1"></a>calc_windpower <span class="ot">&lt;-</span> <span class="cf">function</span>(rho, radius, windspeed) {</span>
+<span id="cb41-2"><a href="functions.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-3"><a href="functions.html#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span><span class="sc">*</span>rho<span class="sc">*</span>pi<span class="sc">*</span>(radius<span class="sc">^</span><span class="dv">2</span>)<span class="sc">*</span>(windspeed<span class="sc">^</span><span class="dv">3</span>)</span>
+<span id="cb41-4"><a href="functions.html#cb41-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-5"><a href="functions.html#cb41-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Can we clean this up a bit by calculating the area first, within the function? Sure!</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="functions.html#cb35-1" aria-hidden="true" tabindex="-1"></a>calc_windpower <span class="ot">&lt;-</span> <span class="cf">function</span>(rho, radius, windspeed) {</span>
-<span id="cb35-2"><a href="functions.html#cb35-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb35-3"><a href="functions.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate turbine area (meters squared):</span></span>
-<span id="cb35-4"><a href="functions.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  turbine_area <span class="ot">=</span> pi<span class="sc">*</span>(radius<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb35-5"><a href="functions.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb35-6"><a href="functions.html#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate collectable power:</span></span>
-<span id="cb35-7"><a href="functions.html#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span><span class="sc">*</span>rho<span class="sc">*</span>turbine_area<span class="sc">*</span>(windspeed<span class="sc">^</span><span class="dv">3</span>)</span>
-<span id="cb35-8"><a href="functions.html#cb35-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="functions.html#cb42-1" aria-hidden="true" tabindex="-1"></a>calc_windpower <span class="ot">&lt;-</span> <span class="cf">function</span>(rho, radius, windspeed) {</span>
+<span id="cb42-2"><a href="functions.html#cb42-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb42-3"><a href="functions.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate turbine area (meters squared):</span></span>
+<span id="cb42-4"><a href="functions.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  turbine_area <span class="ot">=</span> pi<span class="sc">*</span>(radius<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb42-5"><a href="functions.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb42-6"><a href="functions.html#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate collectable power:</span></span>
+<span id="cb42-7"><a href="functions.html#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.3</span><span class="sc">*</span>rho<span class="sc">*</span>turbine_area<span class="sc">*</span>(windspeed<span class="sc">^</span><span class="dv">3</span>)</span>
+<span id="cb42-8"><a href="functions.html#cb42-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now let’s use the function we’ve created.</p>
 <p>The largest turbine in the world (as of March 2021) is the <a href="https://www.ge.com/renewableenergy/wind-energy/offshore-wind/haliade-x-offshore-turbine">GE Haliade-X</a>, an offshore turbine prototype in Rotterdam, the Netherlands, with a 220 meter rotor diameter.</p>
-<p>Assuming a windspeed of 7.7 m/s (based on long-term averages for North sea North Sea platforms from <span class="citation"><a href="py-r.html#ref-coelingh_analysis_1998" role="doc-biblioref">Coelingh, Wijk, and Holtslag</a> (<a href="py-r.html#ref-coelingh_analysis_1998" role="doc-biblioref">1998</a>)</span>) and an air density of 1.225 kg/m<sup>3</sup> (at sea level), estimate the wind power that can be collected.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="functions.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_windpower</span>(<span class="at">rho =</span> <span class="fl">1.225</span>, <span class="at">radius =</span> <span class="dv">110</span>, <span class="at">windspeed =</span> <span class="fl">7.7</span>) <span class="co"># Watts</span></span></code></pre></div>
+<p>Assuming a windspeed of 7.7 m/s (based on long-term averages for North sea North Sea platforms from <span class="citation"><a href="#ref-coelingh_analysis_1998" role="doc-biblioref">Coelingh, Wijk, and Holtslag</a> (<a href="#ref-coelingh_analysis_1998" role="doc-biblioref">1998</a>)</span>) and an air density of 1.225 kg/m<sup>3</sup> (at sea level), estimate the wind power that can be collected.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="functions.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">calc_windpower</span>(<span class="at">rho =</span> <span class="fl">1.225</span>, <span class="at">radius =</span> <span class="dv">110</span>, <span class="at">windspeed =</span> <span class="fl">7.7</span>) <span class="co"># Watts</span></span></code></pre></div>
 <pre><code>## [1] 6377710</code></pre>
 </div>
 </div>
@@ -434,6 +517,26 @@ Write a function to calculate <em>maximum collectable</em> wind power (Watts) by
 <h2><span class="header-section-number">9.3</span> Functions with conditionals</h2>
 <p>In the examples above, we change input values, but what the function <em>does</em> doesn’t change based on those input values.</p>
 <p>Sometimes, we’ll want our function to do something different (e.g. a different calculation, use a different constant value) based on the input values.</p>
+<p>For example, let’s consider the following (made up) scenario: jaguar shark growth follows a linear bimodal pattern. From the age of 0 to 8 years, shark length (meters) is predicted by <span class="math inline">\(length = 0.41(age)+0.06\)</span>, where age is in years. When age is greater than 8 years, growth slows and is predicted by <span class="math inline">\(length=0.09(age) + 2.65\)</span></p>
+<p><img src="eds-221_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p>Write a function that estimates mean shark length, based on age, using the two models shared above.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="functions.html#cb45-1" aria-hidden="true" tabindex="-1"></a>predict_sharklength <span class="ot">&lt;-</span> <span class="cf">function</span>(age) {</span>
+<span id="cb45-2"><a href="functions.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-3"><a href="functions.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (age <span class="sc">&lt;=</span> <span class="dv">8</span>)</span>
+<span id="cb45-4"><a href="functions.html#cb45-4" aria-hidden="true" tabindex="-1"></a>    shark_length <span class="ot">=</span> <span class="fl">0.41</span> <span class="sc">*</span> age <span class="sc">+</span> <span class="fl">0.06</span></span>
+<span id="cb45-5"><a href="functions.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-6"><a href="functions.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> </span>
+<span id="cb45-7"><a href="functions.html#cb45-7" aria-hidden="true" tabindex="-1"></a>    shark_length <span class="ot">=</span> <span class="fl">0.09</span> <span class="sc">*</span> age <span class="sc">+</span> <span class="fl">2.65</span></span>
+<span id="cb45-8"><a href="functions.html#cb45-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-9"><a href="functions.html#cb45-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(shark_length)</span>
+<span id="cb45-10"><a href="functions.html#cb45-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-11"><a href="functions.html#cb45-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>We can then use the function to estimate the expected shark length for any age, using the correct model:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="functions.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict_sharklength</span>(<span class="at">age =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 1.7</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="functions.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict_sharklength</span>(<span class="at">age =</span> <span class="fl">11.6</span>)</span></code></pre></div>
+<pre><code>## [1] 3.694</code></pre>
+<p><strong>Quick check:</strong> For the example calculations above, do the predicted values align with the model visualization? Always do a quick check - even a back-of-the-envelope calculation or visual check can catch a programming mistake!</p>
 </div>
 <div id="functions-with-iteration" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Functions with iteration</h2>
@@ -453,6 +556,15 @@ Write a function to calculate <em>maximum collectable</em> wind power (Watts) by
 <li><a href="https://adv-r.hadley.nz/functions.html">Ch. 6 - Functions</a> in <a href="https://adv-r.hadley.nz/"><em>Advanced R</em></a> by Hadley Wickham</li>
 </ul>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-coelingh_analysis_1998" class="csl-entry">
+Coelingh, J. P., A. J. M. van Wijk, and A. A. M. Holtslag. 1998. <span>“Analysis of Wind Speed Observations on the <span>North</span> <span>Sea</span> Coast.”</span> <em>Journal of Wind Engineering and Industrial Aerodynamics</em> 73 (2): 125–44. <a href="https://doi.org/10.1016/S0167-6105(97)00285-7">https://doi.org/10.1016/S0167-6105(97)00285-7</a>.
+</div>
+<div id="ref-peyton_lengthweight_2016" class="csl-entry">
+Peyton, K. A., T. S. Sakihara, L. K. Nishiura, T. T. Shindo, T. E. Shimoda, S. Hau, A. Akiona, and K. Lorance. 2016. <span>“Length–Weight Relationships for Common Juvenile Fishes and Prey Species in <span>Hawaiian</span> Estuaries.”</span> <em>Journal of Applied Ichthyology</em> 32 (3): 499–502. <a href="https://doi.org/10.1111/jai.12957">https://doi.org/10.1111/jai.12957</a>.
 </div>
 </div>
             </section>
@@ -484,6 +596,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

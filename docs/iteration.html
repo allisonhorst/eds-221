@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Iteration | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS</title>
   <meta name="description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Iteration | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="conditionals.html"/>
 <link rel="next" href="functions.html"/>
-<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -154,25 +180,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.1" data-path="r-py.html"><a href="r-py.html#py-stuff-to-add-here-or-somewhere"><i class="fa fa-check"></i><b>2.5.1</b> Py stuff to add here or somewhere:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data types and structures</a>
+<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data representation, types and structures in R &amp; Python</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data types</a>
+<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-representation"><i class="fa fa-check"></i><b>3.1</b> Data representation</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.1.1</b> Types of data elements</a></li>
-<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.1.2</b> Atomic vectors in R</a></li>
-<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#in-python"><i class="fa fa-check"></i><b>3.1.3</b> In Python</a></li>
-<li class="chapter" data-level="3.1.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.1.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
+<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#bits.-bytes.-battlestar-galactica."><i class="fa fa-check"></i><b>3.1.1</b> Bits. Bytes. Battlestar Galactica.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#representing-non-integer-and-negative-values"><i class="fa fa-check"></i><b>3.1.2</b> Representing non-integer and negative values</a></li>
+<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#how-are-characters-stored"><i class="fa fa-check"></i><b>3.1.3</b> How are characters stored?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data structures</a>
+<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.2</b> Data types</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.2.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.2.2</b> Tibbles</a></li>
-<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.2.3</b> Matrices</a></li>
-<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.2.4</b> Lists</a></li>
+<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.2.1</b> Types of data elements</a></li>
+<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.2.2</b> Atomic vectors in R</a></li>
+<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#lists-tuples-and-dictionaries-in-python"><i class="fa fa-check"></i><b>3.2.3</b> Lists, tuples and dictionaries in Python</a></li>
+<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.2.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.3</b> Allison random notes</a>
+<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.3</b> Data structures</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.3.1</b> Converting between classes</a></li>
+<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.3.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.3.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.3.2</b> Tibbles</a></li>
+<li class="chapter" data-level="3.3.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.3.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.3.4</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.4</b> Allison random notes</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.4.1</b> Converting between classes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="tidydata.html"><a href="tidydata.html"><i class="fa fa-check"></i><b>4</b> Tidy data</a>
@@ -182,18 +214,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.1" data-path="tidydata.html"><a href="tidydata.html#untidy-example-1-a-single-variable-across-multiple-columns"><i class="fa fa-check"></i><b>4.1.1</b> Untidy example 1: A single variable across multiple columns</a></li>
 <li class="chapter" data-level="4.1.2" data-path="tidydata.html"><a href="tidydata.html#untidy-example-2-multiple-values-in-a-single-cell"><i class="fa fa-check"></i><b>4.1.2</b> Untidy example 2: multiple values in a single cell</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-input"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable input</a></li>
+<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-inputs"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable inputs</a></li>
 <li class="chapter" data-level="4.3" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-easier-analysis"><i class="fa fa-check"></i><b>4.3</b> Tidy data for easier analysis</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="tidydata.html"><a href="tidydata.html#code-working-for-you"><i class="fa fa-check"></i><b>4.3.1</b> Code working for you</a></li>
-<li class="chapter" data-level="4.3.2" data-path="tidydata.html"><a href="tidydata.html#parse-explore"><i class="fa fa-check"></i><b>4.3.2</b> Parse &amp; explore</a></li>
-<li class="chapter" data-level="4.3.3" data-path="tidydata.html"><a href="tidydata.html#safer-summary-statistics"><i class="fa fa-check"></i><b>4.3.3</b> Safer summary statistics</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for collaboration</a></li>
+<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-skills-transfer-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for skills transfer &amp; collaboration</a></li>
+<li class="chapter" data-level="4.5" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-automation-repetition"><i class="fa fa-check"></i><b>4.5</b> Tidy data for automation &amp; repetition</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a></li>
+<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subsetting-data"><i class="fa fa-check"></i><b>5.1</b> Subsetting data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subset-rows-based-on-conditions"><i class="fa fa-check"></i><b>5.1.1</b> Subset rows based on conditions</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#keep-omit-relocate-and-rename-columns-variables"><i class="fa fa-check"></i><b>5.1.2</b> Keep, omit, relocate, and rename columns (variables)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#joining-data"><i class="fa fa-check"></i><b>5.2</b> Joining data</a></li>
+<li class="chapter" data-level="5.3" data-path="basic-wrangling.html"><a href="basic-wrangling.html#reshaping-data"><i class="fa fa-check"></i><b>5.3</b> Reshaping data</a></li>
+<li class="chapter" data-level="5.4" data-path="basic-wrangling.html"><a href="basic-wrangling.html#working-with-strings"><i class="fa fa-check"></i><b>5.4</b> Working with strings</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="logicals.html"><a href="logicals.html"><i class="fa fa-check"></i><b>6</b> Logical operators</a></li>
-<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a></li>
+<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="conditionals.html"><a href="conditionals.html#if-else-statements"><i class="fa fa-check"></i><b>7.1</b> if else statements</a></li>
+<li class="chapter" data-level="7.2" data-path="conditionals.html"><a href="conditionals.html#if-else-if-else-statements"><i class="fa fa-check"></i><b>7.2</b> if else if else statements</a></li>
+<li class="chapter" data-level="7.3" data-path="conditionals.html"><a href="conditionals.html#while-statements"><i class="fa fa-check"></i><b>7.3</b> while statements</a></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>8</b> Iteration</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="iteration.html"><a href="iteration.html#iteration-in-programming"><i class="fa fa-check"></i><b>8.1</b> Iteration in programming</a>
@@ -230,15 +276,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.7" data-path="functions.html"><a href="functions.html#iterating-functions"><i class="fa fa-check"></i><b>9.7</b> Iterating functions</a></li>
 <li class="chapter" data-level="9.8" data-path="functions.html"><a href="functions.html#resources-on-building-testing-documenting-functions"><i class="fa fa-check"></i><b>9.8</b> Resources on building, testing, &amp; documenting functions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a></li>
-<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="12" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>12</b> Py-R differences</a>
+<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a>
 <ul>
-<li class="chapter" data-level="12.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>12.0.1</b> Overarching things</a></li>
-<li class="chapter" data-level="12.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>12.0.2</b> Strings differences:</a></li>
-<li class="chapter" data-level="12.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>12.0.3</b> Number sequences:</a></li>
+<li class="chapter" data-level="10.1" data-path="wrangling.html"><a href="wrangling.html#meet-the-tidyverse-and-pandas"><i class="fa fa-check"></i><b>10.1</b> Meet the tidyverse and pandas</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="wrangling.html"><a href="wrangling.html#r-wrangling-dplyr-tidyr-packages-in-the-tidyverse"><i class="fa fa-check"></i><b>10.1.1</b> R wrangling: <code>dplyr</code> &amp; <code>tidyr</code> packages in the tidyverse</a></li>
+<li class="chapter" data-level="10.1.2" data-path="wrangling.html"><a href="wrangling.html#python-wrangling-the-pandas-library"><i class="fa fa-check"></i><b>10.1.2</b> Python wrangling: the <code>pandas</code> library</a></li>
 </ul></li>
+<li class="chapter" data-level="10.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns"><i class="fa fa-check"></i><b>10.2</b> Selecting columns</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="wrangling.html"><a href="wrangling.html#dplyrselect"><i class="fa fa-check"></i><b>10.2.1</b> <code>dplyr::select()</code></a></li>
+<li class="chapter" data-level="10.2.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns-in-python"><i class="fa fa-check"></i><b>10.2.2</b> Selecting columns in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-based-on-conditions"><i class="fa fa-check"></i><b>10.3</b> Subsetting rows based on conditions</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="wrangling.html"><a href="wrangling.html#dplyrfilter"><i class="fa fa-check"></i><b>10.3.1</b> <code>dplyr::filter()</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-in-python"><i class="fa fa-check"></i><b>10.3.2</b> Subsetting rows in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="wrangling.html"><a href="wrangling.html#adding-columns"><i class="fa fa-check"></i><b>10.4</b> Adding columns</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="wrangling.html"><a href="wrangling.html#dplyrmutate"><i class="fa fa-check"></i><b>10.4.1</b> <code>dplyr::mutate()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="wrangling.html"><a href="wrangling.html#finding-grouped-statistics"><i class="fa fa-check"></i><b>10.5</b> Finding grouped statistics</a></li>
+<li class="chapter" data-level="10.6" data-path="wrangling.html"><a href="wrangling.html#joining-data-1"><i class="fa fa-check"></i><b>10.6</b> Joining data</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
+<li class="chapter" data-level="12" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html"><i class="fa fa-check"></i><b>12</b> Data visualization with <code>ggplot2</code> and <code>seaborn</code></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>12.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="12.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#basic-anatomy-of-graphs-with-ggplot2-in-r-and-seaborn-in-python"><i class="fa fa-check"></i><b>12.2</b> Basic anatomy of graphs with <code>ggplot2</code> in R, and <code>seaborn</code> in Python</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#ggplot2-bare-minimum"><i class="fa fa-check"></i><b>12.2.1</b> <code>ggplot2</code> bare minimum</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#seaborn-bare-minimum"><i class="fa fa-check"></i><b>12.2.2</b> <code>seaborn</code> bare minimum</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapping-variables-onto-graph-aesthetics"><i class="fa fa-check"></i><b>12.3</b> Mapping variables onto graph aesthetics</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapped-variable-aesthetics-in-ggplot2"><i class="fa fa-check"></i><b>12.3.1</b> Mapped variable aesthetics in <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#essential-customization"><i class="fa fa-check"></i><b>12.4</b> Essential customization</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>13</b> Py-R differences</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>13.0.1</b> Overarching things</a></li>
+<li class="chapter" data-level="13.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>13.0.2</b> Strings differences:</a></li>
+<li class="chapter" data-level="13.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>13.0.3</b> Number sequences:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -302,30 +385,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">8.3.0.1</span> Example: A vector of very good dogs</h4>
 <p>Here’s our scenario: starting with a vector of dog names “Teddy,” “Khora,” and “Waffle,” write a for loop that returns the statement “[dog name here] is a very good dog!”</p>
 <p><strong>In R:</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="iteration.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the vector of names:</span></span>
-<span id="cb3-2"><a href="iteration.html#cb3-2" aria-hidden="true" tabindex="-1"></a>dog_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Teddy&quot;</span>, <span class="st">&quot;Khora&quot;</span>, <span class="st">&quot;Waffle&quot;</span>)</span>
-<span id="cb3-3"><a href="iteration.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="iteration.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the loop:</span></span>
-<span id="cb3-5"><a href="iteration.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> dog_names) {</span>
-<span id="cb3-6"><a href="iteration.html#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(i, <span class="st">&quot;is a very good dog!&quot;</span>))</span>
-<span id="cb3-7"><a href="iteration.html#cb3-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="iteration.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the vector of names:</span></span>
+<span id="cb10-2"><a href="iteration.html#cb10-2" aria-hidden="true" tabindex="-1"></a>dog_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Teddy&quot;</span>, <span class="st">&quot;Khora&quot;</span>, <span class="st">&quot;Waffle&quot;</span>)</span>
+<span id="cb10-3"><a href="iteration.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="iteration.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the loop:</span></span>
+<span id="cb10-5"><a href="iteration.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> dog_names) {</span>
+<span id="cb10-6"><a href="iteration.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(i, <span class="st">&quot;is a very good dog!&quot;</span>))</span>
+<span id="cb10-7"><a href="iteration.html#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Teddy is a very good dog!&quot;
 ## [1] &quot;Khora is a very good dog!&quot;
 ## [1] &quot;Waffle is a very good dog!&quot;</code></pre>
 <p><strong>In Python:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="iteration.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the vector of names:</span></span>
-<span id="cb5-2"><a href="iteration.html#cb5-2" aria-hidden="true" tabindex="-1"></a>dog_names <span class="op">=</span> [<span class="st">&#39;Teddy&#39;</span>, <span class="st">&#39;Khora&#39;</span>, <span class="st">&#39;Waffle&#39;</span>]</span>
-<span id="cb5-3"><a href="iteration.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="iteration.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the for loop:</span></span>
-<span id="cb5-5"><a href="iteration.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> dog_names:</span>
-<span id="cb5-6"><a href="iteration.html#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i <span class="op">+</span> <span class="st">&quot; is a very good dog!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="iteration.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the vector of names:</span></span>
+<span id="cb12-2"><a href="iteration.html#cb12-2" aria-hidden="true" tabindex="-1"></a>dog_names <span class="op">=</span> [<span class="st">&#39;Teddy&#39;</span>, <span class="st">&#39;Khora&#39;</span>, <span class="st">&#39;Waffle&#39;</span>]</span>
+<span id="cb12-3"><a href="iteration.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="iteration.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the for loop:</span></span>
+<span id="cb12-5"><a href="iteration.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> dog_names:</span>
+<span id="cb12-6"><a href="iteration.html#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i <span class="op">+</span> <span class="st">&quot; is a very good dog!&quot;</span>)</span></code></pre></div>
 <pre><code>## Teddy is a very good dog!
 ## Khora is a very good dog!
 ## Waffle is a very good dog!</code></pre>
 <p>Note that there’s nothing special about <code>i</code> here - that’s just an identifier for “each element in this vector.” It can be whatever object name you want, but make sure you’re referring to the correct thing later on in the loop body. For example, that code could have been written in R as:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="iteration.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (treats <span class="cf">in</span> dog_names) {</span>
-<span id="cb7-2"><a href="iteration.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(treats, <span class="st">&quot;is a very good dog!&quot;</span>))</span>
-<span id="cb7-3"><a href="iteration.html#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="iteration.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (treats <span class="cf">in</span> dog_names) {</span>
+<span id="cb14-2"><a href="iteration.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(treats, <span class="st">&quot;is a very good dog!&quot;</span>))</span>
+<span id="cb14-3"><a href="iteration.html#cb14-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="example-hypotenuses" class="section level4" number="8.3.0.2">
 <h4><span class="header-section-number">8.3.0.2</span> Example: Hypotenuses!</h4>
@@ -333,14 +416,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Recall the Pythagorean theorem:</p>
 <p><span class="math display">\[a^2 + b^2 = c^2\]</span></p>
 <p><strong>In R:</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="iteration.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector of values: </span></span>
-<span id="cb8-2"><a href="iteration.html#cb8-2" aria-hidden="true" tabindex="-1"></a>triangle_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
-<span id="cb8-3"><a href="iteration.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="iteration.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the loop to calculate the hypotenuses: </span></span>
-<span id="cb8-5"><a href="iteration.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(triangle_sides) <span class="sc">-</span> <span class="dv">1</span>)) {</span>
-<span id="cb8-6"><a href="iteration.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="ot">=</span> <span class="fu">sqrt</span>(triangle_sides[i]<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> triangle_sides[i <span class="sc">+</span> <span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb8-7"><a href="iteration.html#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(hypotenuse)</span>
-<span id="cb8-8"><a href="iteration.html#cb8-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="iteration.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector of values: </span></span>
+<span id="cb15-2"><a href="iteration.html#cb15-2" aria-hidden="true" tabindex="-1"></a>triangle_sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb15-3"><a href="iteration.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="iteration.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the loop to calculate the hypotenuses: </span></span>
+<span id="cb15-5"><a href="iteration.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(triangle_sides) <span class="sc">-</span> <span class="dv">1</span>)) {</span>
+<span id="cb15-6"><a href="iteration.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="ot">=</span> <span class="fu">sqrt</span>(triangle_sides[i]<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> triangle_sides[i <span class="sc">+</span> <span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb15-7"><a href="iteration.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(hypotenuse)</span>
+<span id="cb15-8"><a href="iteration.html#cb15-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 3.605551
 ## [1] 5
 ## [1] 6.403124
@@ -349,27 +432,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>In Python:</strong></p>
 <p>Recall: Python indexing starts at ZERO (i.e., the first element in a vector is referenced with <code>vec[0]</code>), and the syntax for raising something to a power is <code>**</code> (e.g. <code>x**2</code>).</p>
 <p><strong>A weird one:</strong> the <code>range()</code> function in Python “…returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops <strong>before</strong> a specified number.” So to create a sequence 0, 1, 2, 3, in Python you can use <code>range(4)</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="iteration.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import math library (sqrt() function is not native in Python):</span></span>
-<span id="cb10-2"><a href="iteration.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb10-3"><a href="iteration.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="iteration.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector of values:</span></span>
-<span id="cb10-5"><a href="iteration.html#cb10-5" aria-hidden="true" tabindex="-1"></a>triangle_sides <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>]</span>
-<span id="cb10-6"><a href="iteration.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="iteration.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the loop to calculate the hypotenuses: </span></span>
-<span id="cb10-8"><a href="iteration.html#cb10-8" aria-hidden="true" tabindex="-1"></a>index_no <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(triangle_sides) <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb10-9"><a href="iteration.html#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="iteration.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> index_no:</span>
-<span id="cb10-11"><a href="iteration.html#cb10-11" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="op">=</span> math.sqrt(triangle_sides[i]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> triangle_sides[i <span class="op">+</span> <span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb10-12"><a href="iteration.html#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(hypotenuse)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="iteration.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import math library (sqrt() function is not native in Python):</span></span>
+<span id="cb17-2"><a href="iteration.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb17-3"><a href="iteration.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="iteration.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector of values:</span></span>
+<span id="cb17-5"><a href="iteration.html#cb17-5" aria-hidden="true" tabindex="-1"></a>triangle_sides <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>]</span>
+<span id="cb17-6"><a href="iteration.html#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="iteration.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the loop to calculate the hypotenuses: </span></span>
+<span id="cb17-8"><a href="iteration.html#cb17-8" aria-hidden="true" tabindex="-1"></a>index_no <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(triangle_sides) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb17-9"><a href="iteration.html#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="iteration.html#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> index_no:</span>
+<span id="cb17-11"><a href="iteration.html#cb17-11" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="op">=</span> math.sqrt(triangle_sides[i]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> triangle_sides[i <span class="op">+</span> <span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb17-12"><a href="iteration.html#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(hypotenuse)</span></code></pre></div>
 <pre><code>## 3.605551275463989
 ## 5.0
 ## 6.4031242374328485
 ## 7.810249675906654
 ## 9.219544457292887</code></pre>
 <p>What does that <code>index_no</code> vector contain? It’s a sequence starting at 0 and increasing by 1 (the default increment) to a value below <code>len(triangle_sides) - 1</code>. Since the length of the <code>triangle_sides</code> vector is 6, that value is 5…and the vector continues to the value before the end value in <code>range()</code>. Frankly, it seems very weird to me, but that’s what it’s doing.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="iteration.html#cb12-1" aria-hidden="true" tabindex="-1"></a>demo_vec <span class="op">=</span> <span class="bu">range</span>(<span class="dv">4</span>)</span>
-<span id="cb12-2"><a href="iteration.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> demo_vec:</span>
-<span id="cb12-3"><a href="iteration.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="iteration.html#cb19-1" aria-hidden="true" tabindex="-1"></a>demo_vec <span class="op">=</span> <span class="bu">range</span>(<span class="dv">4</span>)</span>
+<span id="cb19-2"><a href="iteration.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> demo_vec:</span>
+<span id="cb19-3"><a href="iteration.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code></pre></div>
 <pre><code>## 0
 ## 1
 ## 2
@@ -388,33 +471,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Given our vector of 3 pets below, write a for loop that returns “kibble” if it is a dog, but “alfalfa” if it is a horse.</p>
 <p>The pets are: <code>dog, horse, dog</code></p>
 <p><strong>In R:</strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="iteration.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector of pets:</span></span>
-<span id="cb14-2"><a href="iteration.html#cb14-2" aria-hidden="true" tabindex="-1"></a>pet_type <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dog&quot;</span>, <span class="st">&quot;horse&quot;</span>, <span class="st">&quot;dog&quot;</span>)</span>
-<span id="cb14-3"><a href="iteration.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="iteration.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the for loop: </span></span>
-<span id="cb14-5"><a href="iteration.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> pet_type) {</span>
-<span id="cb14-6"><a href="iteration.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-7"><a href="iteration.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">==</span> <span class="st">&quot;dog&quot;</span>) {</span>
-<span id="cb14-8"><a href="iteration.html#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;kibble&quot;</span>)</span>
-<span id="cb14-9"><a href="iteration.html#cb14-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-10"><a href="iteration.html#cb14-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-11"><a href="iteration.html#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
-<span id="cb14-12"><a href="iteration.html#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;alfalfa&quot;</span>)</span>
-<span id="cb14-13"><a href="iteration.html#cb14-13" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-14"><a href="iteration.html#cb14-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="iteration.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector of pets:</span></span>
+<span id="cb21-2"><a href="iteration.html#cb21-2" aria-hidden="true" tabindex="-1"></a>pet_type <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dog&quot;</span>, <span class="st">&quot;horse&quot;</span>, <span class="st">&quot;dog&quot;</span>)</span>
+<span id="cb21-3"><a href="iteration.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="iteration.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the for loop: </span></span>
+<span id="cb21-5"><a href="iteration.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> pet_type) {</span>
+<span id="cb21-6"><a href="iteration.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-7"><a href="iteration.html#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">==</span> <span class="st">&quot;dog&quot;</span>) {</span>
+<span id="cb21-8"><a href="iteration.html#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;kibble&quot;</span>)</span>
+<span id="cb21-9"><a href="iteration.html#cb21-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-10"><a href="iteration.html#cb21-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-11"><a href="iteration.html#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb21-12"><a href="iteration.html#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;alfalfa&quot;</span>)</span>
+<span id="cb21-13"><a href="iteration.html#cb21-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-14"><a href="iteration.html#cb21-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;kibble&quot;
 ## [1] &quot;alfalfa&quot;
 ## [1] &quot;kibble&quot;</code></pre>
 <p><strong>In Python:</strong></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="iteration.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector of pets:</span></span>
-<span id="cb16-2"><a href="iteration.html#cb16-2" aria-hidden="true" tabindex="-1"></a>pet_type <span class="op">=</span> [<span class="st">&#39;dog&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;dog&#39;</span>]</span>
-<span id="cb16-3"><a href="iteration.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="iteration.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the for loop: </span></span>
-<span id="cb16-5"><a href="iteration.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> pet_type:</span>
-<span id="cb16-6"><a href="iteration.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">==</span> <span class="st">&#39;dog&#39;</span>:</span>
-<span id="cb16-7"><a href="iteration.html#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;kibble&quot;</span>)</span>
-<span id="cb16-8"><a href="iteration.html#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb16-9"><a href="iteration.html#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;alfalfa&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="iteration.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector of pets:</span></span>
+<span id="cb23-2"><a href="iteration.html#cb23-2" aria-hidden="true" tabindex="-1"></a>pet_type <span class="op">=</span> [<span class="st">&#39;dog&#39;</span>, <span class="st">&#39;horse&#39;</span>, <span class="st">&#39;dog&#39;</span>]</span>
+<span id="cb23-3"><a href="iteration.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="iteration.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the for loop: </span></span>
+<span id="cb23-5"><a href="iteration.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> pet_type:</span>
+<span id="cb23-6"><a href="iteration.html#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">==</span> <span class="st">&#39;dog&#39;</span>:</span>
+<span id="cb23-7"><a href="iteration.html#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;kibble&quot;</span>)</span>
+<span id="cb23-8"><a href="iteration.html#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb23-9"><a href="iteration.html#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;alfalfa&quot;</span>)</span></code></pre></div>
 <pre><code>## kibble
 ## alfalfa
 ## kibble</code></pre>
@@ -423,41 +506,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">8.4.0.2</span> Example: Bins</h4>
 <p>For a vector of values (<code>2, 6, 1, 18</code>), if the value is four or less 5, return “low,” if the value is great than four and less than 12, return “moderate,” and if the value is greater than or equal to 12 return “high.”</p>
 <p><strong>In R:</strong></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="iteration.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector: </span></span>
-<span id="cb18-2"><a href="iteration.html#cb18-2" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">18</span>)</span>
-<span id="cb18-3"><a href="iteration.html#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="iteration.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the loop with conditions: </span></span>
-<span id="cb18-5"><a href="iteration.html#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="iteration.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> numbers) {</span>
-<span id="cb18-7"><a href="iteration.html#cb18-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-8"><a href="iteration.html#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">&lt;=</span> <span class="dv">4</span>) {</span>
-<span id="cb18-9"><a href="iteration.html#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;low&quot;</span>)</span>
-<span id="cb18-10"><a href="iteration.html#cb18-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb18-11"><a href="iteration.html#cb18-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-12"><a href="iteration.html#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> i <span class="sc">&lt;</span> <span class="dv">12</span>) {</span>
-<span id="cb18-13"><a href="iteration.html#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;moderate&quot;</span>)</span>
-<span id="cb18-14"><a href="iteration.html#cb18-14" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb18-15"><a href="iteration.html#cb18-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-16"><a href="iteration.html#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
-<span id="cb18-17"><a href="iteration.html#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;high&quot;</span>)</span>
-<span id="cb18-18"><a href="iteration.html#cb18-18" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb18-19"><a href="iteration.html#cb18-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-20"><a href="iteration.html#cb18-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="iteration.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the vector: </span></span>
+<span id="cb25-2"><a href="iteration.html#cb25-2" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">18</span>)</span>
+<span id="cb25-3"><a href="iteration.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="iteration.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run it through the loop with conditions: </span></span>
+<span id="cb25-5"><a href="iteration.html#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="iteration.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> numbers) {</span>
+<span id="cb25-7"><a href="iteration.html#cb25-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-8"><a href="iteration.html#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">&lt;=</span> <span class="dv">4</span>) {</span>
+<span id="cb25-9"><a href="iteration.html#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;low&quot;</span>)</span>
+<span id="cb25-10"><a href="iteration.html#cb25-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-11"><a href="iteration.html#cb25-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-12"><a href="iteration.html#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> (i <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> i <span class="sc">&lt;</span> <span class="dv">12</span>) {</span>
+<span id="cb25-13"><a href="iteration.html#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;moderate&quot;</span>)</span>
+<span id="cb25-14"><a href="iteration.html#cb25-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-15"><a href="iteration.html#cb25-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-16"><a href="iteration.html#cb25-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb25-17"><a href="iteration.html#cb25-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;high&quot;</span>)</span>
+<span id="cb25-18"><a href="iteration.html#cb25-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-19"><a href="iteration.html#cb25-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-20"><a href="iteration.html#cb25-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;low&quot;
 ## [1] &quot;moderate&quot;
 ## [1] &quot;low&quot;
 ## [1] &quot;high&quot;</code></pre>
 <p><strong>In Python:</strong></p>
 <p>Note that we use <code>elif</code> for the <em>else-if</em> statement in the body.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="iteration.html#cb20-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">18</span>]</span>
-<span id="cb20-2"><a href="iteration.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="iteration.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> r.numbers:</span>
-<span id="cb20-4"><a href="iteration.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&lt;=</span> <span class="dv">4</span>:</span>
-<span id="cb20-5"><a href="iteration.html#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;low&quot;</span>)</span>
-<span id="cb20-6"><a href="iteration.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> <span class="dv">12</span> <span class="op">&gt;</span> i <span class="op">&gt;=</span> <span class="dv">4</span>:</span>
-<span id="cb20-7"><a href="iteration.html#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;moderate&quot;</span>)</span>
-<span id="cb20-8"><a href="iteration.html#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb20-9"><a href="iteration.html#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;high&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="iteration.html#cb27-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">18</span>]</span>
+<span id="cb27-2"><a href="iteration.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="iteration.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> r.numbers:</span>
+<span id="cb27-4"><a href="iteration.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&lt;=</span> <span class="dv">4</span>:</span>
+<span id="cb27-5"><a href="iteration.html#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;low&quot;</span>)</span>
+<span id="cb27-6"><a href="iteration.html#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> <span class="dv">12</span> <span class="op">&gt;</span> i <span class="op">&gt;=</span> <span class="dv">4</span>:</span>
+<span id="cb27-7"><a href="iteration.html#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;moderate&quot;</span>)</span>
+<span id="cb27-8"><a href="iteration.html#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb27-9"><a href="iteration.html#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;high&quot;</span>)</span></code></pre></div>
 <pre><code>## low
 ## moderate
 ## low
@@ -468,25 +551,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.5</span> While loop</h2>
 <p>A <em>while loop</em> will execute a command (or set of commands) as long as a condition is true. Once the condition is <em>not true</em>, the loop is exited.</p>
 <p><strong>While loop in R:</strong></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="iteration.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initiate </span></span>
-<span id="cb22-2"><a href="iteration.html#cb22-2" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb22-3"><a href="iteration.html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="iteration.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a while loop that exits once i is NOT less than 5</span></span>
-<span id="cb22-5"><a href="iteration.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;</span> <span class="dv">5</span>) {</span>
-<span id="cb22-6"><a href="iteration.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb22-7"><a href="iteration.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">=</span> i <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-8"><a href="iteration.html#cb22-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="iteration.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initiate </span></span>
+<span id="cb29-2"><a href="iteration.html#cb29-2" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb29-3"><a href="iteration.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="iteration.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a while loop that exits once i is NOT less than 5</span></span>
+<span id="cb29-5"><a href="iteration.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;</span> <span class="dv">5</span>) {</span>
+<span id="cb29-6"><a href="iteration.html#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb29-7"><a href="iteration.html#cb29-7" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">=</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb29-8"><a href="iteration.html#cb29-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 0
 ## [1] 1
 ## [1] 2
 ## [1] 3
 ## [1] 4</code></pre>
 <p><strong>While loop in Python:</strong></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="iteration.html#cb24-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb24-2"><a href="iteration.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="iteration.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb24-4"><a href="iteration.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
-<span id="cb24-5"><a href="iteration.html#cb24-5" aria-hidden="true" tabindex="-1"></a>  i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="iteration.html#cb31-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb31-2"><a href="iteration.html#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="iteration.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb31-4"><a href="iteration.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
+<span id="cb31-5"><a href="iteration.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>## 0
 ## 1
 ## 2
@@ -591,6 +674,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

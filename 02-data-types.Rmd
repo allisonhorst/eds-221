@@ -1,51 +1,132 @@
-# Data types and structures {#types}
+# Data representation, types and structures in R & Python {#types}
 
-How we work with data depends largely on the *type* and *structure* of data we're working with. That's more than just "is this a number or letters?" We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we're correctly predicting how data will change based on what we do with it. 
+How we work with data depends largely on the *type* and *structure* of data we're working with. That's more than just "is this a number or letters?" We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we're correctly predicting how data will change based on what we do with it.
 
-In this chapter, we'll learn about different types and structures of data, and some essentials of creating and working with them.
+In this chapter, we'll learn about how data is represented, different types and structures of data, and some essentials of creating and working with them.
+
+## Data representation
+
+Data representation is how data is stored and processed by a computer. In this section, we'll learn some basics of bits and bytes. Usually when working with data you won't even need to think about this - but when you need to, you'll want to have some basic understanding of how it works.
+
+**Terms:**
+
+-   **data representation:** how data is stored and processed by a computer
+
+-   **bit:** the smallest unit of data - a single digit with value 0 or 1
+
+-   **byte:** a group of bits (usually 8) to represent a value
+
+### Bits. Bytes. Battlestar Galactica.
+
+Really more appropriate for EDS 221 *Bits. Bytes. Binary data.* - all terms essential for understanding how data is stored and understood by computers.
+
+#### Recap: the decimal system
+
+We're used to thinking of numbers in a decimal system. For example, the number 247 has a 7 in the ones place (10^0^), a 4 in the tens place (10^1^), and a 2 in the hundreds place (10^2^). This value is therefore 7×10^0^ + 4×10^1^ + 2×10^2^ = 247.
+
+#### Binary values
+
+If we only have two numbers to work with - zero and one - how can we represent values? We'll use the *binary* system, where each digit (either a one or zero) - usually called a *bit* (for **Bi**nary digi**T**)- is multiplied by 2 raised to a power, depending on the position (where the right-most digit is 2^0^). A bit (a single digit having a value of either zero or one) is the smallest possible unit of data to a computer, and sometimes called an "atom" of data.
+
+For example, let's say we have a number in binary represented as `1101`. The actual value of that number is 1×2^3^ + 1×2^2^ + 0×2^1^ + 1×2^0^ = 13. That means that the *largest* value that can be represented by four binary digits (four bits) is `1111`, which is 1×2^3^ + 1×2^2^ + 1×2^1^ + 1×2^0^ = 15.
+
+**Understanding check:** What values do the following represent?
+
+-   `0010` =
+
+-   `0110` =
+
+-   `1001` =
+
+**Question:** What is the largest numeric value we could represent with 8 digits (8-bits = 1 byte!), using binary?
+
+`1111 1111` = 1×2^7^ + 1×2^6^ + 1×2^5^ + 1×2^4^ + 1×2^3^ + 1×2^2^ + 1×2^1^ + 1×2^0^ = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
+
+...and to represent larger values, we would need more bits. For example, you will usually hear 32-bit or 64-bit operating systems and CPUs (4 or 8 byte, respectively), indicating size of chunks of memory that the processor can handle.
+
+**Understanding check**:
+
+-   How would you represent the value 803 in binary?
+
+-   How would you represent the value 48 in binary?
+
+So we have an idea of how *values* are stored using only 0s and 1s. But there are many other types of data - text, images, maps, sound, etc. Given that data must be stored as 0s and 1s, how are those represented?
+
+### Representing non-integer and negative values
+
+TODO
+
+### How are characters stored?
+
+Characters are also represented with binary, but are associated with a known key that converts them to the correct letter or symbol. There are established keys to help us out, like ASCII (American Standard Code for Information Interchange), Unicode, and UTF-8 (Unicode Transformation Format).
+
+Think of these as different menus to connect bytes to the characters they represent - dependent on what you're trying to do, a different menu may be a better option. For example, ASCII only encodes English letters and a small set of symbols, so for programmers creating content in different languages or with less common symbols, a different character menu might be a better choice.
+
+Let's just consider one: ASCII. In ASCII, here are some decimal values of different capital letters:
+
+| Character | Decimal Value |
+|-----------|---------------|
+| A         | 65            |
+| B         | 66            |
+| C         | 67            |
+| D         | 68            |
+| E         | 69            |
+| F         | 70            |
+| G         | 71            |
+| H         | 72            |
+| I         | 73            |
+| J         | 74            |
+
+So, the word CAB is `67 65 66` in ASCII. Converted to binary, that is: `0100 0011` `0100 0001` `0100 0010` .
+
+**Understanding check:** Decipher the following word (ASCII code) written in binary:
+
+`0100 0010` `0100 0101` `0100 0001` `0100 0011` `0100 1000`
+
+Check your answer here using this ASCII to binary converter! [RapidTables text to binary converter](https://www.rapidtables.com/convert/number/ascii-to-binary.html).
 
 ## Data types
 
-There are more types of data, but we'll focus on four: strings, logicals, integers, and doubles. Throughout the rest of the MEDS program you may use others, but they are uncommon in environmental data science. In this section we'll learn the common types of elements, then what they become once combined. 
+There are more types of data, but we'll focus on four: strings, logicals, integers, and doubles. Throughout the rest of the MEDS program you may use others, but they are uncommon in environmental data science. In this section we'll learn the common types of elements, then what they become once combined.
 
 ### Types of data elements
 
-When I say "elements" here, I mean single units of information. Like a single number, or identifier, or name. Like `12`, or `north` or `site_12a`. Here's some language to help distinguish those types of elements: 
+When I say "elements" here, I mean single units of information. Like a single number, or identifier, or name. Like `12`, or `north` or `site_12a`. Here's some language to help distinguish those types of elements:
 
-- **strings:** (also called: character string) elements that contain letters or symbols (anything non-numeric), or numbers that have been coerced to be understood as strings, like `"MEDS"`, `"Bren School"`, `"plot 17"`, and `"19.4"`. Note that the quotations around the last one is what makes it understood as a string, instead of a number.
+-   **strings:** (also called: character string) elements that contain letters or symbols (anything non-numeric), or numbers that have been coerced to be understood as strings, like `"MEDS"`, `"Bren School"`, `"plot 17"`, and `"19.4"`. Note that the quotations around the last one is what makes it understood as a string, instead of a number.
 
-- **logicals / booleans:** elements that indicate `TRUE` or `FALSE`. In R, the string `TRUE` / `1` are recognized as TRUE, and `FALSE` / `0` are recognized as FALSE. In Python, these are called logicals or booleans, and `True` / `1` are recognized as TRUE, and `False` / `0` are recognized as FALSE. 
+-   **logicals / booleans:** elements that indicate `TRUE` or `FALSE`. In R, the string `TRUE` / `1` are recognized as TRUE, and `FALSE` / `0` are recognized as FALSE. In Python, these are called logicals or booleans, and `True` / `1` are recognized as TRUE, and `False` / `0` are recognized as FALSE.
 
-- **integers:** whole numbers (no decimal places), like `10`, `-65`, and `249`. In R, these are specified with a whole number followed immediately by `L`, e.g. `12L`
+-   **integers:** whole numbers (no decimal places), like `10`, `-65`, and `249`. In R, these are specified with a whole number followed immediately by `L`, e.g. `12L`
 
-- **doubles / float:** numbers that can have decimal places, like `1.275`, `10.5`, and `0.068`. Double allows for twice the precision of a float. For very small or very large numbers, this designation might be important - or just err on the side of doubles. 
+-   **doubles / float:** numbers that can have decimal places, like `1.275`, `10.5`, and `0.068`. Double allows for twice the precision of a float. For very small or very large numbers, this designation might be important - or just err on the side of doubles.
 
 ### Atomic vectors in R
 
 Combining elements creates a vector (in R), similar to a list or single-dimensional array (often used in R and Python). We'll learn later on that *lists* are vectors that can contain different data types.
 
-Given our common element types, what type of atomic vector is the outcome of their combination? 
+Given our common element types, what type of atomic vector is the outcome of their combination?
 
-In R, there are four (common) types of atomic vectors: character (contains strings), logical (contains only logicals), and numeric (doubles and integers). Since the entire atomic vector can only be *one* of these, what is the hierarchy that determines the output vector type? See the schematic from [Section 3.2 in Advanced R](https://adv-r.hadley.nz/vectors-chap.html#atomic-vectors), which visualizes: 
+In R, there are four (common) types of atomic vectors: character (contains strings), logical (contains only logicals), and numeric (doubles and integers). Since the entire atomic vector can only be *one* of these, what is the hierarchy that determines the output vector type? See the schematic from [Section 3.2 in Advanced R](https://adv-r.hadley.nz/vectors-chap.html#atomic-vectors), which visualizes:
 
-- A vector consisting of any combination of integers and doubles will be *numeric*
-- A vector consisting of all strings, or any combination of strings and numeric values, will be *character*
-- A vector with logicals and numeric values will be *numeric*
-- A vector with logicals and strings will be *character*
+-   A vector consisting of any combination of integers and doubles will be *numeric*
+-   A vector consisting of all strings, or any combination of strings and numeric values, will be *character*
+-   A vector with logicals and numeric values will be *numeric*
+-   A vector with logicals and strings will be *character*
 
 #### Try it out
 
 In R, we create a vector using `c()`, and return the class of an object using `class()`. For example, in the Console entering `class(c(1, 2, "cat"))` will return `character`.
 
-Similarly, find the class of the following vectors: 
+Similarly, find the class of the following vectors:
 
-- `c(3, TRUE, "Teddy")`
-- `c(5L, 10.6, 281L)`
-- `c("blue", "purple", 4.9)`
-- `c(0.91, 0.36, 0.64, "missing")`
-- `c("small", "medium", FALSE, "medium")`
+-   `c(3, TRUE, "Teddy")`
+-   `c(5L, 10.6, 281L)`
+-   `c("blue", "purple", 4.9)`
+-   `c(0.91, 0.36, 0.64, "missing")`
+-   `c("small", "medium", FALSE, "medium")`
 
-OK but what if you **do** want to create a sequence of elements that maintain different types? Then you'll need a list, which you can create using the `list()` function: 
+OK but what if you **do** want to create a sequence of elements that maintain different types? Then you'll need a list, which you can create using the `list()` function:
 
 `taco_price <- list(1, 2.5, "free")`
 
@@ -53,46 +134,82 @@ Notice in that example we *assign* the list to a name, `taco_price`, using `<-`.
 
 For more information, read [Chapter 3 in Advanced R](https://adv-r.hadley.nz/vectors-chap.html) by Hadley Wickham
 
-### In Python
+### Lists, tuples and dictionaries in Python
 
-In the Python interpreter (Terminal > `python` to start), type `help()` to bring up the help documentation. From the list, you'll see that `TYPES` is an option. Check it out for lots of useful information. Here's a short version: 
+In the Python interpreter (Terminal \> `python` to start), type `help()` to bring up the help documentation. From the list, you'll see that `TYPES` is an option. Check it out for lots of useful information. Here's a short version:
 
-- **list:** a sequence of elements that you **can** reassign, made with square brackets and elements separated by commas (e.g. `vec = ["one", 'angry', "moose"]`), or `vec = [4, 10, "banana"]`. Note that strings can be created using either double or single quotes.
+-   **list:** a sequence of elements that you **can** reassign, made with square brackets and elements separated by commas (e.g. `vec = ["one", 'angry', "moose"]`), or `vec = [4, 10, "banana"]`. Note that strings can be created using either double or single quotes.
 
-An example of list creation and reassignment in Python: 
+An example of list creation and reassignment in Python:
+
+    my_list = [1, 5, 8] # Create the list
+
+    my_list[1] = 9 # Changes the second element to value 9
+
+    my_list # See that the list is now [1, 9, 8]
+
+The ability to change a list directly means that it is a **mutable** object. Some objects (like lists in Python) are mutable, while others (like tuples, introduced below) are not.
+
+-   **tuple:** a sequence of elements that you *can't* reassign (i.e. they are **immutable**), made with parentheses and elements separated by commas (e.g. `my_tuple = (1, 2, 10)`).
+
+What does it mean that elements in a tuple *cannot* be reassigned? Try running the following and see what happens:
+
+    my_tuple = (19, 45, 218)
+
+    my_tuple[2] = 63
+    # TypeError: 'tuple' object does not support item assignment
+
+-   **dictionary:** an unordered collection of key-value pairs
+
+A **dictionary** is created with squiggly brackets (`{}`), definining elements separated by commas, each containing a key (name of an element that you can refer to later) and a value associated with it.
+
+For example:
+
+```{python}
+
+# Create the dictionary: 
+dog_weights = {'Khora':56, 'Teddy':49, 'Waffle':22}
+
+# Return the dictionary:
+print(dog_weights) 
 
 ```
-my_list = [1, 5, 8] # Create the list
 
-my_list[1] = 9 # Changes the second element to value 9
+How can we access information from a dictionary?
+
+Since it's *unordered*, you can't use numeric indexing to access a specific element. For example, we might expect to use `dog_weights[0]` to access Khora's weight (remember - Python uses zero-index!). But when we try that...
+
+```{python, eval = FALSE}
+dog_weights[0]
 ```
 
+...an error is returned.
 
-- **tuple:** a sequence of elements that you *can't* reassign, made with parentheses and elements separated by commas (e.g. `my_tuple = (1, 2, 10)`). 
+Instead, to pull out a specific element from a dictionary, we will use the key (in this case, the dog names). For example:
 
-What does it mean that elements in a tuple *cannot* be reassigned? Try running the following and see what happens: 
-
-```
-my_tuple = (19, 45, 218)
-
-my_tuple[2] = 63
-# TypeError: 'tuple' object does not support item assignment
+```{python}
+dog_weights['Khora']
 ```
 
-- **dictionary:** a sequence of elements...
+Can you make something like a dictionary in R? The closest is to create a list where each element has a name. For example:
 
-Some of these will be more clear once we get started working with them, and we'll also learn more along the way. 
+```{r}
+dog_food <- list(Khora = "bacon", Teddy = "chicken", Waffle = "pizza")
+
+# Then return the value for Waffle:
+dog_food['Waffle']
+```
 
 ### Side-by-side comparison of data types in R & Python
 
-- integer (both): numbers without decimals (whole numbers)
-- float (both): numbers with decimals
-- string / character
-- Boolean / logical
-- Lists / dictionaries (Py)?
-- tuples v. lists v. vectors
+-   integer (both): numbers without decimals (whole numbers)
+-   float (both): numbers with decimals
+-   string / character
+-   Boolean / logical
+-   Lists / dictionaries (Py)?
+-   tuples v. lists v. vectors
 
-See: https://r4ds.had.co.nz/vectors.html
+See: <https://r4ds.had.co.nz/vectors.html>
 
 ## Data structures
 
@@ -104,21 +221,19 @@ See: https://r4ds.had.co.nz/vectors.html
 
 ### Lists
 
-
-
-
 ## Allison random notes
 
 See Lubanovic Ch. 2 for Python info
 
-- Use `=` to assign values in Py, more often `<-` to assign in R
-- Store some simple values in the Py interpreter (Terminal)
+-   Use `=` to assign values in Py, more often `<-` to assign in R
 
-- Add a basic operators section? Only difference of meaningful note is ^ versus ** (Py exponential)
+-   Store some simple values in the Py interpreter (Terminal)
+
+-   Add a basic operators section? Only difference of meaningful note is \^ versus \*\* (Py exponential)
 
 ### Converting between classes
 
 Python:
 
-- Numeric to boolean: `bool()` anything non-zero is TRUE, anything 0 (or "False") is FALSE
-- Numeric or boolean to integer: `int()` (lops off end, doesn't round)
+-   Numeric to boolean: `bool()` anything non-zero is TRUE, anything 0 (or "False") is FALSE
+-   Numeric or boolean to integer: `int()` (lops off end, doesn't round)

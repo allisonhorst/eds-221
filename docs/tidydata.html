@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Tidy data | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS</title>
   <meta name="description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Tidy data | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="types.html"/>
 <link rel="next" href="basic-wrangling.html"/>
-<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -154,25 +180,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.1" data-path="r-py.html"><a href="r-py.html#py-stuff-to-add-here-or-somewhere"><i class="fa fa-check"></i><b>2.5.1</b> Py stuff to add here or somewhere:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data types and structures</a>
+<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data representation, types and structures in R &amp; Python</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data types</a>
+<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-representation"><i class="fa fa-check"></i><b>3.1</b> Data representation</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.1.1</b> Types of data elements</a></li>
-<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.1.2</b> Atomic vectors in R</a></li>
-<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#in-python"><i class="fa fa-check"></i><b>3.1.3</b> In Python</a></li>
-<li class="chapter" data-level="3.1.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.1.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
+<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#bits.-bytes.-battlestar-galactica."><i class="fa fa-check"></i><b>3.1.1</b> Bits. Bytes. Battlestar Galactica.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#representing-non-integer-and-negative-values"><i class="fa fa-check"></i><b>3.1.2</b> Representing non-integer and negative values</a></li>
+<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#how-are-characters-stored"><i class="fa fa-check"></i><b>3.1.3</b> How are characters stored?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data structures</a>
+<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.2</b> Data types</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.2.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.2.2</b> Tibbles</a></li>
-<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.2.3</b> Matrices</a></li>
-<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.2.4</b> Lists</a></li>
+<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.2.1</b> Types of data elements</a></li>
+<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.2.2</b> Atomic vectors in R</a></li>
+<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#lists-tuples-and-dictionaries-in-python"><i class="fa fa-check"></i><b>3.2.3</b> Lists, tuples and dictionaries in Python</a></li>
+<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.2.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.3</b> Allison random notes</a>
+<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.3</b> Data structures</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.3.1</b> Converting between classes</a></li>
+<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.3.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.3.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.3.2</b> Tibbles</a></li>
+<li class="chapter" data-level="3.3.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.3.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.3.4</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.4</b> Allison random notes</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.4.1</b> Converting between classes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="tidydata.html"><a href="tidydata.html"><i class="fa fa-check"></i><b>4</b> Tidy data</a>
@@ -182,18 +214,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.1" data-path="tidydata.html"><a href="tidydata.html#untidy-example-1-a-single-variable-across-multiple-columns"><i class="fa fa-check"></i><b>4.1.1</b> Untidy example 1: A single variable across multiple columns</a></li>
 <li class="chapter" data-level="4.1.2" data-path="tidydata.html"><a href="tidydata.html#untidy-example-2-multiple-values-in-a-single-cell"><i class="fa fa-check"></i><b>4.1.2</b> Untidy example 2: multiple values in a single cell</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-input"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable input</a></li>
+<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-inputs"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable inputs</a></li>
 <li class="chapter" data-level="4.3" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-easier-analysis"><i class="fa fa-check"></i><b>4.3</b> Tidy data for easier analysis</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="tidydata.html"><a href="tidydata.html#code-working-for-you"><i class="fa fa-check"></i><b>4.3.1</b> Code working for you</a></li>
-<li class="chapter" data-level="4.3.2" data-path="tidydata.html"><a href="tidydata.html#parse-explore"><i class="fa fa-check"></i><b>4.3.2</b> Parse &amp; explore</a></li>
-<li class="chapter" data-level="4.3.3" data-path="tidydata.html"><a href="tidydata.html#safer-summary-statistics"><i class="fa fa-check"></i><b>4.3.3</b> Safer summary statistics</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for collaboration</a></li>
+<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-skills-transfer-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for skills transfer &amp; collaboration</a></li>
+<li class="chapter" data-level="4.5" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-automation-repetition"><i class="fa fa-check"></i><b>4.5</b> Tidy data for automation &amp; repetition</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a></li>
+<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subsetting-data"><i class="fa fa-check"></i><b>5.1</b> Subsetting data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subset-rows-based-on-conditions"><i class="fa fa-check"></i><b>5.1.1</b> Subset rows based on conditions</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#keep-omit-relocate-and-rename-columns-variables"><i class="fa fa-check"></i><b>5.1.2</b> Keep, omit, relocate, and rename columns (variables)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#joining-data"><i class="fa fa-check"></i><b>5.2</b> Joining data</a></li>
+<li class="chapter" data-level="5.3" data-path="basic-wrangling.html"><a href="basic-wrangling.html#reshaping-data"><i class="fa fa-check"></i><b>5.3</b> Reshaping data</a></li>
+<li class="chapter" data-level="5.4" data-path="basic-wrangling.html"><a href="basic-wrangling.html#working-with-strings"><i class="fa fa-check"></i><b>5.4</b> Working with strings</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="logicals.html"><a href="logicals.html"><i class="fa fa-check"></i><b>6</b> Logical operators</a></li>
-<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a></li>
+<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="conditionals.html"><a href="conditionals.html#if-else-statements"><i class="fa fa-check"></i><b>7.1</b> if else statements</a></li>
+<li class="chapter" data-level="7.2" data-path="conditionals.html"><a href="conditionals.html#if-else-if-else-statements"><i class="fa fa-check"></i><b>7.2</b> if else if else statements</a></li>
+<li class="chapter" data-level="7.3" data-path="conditionals.html"><a href="conditionals.html#while-statements"><i class="fa fa-check"></i><b>7.3</b> while statements</a></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>8</b> Iteration</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="iteration.html"><a href="iteration.html#iteration-in-programming"><i class="fa fa-check"></i><b>8.1</b> Iteration in programming</a>
@@ -230,15 +276,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.7" data-path="functions.html"><a href="functions.html#iterating-functions"><i class="fa fa-check"></i><b>9.7</b> Iterating functions</a></li>
 <li class="chapter" data-level="9.8" data-path="functions.html"><a href="functions.html#resources-on-building-testing-documenting-functions"><i class="fa fa-check"></i><b>9.8</b> Resources on building, testing, &amp; documenting functions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a></li>
-<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="12" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>12</b> Py-R differences</a>
+<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a>
 <ul>
-<li class="chapter" data-level="12.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>12.0.1</b> Overarching things</a></li>
-<li class="chapter" data-level="12.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>12.0.2</b> Strings differences:</a></li>
-<li class="chapter" data-level="12.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>12.0.3</b> Number sequences:</a></li>
+<li class="chapter" data-level="10.1" data-path="wrangling.html"><a href="wrangling.html#meet-the-tidyverse-and-pandas"><i class="fa fa-check"></i><b>10.1</b> Meet the tidyverse and pandas</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="wrangling.html"><a href="wrangling.html#r-wrangling-dplyr-tidyr-packages-in-the-tidyverse"><i class="fa fa-check"></i><b>10.1.1</b> R wrangling: <code>dplyr</code> &amp; <code>tidyr</code> packages in the tidyverse</a></li>
+<li class="chapter" data-level="10.1.2" data-path="wrangling.html"><a href="wrangling.html#python-wrangling-the-pandas-library"><i class="fa fa-check"></i><b>10.1.2</b> Python wrangling: the <code>pandas</code> library</a></li>
 </ul></li>
+<li class="chapter" data-level="10.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns"><i class="fa fa-check"></i><b>10.2</b> Selecting columns</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="wrangling.html"><a href="wrangling.html#dplyrselect"><i class="fa fa-check"></i><b>10.2.1</b> <code>dplyr::select()</code></a></li>
+<li class="chapter" data-level="10.2.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns-in-python"><i class="fa fa-check"></i><b>10.2.2</b> Selecting columns in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-based-on-conditions"><i class="fa fa-check"></i><b>10.3</b> Subsetting rows based on conditions</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="wrangling.html"><a href="wrangling.html#dplyrfilter"><i class="fa fa-check"></i><b>10.3.1</b> <code>dplyr::filter()</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-in-python"><i class="fa fa-check"></i><b>10.3.2</b> Subsetting rows in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="wrangling.html"><a href="wrangling.html#adding-columns"><i class="fa fa-check"></i><b>10.4</b> Adding columns</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="wrangling.html"><a href="wrangling.html#dplyrmutate"><i class="fa fa-check"></i><b>10.4.1</b> <code>dplyr::mutate()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="wrangling.html"><a href="wrangling.html#finding-grouped-statistics"><i class="fa fa-check"></i><b>10.5</b> Finding grouped statistics</a></li>
+<li class="chapter" data-level="10.6" data-path="wrangling.html"><a href="wrangling.html#joining-data-1"><i class="fa fa-check"></i><b>10.6</b> Joining data</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
+<li class="chapter" data-level="12" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html"><i class="fa fa-check"></i><b>12</b> Data visualization with <code>ggplot2</code> and <code>seaborn</code></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>12.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="12.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#basic-anatomy-of-graphs-with-ggplot2-in-r-and-seaborn-in-python"><i class="fa fa-check"></i><b>12.2</b> Basic anatomy of graphs with <code>ggplot2</code> in R, and <code>seaborn</code> in Python</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#ggplot2-bare-minimum"><i class="fa fa-check"></i><b>12.2.1</b> <code>ggplot2</code> bare minimum</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#seaborn-bare-minimum"><i class="fa fa-check"></i><b>12.2.2</b> <code>seaborn</code> bare minimum</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapping-variables-onto-graph-aesthetics"><i class="fa fa-check"></i><b>12.3</b> Mapping variables onto graph aesthetics</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapped-variable-aesthetics-in-ggplot2"><i class="fa fa-check"></i><b>12.3.1</b> Mapped variable aesthetics in <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#essential-customization"><i class="fa fa-check"></i><b>12.4</b> Essential customization</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>13</b> Py-R differences</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>13.0.1</b> Overarching things</a></li>
+<li class="chapter" data-level="13.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>13.0.2</b> Strings differences:</a></li>
+<li class="chapter" data-level="13.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>13.0.3</b> Number sequences:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -261,8 +344,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="tidydata" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Tidy data</h1>
-<p><strong>Note:</strong> all artwork in this chapter are from an illustrated collaborative <a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/">Openscapes blog post</a> by Dr. Julia Lowndes and Dr. Allison Horst <span class="citation">(<a href="py-r.html#ref-lowndes_tidy_2020" role="doc-biblioref">Lowndes and Horst 2020</a>)</span>, and many of the ideas here are building upon the main points in that post.</p>
-<p>Tidy data is a predictable way to organize data that makes it more coder and collaborator friendly. As described by Hadley Wickham, <strong>in <em>tidy data</em> each column is a variable, each row is an observation, and each cell contains a single value (measurement)</strong> <span class="citation">(<a href="py-r.html#ref-wickham_tidy_2014" role="doc-biblioref">Wickham 2014</a>)</span>.</p>
+<p><strong>Note:</strong> all artwork in this chapter are from an illustrated collaborative <a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/">Openscapes blog post</a> by Dr. Julia Lowndes and Dr. Allison Horst <span class="citation">(<a href="#ref-lowndes_tidy_2020" role="doc-biblioref">Lowndes and Horst 2020</a>)</span>, and many of the ideas here are building upon the main points in that post.</p>
+<p>Tidy data is a predictable way to organize data that makes it more coder and collaborator friendly. As described by Hadley Wickham, <strong>in <em>tidy data</em> each column is a variable, each row is an observation, and each cell contains a single value (measurement)</strong> <span class="citation">(<a href="#ref-wickham_tidy_2014" role="doc-biblioref">Wickham 2014</a>)</span>.</p>
 <p><img src="images/tidydata_1.jpg" title="Tidy data #1" width="600" /></p>
 <p>This may seem like a mundane topic, but tidy data provides a way of thinking about and organizing data that will become fundamental to how you input, wrangling, and work with environmental data - it becomes part of a systematic approach to working with data that <strong>will make you a better data scientist and collaborator</strong>.</p>
 <div id="common-ways-data-are-untidy" class="section level2" number="4.1">
@@ -273,7 +356,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>One of the most common ways that data can be untidy is if a single variable is broken up by group across multiple columns. For example, the following data contains the weights of three dogs, measured over four years:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-3">Table 4.1: </span>Dog weight (pounds) in untidy format, where a single variable (weight) is spread out across different levels of the year variable.
+<span id="tab:unnamed-chunk-7">Table 4.1: </span>Dog weight (pounds) in untidy format, where a single variable (weight) is spread out across different levels of the year variable.
 </caption>
 <thead>
 <tr>
@@ -357,7 +440,7 @@ To be in tidy data, each variable (<strong>dog</strong>, <strong>weight</strong>
 Later on, we’ll hear how to reshape data from wide-to-long format (e.g. using <code>tidyr::pivot_longer()</code> in R), but for now think about the tidy format of the same data, shown below:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-4">Table 4.2: </span>Dog weight (pounds) in tidy format, where each variable is in its own column.
+<span id="tab:unnamed-chunk-8">Table 4.2: </span>Dog weight (pounds) in tidy format, where each variable is in its own column.
 </caption>
 <thead>
 <tr>
@@ -514,7 +597,7 @@ Waffle
 <p>Sometimes raw data will contain multiple values in a single cell. For example, here we see that the make, model and year of cars are all in a single column called <strong>type</strong>:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-5">Table 4.3: </span>Car descriptions in untidy format.
+<span id="tab:unnamed-chunk-9">Table 4.3: </span>Car descriptions in untidy format.
 </caption>
 <thead>
 <tr>
@@ -571,7 +654,7 @@ In the future, you’ll learn how to separate components of a single column into
 </p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-6">Table 4.4: </span>Car descriptions in tidy format.
+<span id="tab:unnamed-chunk-10">Table 4.4: </span>Car descriptions in tidy format.
 </caption>
 <thead>
 <tr>
@@ -650,7 +733,7 @@ excellent
 <p>Occasionally, you will see environmental data where information for <em>multiple observations are stored in a single row</em>. For example, this is common when research divers are estimating numbers of a certain species within different size bins. For example, a dive record may contain information like this:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-7">Table 4.5: </span>Spiny lobster counts by size.
+<span id="tab:unnamed-chunk-11">Table 4.5: </span>Spiny lobster counts by size.
 </caption>
 <thead>
 <tr>
@@ -821,16 +904,17 @@ spiny lobster
 <p>Now, each individual lobster occupies its own row, and the data are in tidy format.</p>
 </div>
 </div>
-<div id="tidy-data-for-predictable-input" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Tidy data for predictable input</h2>
+<div id="tidy-data-for-predictable-inputs" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Tidy data for predictable inputs</h2>
 <p>Tidy data structure will become so ingrained into your brain over the next year that you’ll almost forget a universe when you didn’t automatically strive to create tidy data. Estimates for the fraction of a data scientist’s time spent wrangling and cleaning data (rather than analyzing / modeling / gaining valuable insights from data) ranges from ~45 - 80%. That should make us especially inspired to create the data we hope to see in the world. In other words, on the data collection end of data science we should strive to input data in an organized, predictable format (e.g. as tidy data), and as cleanly as possible (i.e. consistent, machine-friendly values).<br />
 </p>
 <blockquote>
 <p><strong>Question:</strong> Are there times when tidy data structure is <em>not</em> the best format?</p>
 <p><strong>Answer:</strong> Yup. There are very few “rules” in data science, and there will certainly be exceptions.</p>
 </blockquote>
-<p>Tidy data gives us a predictable, organized data structure to strive for (unless we have good reason not to). Collecting data in tidy format from the get-go can reduce the time spent data wrangling / reshaping, and increase the time we can spend gaining insights to help solve environmental problems.</p>
-<p>An evergreen paper to learn about data organization - in spreadsheets, and anywhere else - is <a href="https://www-tandfonline-com.proxy.library.ucsb.edu:9443/doi/full/10.1080/00031305.2017.1375989"><em>Data organization in spreadsheets</em></a> by <span class="citation"><a href="py-r.html#ref-broman_data_2018" role="doc-biblioref">Broman and Woo</a> (<a href="py-r.html#ref-broman_data_2018" role="doc-biblioref">2018</a>)</span>. This is required reading for EDS 221, and beautifully highlights a number of other important considerations for data organization. I recommend you re-read it every year for the rest of your data science life.</p>
+<p>Tidy data gives us a predictable, organized data structure to strive for (unless we have good reason not to). Collecting data in tidy format from the get-go can reduce the time spent data wrangling / reshaping, and increase the time we can spend gaining insights to help solve environmental problems. And since all tidy data are similar in important ways, we can use similar tools in similar ways across different datasets, instead of hacking together new tools for each unique untidy dataset.</p>
+<p><img src="images/tidydata_2.jpg" width="601" /></p>
+<p>An evergreen paper to learn about data organization - in spreadsheets, and anywhere else - is <a href="https://www-tandfonline-com.proxy.library.ucsb.edu:9443/doi/full/10.1080/00031305.2017.1375989"><em>Data organization in spreadsheets</em></a> by <span class="citation"><a href="#ref-broman_data_2018" role="doc-biblioref">Broman and Woo</a> (<a href="#ref-broman_data_2018" role="doc-biblioref">2018</a>)</span>. This is required reading for EDS 221, and beautifully highlights a number of other important considerations for data organization. I recommend you re-read it every year for the rest of your data science life.</p>
 </div>
 <div id="tidy-data-for-easier-analysis" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Tidy data for easier analysis</h2>
@@ -844,83 +928,93 @@ What?<br />
 OK let’s break it down a bit, by considering the different ways we could tackle a summary statistics challenge.<br />
 <br />
 Here is our mock data for dog hiking mileage and duration:</p>
-<table style="width:42%;">
-<colgroup>
-<col width="15%" />
-<col width="15%" />
-<col width="11%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
 <th>name</th>
-<th>miles</th>
-<th>time</th>
+<th align="center">miles</th>
+<th align="center">time</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Teddy</td>
-<td>6.8</td>
-<td>35:02</td>
+<td align="center">6.8</td>
+<td align="center">35:02</td>
 </tr>
 <tr class="even">
 <td>Khora</td>
-<td>10.3</td>
-<td>61:47</td>
+<td align="center">10.3</td>
+<td align="center">61:47</td>
 </tr>
 <tr class="odd">
 <td>Teddy</td>
-<td>3.1</td>
-<td>15:28</td>
+<td align="center">3.1</td>
+<td align="center">15:28</td>
 </tr>
 <tr class="even">
 <td>Teddy</td>
-<td>12.0</td>
-<td>87:09</td>
-</tr>
-<tr class="odd">
-<td>Khora</td>
-<td>4.9</td>
-<td>20:56</td>
-</tr>
-<tr class="even">
-<td>Teddy</td>
-<td>8.5</td>
-<td>63:34</td>
+<td align="center">12.0</td>
+<td align="center">87:09</td>
 </tr>
 <tr class="odd">
 <td>Khora</td>
-<td>2.7</td>
-<td>12:01</td>
+<td align="center">4.9</td>
+<td align="center">20:56</td>
 </tr>
 <tr class="even">
 <td>Teddy</td>
-<td>5.9</td>
-<td>43:40</td>
+<td align="center">8.5</td>
+<td align="center">63:34</td>
+</tr>
+<tr class="odd">
+<td>Khora</td>
+<td align="center">2.7</td>
+<td align="center">12:01</td>
+</tr>
+<tr class="even">
+<td>Teddy</td>
+<td align="center">5.9</td>
+<td align="center">43:40</td>
 </tr>
 </tbody>
 </table>
-<p>If we want to calculate the mean miles for each dog, how might we go about doing that?</p>
-<p>We could manually create individual subsets for each dog (i.e., separate the two groups manually), then calculate the mean for each. That might not seem too bad for just two groups, but what if our data had 5 different dogs? Or 20 dogs? Or 1,000 dogs? Then creating and storing subsets manually before applying a function across all of them quickly becomes a big task.<br />
+<p>If we want to calculate the mean miles <em>for each dog</em>, how might we go about doing that?</p>
+<ol style="list-style-type: decimal">
+<li>We could manually create individual subsets for each dog (i.e., separate the two groups manually), then calculate the mean for each. That might not seem too bad for just two groups, but what if our data had 5 different dogs? Or 20 dogs? Or 1,000 dogs? Then creating and storing subsets manually before applying a function across all of them quickly becomes a big task.</li>
+<li><strong>Or instead</strong>, we could expect code exists that could automatically recognize then create groups within the <code>name</code> column, and apply a function to each group. The second is more efficient - instead of actually creating separate subsets from the data, we just have our code recognize groups automatically, then apply a function (or functions) to each group, without ever separating the data in the first place. For simplest execution, it does require that your group values (here, dog names) are in a single column, which is one reason why organizing data in tidy format is useful for more efficient coding.</li>
+</ol>
+<p>This isn’t just true for finding summary statistics by group. We’ll see that we can use groups within a variable to automatically facet graphs (present each group’s data in its own plot), e.g. with <code>facet_wrap()</code> for data visualization with <code>ggplot2</code>, along with other common use cases for grouping data.</p>
+</div>
+</div>
+<div id="tidy-data-for-skills-transfer-collaboration" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Tidy data for skills transfer &amp; collaboration</h2>
+<p>Because tidy datasets are fundamentally and predictably similar, it will make it easier for you and your collaborators to repurpose existing tools &amp; skills to work with new tidy data.<br />
 <br />
-<strong>Or instead</strong>, we could expect code exists that could automatically recognize then create groups within the <code>name</code> column, and apply a function to each group. The second is more efficient - instead of actually creating separate subsets from the data, we just have our code recognize groups automatically, then apply a function (or functions) to each group, without ever separating the data in the first place. For simplest execution, it does require that your group values (here, dog names) are in a single column, which is one reason why organizing data in tidy format is useful for more efficient coding.</p>
-</div>
-<div id="parse-explore" class="section level3" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Parse &amp; explore</h3>
-</div>
-<div id="safer-summary-statistics" class="section level3" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Safer summary statistics</h3>
-<p><img src="images/tidydata_2.jpg" width="601" /></p>
+In other words, the data will differ, but the structure will be similar enough that we shouldn’t feel like we need to reinvent the wheel every time we get a new tidy dataset.</p>
 <p><img src="images/tidydata_3.jpg" /></p>
-</div>
-</div>
-<div id="tidy-data-for-collaboration" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Tidy data for collaboration</h2>
+<p>Not only will tidy data allow you to use similar tools on different datasets, but it also allows <em>different people</em> to use similar tools on the same dataset.</p>
 <p><img src="images/tidydata_4.jpg" width="502" /></p>
+</div>
+<div id="tidy-data-for-automation-repetition" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Tidy data for automation &amp; repetition</h2>
+<p>The predictable and consistent structure of tidy data also helps to facilitate automation using pre-built workflows and algorithms. For example, you might imagine a report that needs to be updated annually as new data comes in. If the raw data are in the same structure as those analyzed and reported on for previous years, then you are more likely to be able to fully or partially reuse code from your previous analyses to prepare your new report.</p>
 <p><img src="images/tidydata_5.jpg" /></p>
-<p><img src="images/tidydata_6.jpg" /></p>
+<p>So think carefully about how you organize your data - whether you’re collecting raw data from the field, or trying to clean up data from an external source for easier, more collaborative, and more automated processing. Make the tidy data you hope to see in the world - you, future you, and all of your collaborators will thank you for it.</p>
 <p><img src="images/tidydata_7.jpg" /></p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-broman_data_2018" class="csl-entry">
+Broman, Karl W., and Kara H. Woo. 2018. <span>“Data <span>Organization</span> in <span>Spreadsheets</span>.”</span> <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.
+</div>
+<div id="ref-lowndes_tidy_2020" class="csl-entry">
+Lowndes, Julia S. Stewart, and Allison Horst. 2020. <span>“Tidy Data for Efficiency, Reproducibility and Collaboration.”</span> <em>Openscapes</em>. <a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/">https://www.openscapes.org/blog/2020/10/12/tidy-data/</a>.
+</div>
+<div id="ref-wickham_tidy_2014" class="csl-entry">
+———. 2014. <span>“Tidy <span>Data</span>.”</span> <em>Journal of Statistical Software</em> 59 (10). <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
 </div>
 </div>
             </section>
@@ -952,6 +1046,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

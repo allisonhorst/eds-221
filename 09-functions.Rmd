@@ -180,7 +180,58 @@ In the examples above, we change input values, but what the function *does* does
 
 Sometimes, we'll want our function to do something different (e.g. a different calculation, use a different constant value) based on the input values. 
 
+For example, let's consider the following (made up) scenario: jaguar shark growth follows a linear bimodal pattern. From the age of 0 to 8 years, shark length (meters) is predicted by $length = 0.41(age)+0.06$, where age is in years. When age is greater than 8 years, growth slows and is predicted by $length=0.09(age) + 2.65$
 
+```{r, echo = FALSE}
+young_shark_age <- seq(from = 0, to = 8, by = 0.5)
+young_shark_length <- young_shark_age * 0.41 + 0.06
+young_shark <- data.frame(young_shark_age, young_shark_length)
+
+old_shark_age <- seq(from = 8.1, to = 16.1, by = 0.5)
+old_shark_length <- old_shark_age * 0.09 + 2.65
+old_shark <- data.frame(old_shark_age, old_shark_length)
+
+
+ggplot(young_shark, aes(x = young_shark_age, y = young_shark_length)) +
+  geom_line(lty = 3) +
+  geom_line(data = old_shark, aes(x = old_shark_age, y = old_shark_length), lty = 8) +
+  theme_minimal() +
+  labs(x = "Shark age (years)",
+       y = "Shark length (meters)",
+       title = "Jaguar shark growth",
+       subtitle = "Modeled by Team Zissou")
+
+```
+
+Write a function that estimates mean shark length, based on age, using the two models shared above. 
+
+```{r, echo = TRUE}
+
+predict_sharklength <- function(age) {
+  
+  if (age <= 8)
+    shark_length = 0.41 * age + 0.06
+  
+  else 
+    shark_length = 0.09 * age + 2.65
+  
+  print(shark_length)
+  
+}
+
+```
+
+We can then use the function to estimate the expected shark length for any age, using the correct model:
+
+```{r, echo = TRUE}
+predict_sharklength(age = 4)
+```
+
+```{r, echo = TRUE}
+predict_sharklength(age = 11.6)
+```
+
+**Quick check:** For the example calculations above, do the predicted values align with the model visualization? Always do a quick check - even a back-of-the-envelope calculation or visual check can catch a programming mistake! 
 
 ## Functions with iteration
 

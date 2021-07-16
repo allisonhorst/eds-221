@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 12 Py-R differences | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS</title>
+  <title>Chapter 13 Py-R differences | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS</title>
   <meta name="description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 12 Py-R differences | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
+  <meta property="og:title" content="Chapter 13 Py-R differences | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 12 Py-R differences | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
+  <meta name="twitter:title" content="Chapter 13 Py-R differences | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
   
   <meta name="twitter:description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
   
@@ -30,9 +30,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="references.html"/>
-
-<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+<link rel="prev" href="data-visualization-with-ggplot2-and-seaborn.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -154,25 +180,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.1" data-path="r-py.html"><a href="r-py.html#py-stuff-to-add-here-or-somewhere"><i class="fa fa-check"></i><b>2.5.1</b> Py stuff to add here or somewhere:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data types and structures</a>
+<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data representation, types and structures in R &amp; Python</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data types</a>
+<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-representation"><i class="fa fa-check"></i><b>3.1</b> Data representation</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.1.1</b> Types of data elements</a></li>
-<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.1.2</b> Atomic vectors in R</a></li>
-<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#in-python"><i class="fa fa-check"></i><b>3.1.3</b> In Python</a></li>
-<li class="chapter" data-level="3.1.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.1.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
+<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#bits.-bytes.-battlestar-galactica."><i class="fa fa-check"></i><b>3.1.1</b> Bits. Bytes. Battlestar Galactica.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#representing-non-integer-and-negative-values"><i class="fa fa-check"></i><b>3.1.2</b> Representing non-integer and negative values</a></li>
+<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#how-are-characters-stored"><i class="fa fa-check"></i><b>3.1.3</b> How are characters stored?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data structures</a>
+<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.2</b> Data types</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.2.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.2.2</b> Tibbles</a></li>
-<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.2.3</b> Matrices</a></li>
-<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.2.4</b> Lists</a></li>
+<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.2.1</b> Types of data elements</a></li>
+<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.2.2</b> Atomic vectors in R</a></li>
+<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#lists-tuples-and-dictionaries-in-python"><i class="fa fa-check"></i><b>3.2.3</b> Lists, tuples and dictionaries in Python</a></li>
+<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.2.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.3</b> Allison random notes</a>
+<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.3</b> Data structures</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.3.1</b> Converting between classes</a></li>
+<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.3.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.3.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.3.2</b> Tibbles</a></li>
+<li class="chapter" data-level="3.3.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.3.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.3.4</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.4</b> Allison random notes</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.4.1</b> Converting between classes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="tidydata.html"><a href="tidydata.html"><i class="fa fa-check"></i><b>4</b> Tidy data</a>
@@ -182,18 +214,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.1" data-path="tidydata.html"><a href="tidydata.html#untidy-example-1-a-single-variable-across-multiple-columns"><i class="fa fa-check"></i><b>4.1.1</b> Untidy example 1: A single variable across multiple columns</a></li>
 <li class="chapter" data-level="4.1.2" data-path="tidydata.html"><a href="tidydata.html#untidy-example-2-multiple-values-in-a-single-cell"><i class="fa fa-check"></i><b>4.1.2</b> Untidy example 2: multiple values in a single cell</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-input"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable input</a></li>
+<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-inputs"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable inputs</a></li>
 <li class="chapter" data-level="4.3" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-easier-analysis"><i class="fa fa-check"></i><b>4.3</b> Tidy data for easier analysis</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="tidydata.html"><a href="tidydata.html#code-working-for-you"><i class="fa fa-check"></i><b>4.3.1</b> Code working for you</a></li>
-<li class="chapter" data-level="4.3.2" data-path="tidydata.html"><a href="tidydata.html#parse-explore"><i class="fa fa-check"></i><b>4.3.2</b> Parse &amp; explore</a></li>
-<li class="chapter" data-level="4.3.3" data-path="tidydata.html"><a href="tidydata.html#safer-summary-statistics"><i class="fa fa-check"></i><b>4.3.3</b> Safer summary statistics</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for collaboration</a></li>
+<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-skills-transfer-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for skills transfer &amp; collaboration</a></li>
+<li class="chapter" data-level="4.5" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-automation-repetition"><i class="fa fa-check"></i><b>4.5</b> Tidy data for automation &amp; repetition</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a></li>
+<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subsetting-data"><i class="fa fa-check"></i><b>5.1</b> Subsetting data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subset-rows-based-on-conditions"><i class="fa fa-check"></i><b>5.1.1</b> Subset rows based on conditions</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#keep-omit-relocate-and-rename-columns-variables"><i class="fa fa-check"></i><b>5.1.2</b> Keep, omit, relocate, and rename columns (variables)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#joining-data"><i class="fa fa-check"></i><b>5.2</b> Joining data</a></li>
+<li class="chapter" data-level="5.3" data-path="basic-wrangling.html"><a href="basic-wrangling.html#reshaping-data"><i class="fa fa-check"></i><b>5.3</b> Reshaping data</a></li>
+<li class="chapter" data-level="5.4" data-path="basic-wrangling.html"><a href="basic-wrangling.html#working-with-strings"><i class="fa fa-check"></i><b>5.4</b> Working with strings</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="logicals.html"><a href="logicals.html"><i class="fa fa-check"></i><b>6</b> Logical operators</a></li>
-<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a></li>
+<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="conditionals.html"><a href="conditionals.html#if-else-statements"><i class="fa fa-check"></i><b>7.1</b> if else statements</a></li>
+<li class="chapter" data-level="7.2" data-path="conditionals.html"><a href="conditionals.html#if-else-if-else-statements"><i class="fa fa-check"></i><b>7.2</b> if else if else statements</a></li>
+<li class="chapter" data-level="7.3" data-path="conditionals.html"><a href="conditionals.html#while-statements"><i class="fa fa-check"></i><b>7.3</b> while statements</a></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>8</b> Iteration</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="iteration.html"><a href="iteration.html#iteration-in-programming"><i class="fa fa-check"></i><b>8.1</b> Iteration in programming</a>
@@ -230,15 +276,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.7" data-path="functions.html"><a href="functions.html#iterating-functions"><i class="fa fa-check"></i><b>9.7</b> Iterating functions</a></li>
 <li class="chapter" data-level="9.8" data-path="functions.html"><a href="functions.html#resources-on-building-testing-documenting-functions"><i class="fa fa-check"></i><b>9.8</b> Resources on building, testing, &amp; documenting functions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a></li>
-<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="12" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>12</b> Py-R differences</a>
+<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a>
 <ul>
-<li class="chapter" data-level="12.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>12.0.1</b> Overarching things</a></li>
-<li class="chapter" data-level="12.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>12.0.2</b> Strings differences:</a></li>
-<li class="chapter" data-level="12.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>12.0.3</b> Number sequences:</a></li>
+<li class="chapter" data-level="10.1" data-path="wrangling.html"><a href="wrangling.html#meet-the-tidyverse-and-pandas"><i class="fa fa-check"></i><b>10.1</b> Meet the tidyverse and pandas</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="wrangling.html"><a href="wrangling.html#r-wrangling-dplyr-tidyr-packages-in-the-tidyverse"><i class="fa fa-check"></i><b>10.1.1</b> R wrangling: <code>dplyr</code> &amp; <code>tidyr</code> packages in the tidyverse</a></li>
+<li class="chapter" data-level="10.1.2" data-path="wrangling.html"><a href="wrangling.html#python-wrangling-the-pandas-library"><i class="fa fa-check"></i><b>10.1.2</b> Python wrangling: the <code>pandas</code> library</a></li>
 </ul></li>
+<li class="chapter" data-level="10.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns"><i class="fa fa-check"></i><b>10.2</b> Selecting columns</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="wrangling.html"><a href="wrangling.html#dplyrselect"><i class="fa fa-check"></i><b>10.2.1</b> <code>dplyr::select()</code></a></li>
+<li class="chapter" data-level="10.2.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns-in-python"><i class="fa fa-check"></i><b>10.2.2</b> Selecting columns in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-based-on-conditions"><i class="fa fa-check"></i><b>10.3</b> Subsetting rows based on conditions</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="wrangling.html"><a href="wrangling.html#dplyrfilter"><i class="fa fa-check"></i><b>10.3.1</b> <code>dplyr::filter()</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-in-python"><i class="fa fa-check"></i><b>10.3.2</b> Subsetting rows in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="wrangling.html"><a href="wrangling.html#adding-columns"><i class="fa fa-check"></i><b>10.4</b> Adding columns</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="wrangling.html"><a href="wrangling.html#dplyrmutate"><i class="fa fa-check"></i><b>10.4.1</b> <code>dplyr::mutate()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="wrangling.html"><a href="wrangling.html#finding-grouped-statistics"><i class="fa fa-check"></i><b>10.5</b> Finding grouped statistics</a></li>
+<li class="chapter" data-level="10.6" data-path="wrangling.html"><a href="wrangling.html#joining-data-1"><i class="fa fa-check"></i><b>10.6</b> Joining data</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
+<li class="chapter" data-level="12" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html"><i class="fa fa-check"></i><b>12</b> Data visualization with <code>ggplot2</code> and <code>seaborn</code></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>12.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="12.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#basic-anatomy-of-graphs-with-ggplot2-in-r-and-seaborn-in-python"><i class="fa fa-check"></i><b>12.2</b> Basic anatomy of graphs with <code>ggplot2</code> in R, and <code>seaborn</code> in Python</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#ggplot2-bare-minimum"><i class="fa fa-check"></i><b>12.2.1</b> <code>ggplot2</code> bare minimum</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#seaborn-bare-minimum"><i class="fa fa-check"></i><b>12.2.2</b> <code>seaborn</code> bare minimum</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapping-variables-onto-graph-aesthetics"><i class="fa fa-check"></i><b>12.3</b> Mapping variables onto graph aesthetics</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapped-variable-aesthetics-in-ggplot2"><i class="fa fa-check"></i><b>12.3.1</b> Mapped variable aesthetics in <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#essential-customization"><i class="fa fa-check"></i><b>12.4</b> Essential customization</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>13</b> Py-R differences</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>13.0.1</b> Overarching things</a></li>
+<li class="chapter" data-level="13.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>13.0.2</b> Strings differences:</a></li>
+<li class="chapter" data-level="13.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>13.0.3</b> Number sequences:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -259,10 +342,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="py-r" class="section level1" number="12">
-<h1><span class="header-section-number">Chapter 12</span> Py-R differences</h1>
-<div id="overarching-things" class="section level3" number="12.0.1">
-<h3><span class="header-section-number">12.0.1</span> Overarching things</h3>
+<div id="py-r" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Py-R differences</h1>
+<div id="overarching-things" class="section level3" number="13.0.1">
+<h3><span class="header-section-number">13.0.1</span> Overarching things</h3>
 <ul>
 <li>zero indexing in Py (versus 1-index in R)</li>
 <li>** instead of ^ for exponents</li>
@@ -270,8 +353,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>type() versus class()</li>
 </ul>
 </div>
-<div id="strings-differences" class="section level3" number="12.0.2">
-<h3><span class="header-section-number">12.0.2</span> Strings differences:</h3>
+<div id="strings-differences" class="section level3" number="13.0.2">
+<h3><span class="header-section-number">13.0.2</span> Strings differences:</h3>
 <ul>
 <li><code>+</code> to combine strings in Python</li>
 <li><code>*</code> to duplicate a string in Python (e.g. versus rep() in R)</li>
@@ -282,38 +365,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>f-string versus glue or paste?</li>
 </ul>
 </div>
-<div id="number-sequences" class="section level3" number="12.0.3">
-<h3><span class="header-section-number">12.0.3</span> Number sequences:</h3>
+<div id="number-sequences" class="section level3" number="13.0.3">
+<h3><span class="header-section-number">13.0.3</span> Number sequences:</h3>
 <ul>
 <li>range() versus seq()</li>
 </ul>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-broman_data_2018" class="csl-entry">
-Broman, Karl W., and Kara H. Woo. 2018. <span>“Data <span>Organization</span> in <span>Spreadsheets</span>.”</span> <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.
-</div>
-<div id="ref-coelingh_analysis_1998" class="csl-entry">
-Coelingh, J. P., A. J. M. van Wijk, and A. A. M. Holtslag. 1998. <span>“Analysis of Wind Speed Observations on the <span>North</span> <span>Sea</span> Coast.”</span> <em>Journal of Wind Engineering and Industrial Aerodynamics</em> 73 (2): 125–44. <a href="https://doi.org/10.1016/S0167-6105(97)00285-7">https://doi.org/10.1016/S0167-6105(97)00285-7</a>.
-</div>
-<div id="ref-lowndes_tidy_2020" class="csl-entry">
-Lowndes, Julia S. Stewart, and Allison Horst. 2020. <span>“Tidy Data for Efficiency, Reproducibility and Collaboration.”</span> <em>Openscapes</em>. <a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/">https://www.openscapes.org/blog/2020/10/12/tidy-data/</a>.
-</div>
-<div id="ref-lubanovic_introducing_2014" class="csl-entry">
-Lubanovic, Bill. 2014. <em>Introducing <span>Python</span>: Modern Computing in Simple Packages</em>. First edition. Sebastopol, CA: O’Reilly Media.
-</div>
-<div id="ref-peyton_lengthweight_2016" class="csl-entry">
-Peyton, K. A., T. S. Sakihara, L. K. Nishiura, T. T. Shindo, T. E. Shimoda, S. Hau, A. Akiona, and K. Lorance. 2016. <span>“Length–Weight Relationships for Common Juvenile Fishes and Prey Species in <span>Hawaiian</span> Estuaries.”</span> <em>Journal of Applied Ichthyology</em> 32 (3): 499–502. <a href="https://doi.org/10.1111/jai.12957">https://doi.org/10.1111/jai.12957</a>.
-</div>
-<div id="ref-wickham_tidy_2014" class="csl-entry">
-Wickham, Hadley. 2014. <span>“Tidy <span>Data</span>.”</span> <em>Journal of Statistical Software</em> 59 (10). <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
-</div>
-<div id="ref-wickham_advanced_2019" class="csl-entry">
-———. 2019. <em>Advanced <span>R</span></em>. 2nd ed. Chapman; Hall/CRC. <a href="https://doi.org/10.1201/9781351201315">https://doi.org/10.1201/9781351201315</a>.
-</div>
-<div id="ref-enwiki_1014039839" class="csl-entry">
-Wikipedia contributors. 2021. <span>“List of Programming Languages — <span>Wikipedia</span><span>,</span> the Free Encyclopedia.”</span> <a href="https://en.wikipedia.org/w/index.php?title=List_of_programming_languages&amp;oldid=1014039839">https://en.wikipedia.org/w/index.php?title=List_of_programming_languages&amp;oldid=1014039839</a>.
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -321,8 +378,8 @@ Wikipedia contributors. 2021. <span>“List of Programming Languages — <span>W
           </div>
         </div>
       </div>
-<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data-visualization-with-ggplot2-and-seaborn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -345,6 +402,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

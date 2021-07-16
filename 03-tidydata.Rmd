@@ -105,7 +105,7 @@ invert_counted %>%
 
 Now, each individual lobster occupies its own row, and the data are in tidy format.
 
-## Tidy data for predictable input
+## Tidy data for predictable inputs
 
 Tidy data structure will become so ingrained into your brain over the next year that you'll almost forget a universe when you didn't automatically strive to create tidy data. Estimates for the fraction of a data scientist's time spent wrangling and cleaning data (rather than analyzing / modeling / gaining valuable insights from data) ranges from \~45 - 80%. That should make us especially inspired to create the data we hope to see in the world. In other words, on the data collection end of data science we should strive to input data in an organized, predictable format (e.g. as tidy data), and as cleanly as possible (i.e. consistent, machine-friendly values).\
 
@@ -113,7 +113,9 @@ Tidy data structure will become so ingrained into your brain over the next year 
 >
 > **Answer:** Yup. There are very few "rules" in data science, and there will certainly be exceptions.
 
-Tidy data gives us a predictable, organized data structure to strive for (unless we have good reason not to). Collecting data in tidy format from the get-go can reduce the time spent data wrangling / reshaping, and increase the time we can spend gaining insights to help solve environmental problems.
+Tidy data gives us a predictable, organized data structure to strive for (unless we have good reason not to). Collecting data in tidy format from the get-go can reduce the time spent data wrangling / reshaping, and increase the time we can spend gaining insights to help solve environmental problems. And since all tidy data are similar in important ways, we can use similar tools in similar ways across different datasets, instead of hacking together new tools for each unique untidy dataset.
+
+![](images/tidydata_2.jpg){width="601"}
 
 An evergreen paper to learn about data organization - in spreadsheets, and anywhere else - is [*Data organization in spreadsheets*](https://www-tandfonline-com.proxy.library.ucsb.edu:9443/doi/full/10.1080/00031305.2017.1375989) by @broman_data_2018. This is required reading for EDS 221, and beautifully highlights a number of other important considerations for data organization. I recommend you re-read it every year for the rest of your data science life.
 
@@ -123,54 +125,50 @@ The process of creating tidy data is useful in an of itself, because it requires
 
 ### Code working for you
 
-One (of many) benefits of working with tidy data is that it can save you tedious and sometimes dangerous manual subsetting and calculations for different groups. That's because in most programming languages, there are functions that can recognize different groups existing withing a variable automatically, and you can then perform operations (e.g. to calculate means, create exploratory plots, etc.) by those auto-recognized groups. \
+One (of many) benefits of working with tidy data is that it can save you tedious and sometimes dangerous manual subsetting and calculations for different groups. That's because in most programming languages, there are functions that can recognize different groups existing withing a variable automatically, and you can then perform operations (e.g. to calculate means, create exploratory plots, etc.) by those auto-recognized groups.\
 \
-What? \
+What?\
 \
-OK let's break it down a bit, by considering the different ways we could tackle a summary statistics challenge. \
+OK let's break it down a bit, by considering the different ways we could tackle a summary statistics challenge.\
 \
 Here is our mock data for dog hiking mileage and duration:
 
-+----------+----------+-------+
-| name     | miles    | time  |
-+==========+==========+=======+
-| Teddy    | 6.8      | 35:02 |
-+----------+----------+-------+
-| Khora    | 10.3     | 61:47 |
-+----------+----------+-------+
-| Teddy    | 3.1      | 15:28 |
-+----------+----------+-------+
-| Teddy    | 12.0     | 87:09 |
-+----------+----------+-------+
-| Khora    | 4.9      | 20:56 |
-+----------+----------+-------+
-| Teddy    | 8.5      | 63:34 |
-+----------+----------+-------+
-| Khora    | 2.7      | 12:01 |
-+----------+----------+-------+
-| Teddy    | 5.9      | 43:40 |
-+----------+----------+-------+
+| name  | miles | time  |
+|-------|:-----:|:-----:|
+| Teddy |  6.8  | 35:02 |
+| Khora | 10.3  | 61:47 |
+| Teddy |  3.1  | 15:28 |
+| Teddy | 12.0  | 87:09 |
+| Khora |  4.9  | 20:56 |
+| Teddy |  8.5  | 63:34 |
+| Khora |  2.7  | 12:01 |
+| Teddy |  5.9  | 43:40 |
 
-If we want to calculate the mean miles for each dog, how might we go about doing that?
+If we want to calculate the mean miles *for each dog*, how might we go about doing that?
 
-We could manually create individual subsets for each dog (i.e., separate the two groups manually), then calculate the mean for each. That might not seem too bad for just two groups, but what if our data had 5 different dogs? Or 20 dogs? Or 1,000 dogs? Then creating and storing subsets manually before applying a function across all of them quickly becomes a big task.\
+1.  We could manually create individual subsets for each dog (i.e., separate the two groups manually), then calculate the mean for each. That might not seem too bad for just two groups, but what if our data had 5 different dogs? Or 20 dogs? Or 1,000 dogs? Then creating and storing subsets manually before applying a function across all of them quickly becomes a big task.
+2.  **Or instead**, we could expect code exists that could automatically recognize then create groups within the `name` column, and apply a function to each group. The second is more efficient - instead of actually creating separate subsets from the data, we just have our code recognize groups automatically, then apply a function (or functions) to each group, without ever separating the data in the first place. For simplest execution, it does require that your group values (here, dog names) are in a single column, which is one reason why organizing data in tidy format is useful for more efficient coding.
+
+This isn't just true for finding summary statistics by group. We'll see that we can use groups within a variable to automatically facet graphs (present each group's data in its own plot), e.g. with `facet_wrap()` for data visualization with `ggplot2`, along with other common use cases for grouping data.
+
+## Tidy data for skills transfer & collaboration
+
+Because tidy datasets are fundamentally and predictably similar, it will make it easier for you and your collaborators to repurpose existing tools & skills to work with new tidy data.\
 \
-**Or instead**, we could expect code exists that could automatically recognize then create groups within the `name` column, and apply a function to each group. The second is more efficient - instead of actually creating separate subsets from the data, we just have our code recognize groups automatically, then apply a function (or functions) to each group, without ever separating the data in the first place. For simplest execution, it does require that your group values (here, dog names) are in a single column, which is one reason why organizing data in tidy format is useful for more efficient coding.
-
-### Parse & explore
-
-### Safer summary statistics
-
-![](images/tidydata_2.jpg){width="601"}
+In other words, the data will differ, but the structure will be similar enough that we shouldn't feel like we need to reinvent the wheel every time we get a new tidy dataset.
 
 ![](images/tidydata_3.jpg)
 
-## Tidy data for collaboration
+Not only will tidy data allow you to use similar tools on different datasets, but it also allows *different people* to use similar tools on the same dataset.
 
 ![](images/tidydata_4.jpg){width="502"}
 
+## Tidy data for automation & repetition
+
+The predictable and consistent structure of tidy data also helps to facilitate automation using pre-built workflows and algorithms. For example, you might imagine a report that needs to be updated annually as new data comes in. If the raw data are in the same structure as those analyzed and reported on for previous years, then you are more likely to be able to fully or partially reuse code from your previous analyses to prepare your new report.
+
 ![](images/tidydata_5.jpg)
 
-![](images/tidydata_6.jpg)
+So think carefully about how you organize your data - whether you're collecting raw data from the field, or trying to clean up data from an external source for easier, more collaborative, and more automated processing. Make the tidy data you hope to see in the world - you, future you, and all of your collaborators will thank you for it.
 
 ![](images/tidydata_7.jpg)

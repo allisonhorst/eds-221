@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Data types and structures | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS</title>
+  <title>Chapter 3 Data representation, types and structures in R &amp; Python | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS</title>
   <meta name="description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Data types and structures | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
+  <meta property="og:title" content="Chapter 3 Data representation, types and structures in R &amp; Python | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Data types and structures | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
+  <meta name="twitter:title" content="Chapter 3 Data representation, types and structures in R &amp; Python | EDS 221: SCIENTIFIC PROGRAMMING ESSENTIALS" />
   
   <meta name="twitter:description" content="Evolving course materials for EDS 221 (Scientific Programming Essentials)." />
   
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="r-py.html"/>
 <link rel="next" href="tidydata.html"/>
-<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -154,25 +180,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.1" data-path="r-py.html"><a href="r-py.html#py-stuff-to-add-here-or-somewhere"><i class="fa fa-check"></i><b>2.5.1</b> Py stuff to add here or somewhere:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data types and structures</a>
+<li class="chapter" data-level="3" data-path="types.html"><a href="types.html"><i class="fa fa-check"></i><b>3</b> Data representation, types and structures in R &amp; Python</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data types</a>
+<li class="chapter" data-level="3.1" data-path="types.html"><a href="types.html#data-representation"><i class="fa fa-check"></i><b>3.1</b> Data representation</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.1.1</b> Types of data elements</a></li>
-<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.1.2</b> Atomic vectors in R</a></li>
-<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#in-python"><i class="fa fa-check"></i><b>3.1.3</b> In Python</a></li>
-<li class="chapter" data-level="3.1.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.1.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
+<li class="chapter" data-level="3.1.1" data-path="types.html"><a href="types.html#bits.-bytes.-battlestar-galactica."><i class="fa fa-check"></i><b>3.1.1</b> Bits. Bytes. Battlestar Galactica.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="types.html"><a href="types.html#representing-non-integer-and-negative-values"><i class="fa fa-check"></i><b>3.1.2</b> Representing non-integer and negative values</a></li>
+<li class="chapter" data-level="3.1.3" data-path="types.html"><a href="types.html#how-are-characters-stored"><i class="fa fa-check"></i><b>3.1.3</b> How are characters stored?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data structures</a>
+<li class="chapter" data-level="3.2" data-path="types.html"><a href="types.html#data-types"><i class="fa fa-check"></i><b>3.2</b> Data types</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.2.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.2.2</b> Tibbles</a></li>
-<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.2.3</b> Matrices</a></li>
-<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.2.4</b> Lists</a></li>
+<li class="chapter" data-level="3.2.1" data-path="types.html"><a href="types.html#types-of-data-elements"><i class="fa fa-check"></i><b>3.2.1</b> Types of data elements</a></li>
+<li class="chapter" data-level="3.2.2" data-path="types.html"><a href="types.html#atomic-vectors-in-r"><i class="fa fa-check"></i><b>3.2.2</b> Atomic vectors in R</a></li>
+<li class="chapter" data-level="3.2.3" data-path="types.html"><a href="types.html#lists-tuples-and-dictionaries-in-python"><i class="fa fa-check"></i><b>3.2.3</b> Lists, tuples and dictionaries in Python</a></li>
+<li class="chapter" data-level="3.2.4" data-path="types.html"><a href="types.html#side-by-side-comparison-of-data-types-in-r-python"><i class="fa fa-check"></i><b>3.2.4</b> Side-by-side comparison of data types in R &amp; Python</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.3</b> Allison random notes</a>
+<li class="chapter" data-level="3.3" data-path="types.html"><a href="types.html#data-structures"><i class="fa fa-check"></i><b>3.3</b> Data structures</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.3.1</b> Converting between classes</a></li>
+<li class="chapter" data-level="3.3.1" data-path="types.html"><a href="types.html#vectors"><i class="fa fa-check"></i><b>3.3.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.3.2" data-path="types.html"><a href="types.html#tibbles"><i class="fa fa-check"></i><b>3.3.2</b> Tibbles</a></li>
+<li class="chapter" data-level="3.3.3" data-path="types.html"><a href="types.html#matrices"><i class="fa fa-check"></i><b>3.3.3</b> Matrices</a></li>
+<li class="chapter" data-level="3.3.4" data-path="types.html"><a href="types.html#lists"><i class="fa fa-check"></i><b>3.3.4</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="types.html"><a href="types.html#allison-random-notes"><i class="fa fa-check"></i><b>3.4</b> Allison random notes</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="types.html"><a href="types.html#converting-between-classes"><i class="fa fa-check"></i><b>3.4.1</b> Converting between classes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="tidydata.html"><a href="tidydata.html"><i class="fa fa-check"></i><b>4</b> Tidy data</a>
@@ -182,18 +214,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.1" data-path="tidydata.html"><a href="tidydata.html#untidy-example-1-a-single-variable-across-multiple-columns"><i class="fa fa-check"></i><b>4.1.1</b> Untidy example 1: A single variable across multiple columns</a></li>
 <li class="chapter" data-level="4.1.2" data-path="tidydata.html"><a href="tidydata.html#untidy-example-2-multiple-values-in-a-single-cell"><i class="fa fa-check"></i><b>4.1.2</b> Untidy example 2: multiple values in a single cell</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-input"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable input</a></li>
+<li class="chapter" data-level="4.2" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-predictable-inputs"><i class="fa fa-check"></i><b>4.2</b> Tidy data for predictable inputs</a></li>
 <li class="chapter" data-level="4.3" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-easier-analysis"><i class="fa fa-check"></i><b>4.3</b> Tidy data for easier analysis</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="tidydata.html"><a href="tidydata.html#code-working-for-you"><i class="fa fa-check"></i><b>4.3.1</b> Code working for you</a></li>
-<li class="chapter" data-level="4.3.2" data-path="tidydata.html"><a href="tidydata.html#parse-explore"><i class="fa fa-check"></i><b>4.3.2</b> Parse &amp; explore</a></li>
-<li class="chapter" data-level="4.3.3" data-path="tidydata.html"><a href="tidydata.html#safer-summary-statistics"><i class="fa fa-check"></i><b>4.3.3</b> Safer summary statistics</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for collaboration</a></li>
+<li class="chapter" data-level="4.4" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-skills-transfer-collaboration"><i class="fa fa-check"></i><b>4.4</b> Tidy data for skills transfer &amp; collaboration</a></li>
+<li class="chapter" data-level="4.5" data-path="tidydata.html"><a href="tidydata.html#tidy-data-for-automation-repetition"><i class="fa fa-check"></i><b>4.5</b> Tidy data for automation &amp; repetition</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a></li>
+<li class="chapter" data-level="5" data-path="basic-wrangling.html"><a href="basic-wrangling.html"><i class="fa fa-check"></i><b>5</b> Basic wrangling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subsetting-data"><i class="fa fa-check"></i><b>5.1</b> Subsetting data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="basic-wrangling.html"><a href="basic-wrangling.html#subset-rows-based-on-conditions"><i class="fa fa-check"></i><b>5.1.1</b> Subset rows based on conditions</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#keep-omit-relocate-and-rename-columns-variables"><i class="fa fa-check"></i><b>5.1.2</b> Keep, omit, relocate, and rename columns (variables)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basic-wrangling.html"><a href="basic-wrangling.html#joining-data"><i class="fa fa-check"></i><b>5.2</b> Joining data</a></li>
+<li class="chapter" data-level="5.3" data-path="basic-wrangling.html"><a href="basic-wrangling.html#reshaping-data"><i class="fa fa-check"></i><b>5.3</b> Reshaping data</a></li>
+<li class="chapter" data-level="5.4" data-path="basic-wrangling.html"><a href="basic-wrangling.html#working-with-strings"><i class="fa fa-check"></i><b>5.4</b> Working with strings</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="logicals.html"><a href="logicals.html"><i class="fa fa-check"></i><b>6</b> Logical operators</a></li>
-<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a></li>
+<li class="chapter" data-level="7" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>7</b> Conditionals</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="conditionals.html"><a href="conditionals.html#if-else-statements"><i class="fa fa-check"></i><b>7.1</b> if else statements</a></li>
+<li class="chapter" data-level="7.2" data-path="conditionals.html"><a href="conditionals.html#if-else-if-else-statements"><i class="fa fa-check"></i><b>7.2</b> if else if else statements</a></li>
+<li class="chapter" data-level="7.3" data-path="conditionals.html"><a href="conditionals.html#while-statements"><i class="fa fa-check"></i><b>7.3</b> while statements</a></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="iteration.html"><a href="iteration.html"><i class="fa fa-check"></i><b>8</b> Iteration</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="iteration.html"><a href="iteration.html#iteration-in-programming"><i class="fa fa-check"></i><b>8.1</b> Iteration in programming</a>
@@ -230,15 +276,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.7" data-path="functions.html"><a href="functions.html#iterating-functions"><i class="fa fa-check"></i><b>9.7</b> Iterating functions</a></li>
 <li class="chapter" data-level="9.8" data-path="functions.html"><a href="functions.html#resources-on-building-testing-documenting-functions"><i class="fa fa-check"></i><b>9.8</b> Resources on building, testing, &amp; documenting functions</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a></li>
-<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="12" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>12</b> Py-R differences</a>
+<li class="chapter" data-level="10" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>10</b> Data wrangling with tidyverse and pandas</a>
 <ul>
-<li class="chapter" data-level="12.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>12.0.1</b> Overarching things</a></li>
-<li class="chapter" data-level="12.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>12.0.2</b> Strings differences:</a></li>
-<li class="chapter" data-level="12.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>12.0.3</b> Number sequences:</a></li>
+<li class="chapter" data-level="10.1" data-path="wrangling.html"><a href="wrangling.html#meet-the-tidyverse-and-pandas"><i class="fa fa-check"></i><b>10.1</b> Meet the tidyverse and pandas</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="wrangling.html"><a href="wrangling.html#r-wrangling-dplyr-tidyr-packages-in-the-tidyverse"><i class="fa fa-check"></i><b>10.1.1</b> R wrangling: <code>dplyr</code> &amp; <code>tidyr</code> packages in the tidyverse</a></li>
+<li class="chapter" data-level="10.1.2" data-path="wrangling.html"><a href="wrangling.html#python-wrangling-the-pandas-library"><i class="fa fa-check"></i><b>10.1.2</b> Python wrangling: the <code>pandas</code> library</a></li>
 </ul></li>
+<li class="chapter" data-level="10.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns"><i class="fa fa-check"></i><b>10.2</b> Selecting columns</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="wrangling.html"><a href="wrangling.html#dplyrselect"><i class="fa fa-check"></i><b>10.2.1</b> <code>dplyr::select()</code></a></li>
+<li class="chapter" data-level="10.2.2" data-path="wrangling.html"><a href="wrangling.html#selecting-columns-in-python"><i class="fa fa-check"></i><b>10.2.2</b> Selecting columns in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-based-on-conditions"><i class="fa fa-check"></i><b>10.3</b> Subsetting rows based on conditions</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="wrangling.html"><a href="wrangling.html#dplyrfilter"><i class="fa fa-check"></i><b>10.3.1</b> <code>dplyr::filter()</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="wrangling.html"><a href="wrangling.html#subsetting-rows-in-python"><i class="fa fa-check"></i><b>10.3.2</b> Subsetting rows in Python</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="wrangling.html"><a href="wrangling.html#adding-columns"><i class="fa fa-check"></i><b>10.4</b> Adding columns</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="wrangling.html"><a href="wrangling.html#dplyrmutate"><i class="fa fa-check"></i><b>10.4.1</b> <code>dplyr::mutate()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="wrangling.html"><a href="wrangling.html#finding-grouped-statistics"><i class="fa fa-check"></i><b>10.5</b> Finding grouped statistics</a></li>
+<li class="chapter" data-level="10.6" data-path="wrangling.html"><a href="wrangling.html#joining-data-1"><i class="fa fa-check"></i><b>10.6</b> Joining data</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>11</b> Troubleshooting</a></li>
+<li class="chapter" data-level="12" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html"><i class="fa fa-check"></i><b>12</b> Data visualization with <code>ggplot2</code> and <code>seaborn</code></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>12.1</b> The grammar of graphics</a></li>
+<li class="chapter" data-level="12.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#basic-anatomy-of-graphs-with-ggplot2-in-r-and-seaborn-in-python"><i class="fa fa-check"></i><b>12.2</b> Basic anatomy of graphs with <code>ggplot2</code> in R, and <code>seaborn</code> in Python</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#ggplot2-bare-minimum"><i class="fa fa-check"></i><b>12.2.1</b> <code>ggplot2</code> bare minimum</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#seaborn-bare-minimum"><i class="fa fa-check"></i><b>12.2.2</b> <code>seaborn</code> bare minimum</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapping-variables-onto-graph-aesthetics"><i class="fa fa-check"></i><b>12.3</b> Mapping variables onto graph aesthetics</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#mapped-variable-aesthetics-in-ggplot2"><i class="fa fa-check"></i><b>12.3.1</b> Mapped variable aesthetics in <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-visualization-with-ggplot2-and-seaborn.html"><a href="data-visualization-with-ggplot2-and-seaborn.html#essential-customization"><i class="fa fa-check"></i><b>12.4</b> Essential customization</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="py-r.html"><a href="py-r.html"><i class="fa fa-check"></i><b>13</b> Py-R differences</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="py-r.html"><a href="py-r.html#overarching-things"><i class="fa fa-check"></i><b>13.0.1</b> Overarching things</a></li>
+<li class="chapter" data-level="13.0.2" data-path="py-r.html"><a href="py-r.html#strings-differences"><i class="fa fa-check"></i><b>13.0.2</b> Strings differences:</a></li>
+<li class="chapter" data-level="13.0.3" data-path="py-r.html"><a href="py-r.html#number-sequences"><i class="fa fa-check"></i><b>13.0.3</b> Number sequences:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -260,14 +343,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="types" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Data types and structures</h1>
+<h1><span class="header-section-number">Chapter 3</span> Data representation, types and structures in R &amp; Python</h1>
 <p>How we work with data depends largely on the <em>type</em> and <em>structure</em> of data we’re working with. That’s more than just “is this a number or letters?” We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we’re correctly predicting how data will change based on what we do with it.</p>
-<p>In this chapter, we’ll learn about different types and structures of data, and some essentials of creating and working with them.</p>
-<div id="data-types" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Data types</h2>
+<p>In this chapter, we’ll learn about how data is represented, different types and structures of data, and some essentials of creating and working with them.</p>
+<div id="data-representation" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Data representation</h2>
+<p>Data representation is how data is stored and processed by a computer. In this section, we’ll learn some basics of bits and bytes. Usually when working with data you won’t even need to think about this - but when you need to, you’ll want to have some basic understanding of how it works.</p>
+<p><strong>Terms:</strong></p>
+<ul>
+<li><p><strong>data representation:</strong> how data is stored and processed by a computer</p></li>
+<li><p><strong>bit:</strong> the smallest unit of data - a single digit with value 0 or 1</p></li>
+<li><p><strong>byte:</strong> a group of bits (usually 8) to represent a value</p></li>
+</ul>
+<div id="bits.-bytes.-battlestar-galactica." class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Bits. Bytes. Battlestar Galactica.</h3>
+<p>Really more appropriate for EDS 221 <em>Bits. Bytes. Binary data.</em> - all terms essential for understanding how data is stored and understood by computers.</p>
+<div id="recap-the-decimal-system" class="section level4" number="3.1.1.1">
+<h4><span class="header-section-number">3.1.1.1</span> Recap: the decimal system</h4>
+<p>We’re used to thinking of numbers in a decimal system. For example, the number 247 has a 7 in the ones place (10<sup>0</sup>), a 4 in the tens place (10<sup>1</sup>), and a 2 in the hundreds place (10<sup>2</sup>). This value is therefore 7×10<sup>0</sup> + 4×10<sup>1</sup> + 2×10<sup>2</sup> = 247.</p>
+</div>
+<div id="binary-values" class="section level4" number="3.1.1.2">
+<h4><span class="header-section-number">3.1.1.2</span> Binary values</h4>
+<p>If we only have two numbers to work with - zero and one - how can we represent values? We’ll use the <em>binary</em> system, where each digit (either a one or zero) - usually called a <em>bit</em> (for <strong>Bi</strong>nary digi<strong>T</strong>)- is multiplied by 2 raised to a power, depending on the position (where the right-most digit is 2<sup>0</sup>). A bit (a single digit having a value of either zero or one) is the smallest possible unit of data to a computer, and sometimes called an “atom” of data.</p>
+<p>For example, let’s say we have a number in binary represented as <code>1101</code>. The actual value of that number is 1×2<sup>3</sup> + 1×2<sup>2</sup> + 0×2<sup>1</sup> + 1×2<sup>0</sup> = 13. That means that the <em>largest</em> value that can be represented by four binary digits (four bits) is <code>1111</code>, which is 1×2<sup>3</sup> + 1×2<sup>2</sup> + 1×2<sup>1</sup> + 1×2<sup>0</sup> = 15.</p>
+<p><strong>Understanding check:</strong> What values do the following represent?</p>
+<ul>
+<li><p><code>0010</code> =</p></li>
+<li><p><code>0110</code> =</p></li>
+<li><p><code>1001</code> =</p></li>
+</ul>
+<p><strong>Question:</strong> What is the largest numeric value we could represent with 8 digits (8-bits = 1 byte!), using binary?</p>
+<p><code>1111 1111</code> = 1×2<sup>7</sup> + 1×2<sup>6</sup> + 1×2<sup>5</sup> + 1×2<sup>4</sup> + 1×2<sup>3</sup> + 1×2<sup>2</sup> + 1×2<sup>1</sup> + 1×2<sup>0</sup> = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255</p>
+<p>…and to represent larger values, we would need more bits. For example, you will usually hear 32-bit or 64-bit operating systems and CPUs (4 or 8 byte, respectively), indicating size of chunks of memory that the processor can handle.</p>
+<p><strong>Understanding check</strong>:</p>
+<ul>
+<li><p>How would you represent the value 803 in binary?</p></li>
+<li><p>How would you represent the value 48 in binary?</p></li>
+</ul>
+<p>So we have an idea of how <em>values</em> are stored using only 0s and 1s. But there are many other types of data - text, images, maps, sound, etc. Given that data must be stored as 0s and 1s, how are those represented?</p>
+</div>
+</div>
+<div id="representing-non-integer-and-negative-values" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Representing non-integer and negative values</h3>
+<p>TODO</p>
+</div>
+<div id="how-are-characters-stored" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> How are characters stored?</h3>
+<p>Characters are also represented with binary, but are associated with a known key that converts them to the correct letter or symbol. There are established keys to help us out, like ASCII (American Standard Code for Information Interchange), Unicode, and UTF-8 (Unicode Transformation Format).</p>
+<p>Think of these as different menus to connect bytes to the characters they represent - dependent on what you’re trying to do, a different menu may be a better option. For example, ASCII only encodes English letters and a small set of symbols, so for programmers creating content in different languages or with less common symbols, a different character menu might be a better choice.</p>
+<p>Let’s just consider one: ASCII. In ASCII, here are some decimal values of different capital letters:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Character</th>
+<th>Decimal Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>65</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>66</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>67</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>68</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>69</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>70</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>71</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td>72</td>
+</tr>
+<tr class="odd">
+<td>I</td>
+<td>73</td>
+</tr>
+<tr class="even">
+<td>J</td>
+<td>74</td>
+</tr>
+</tbody>
+</table>
+<p>So, the word CAB is <code>67 65 66</code> in ASCII. Converted to binary, that is: <code>0100 0011</code> <code>0100 0001</code> <code>0100 0010</code> .</p>
+<p><strong>Understanding check:</strong> Decipher the following word (ASCII code) written in binary:</p>
+<p><code>0100 0010</code> <code>0100 0101</code> <code>0100 0001</code> <code>0100 0011</code> <code>0100 1000</code></p>
+<p>Check your answer here using this ASCII to binary converter! <a href="https://www.rapidtables.com/convert/number/ascii-to-binary.html">RapidTables text to binary converter</a>.</p>
+</div>
+</div>
+<div id="data-types" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Data types</h2>
 <p>There are more types of data, but we’ll focus on four: strings, logicals, integers, and doubles. Throughout the rest of the MEDS program you may use others, but they are uncommon in environmental data science. In this section we’ll learn the common types of elements, then what they become once combined.</p>
-<div id="types-of-data-elements" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Types of data elements</h3>
+<div id="types-of-data-elements" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Types of data elements</h3>
 <p>When I say “elements” here, I mean single units of information. Like a single number, or identifier, or name. Like <code>12</code>, or <code>north</code> or <code>site_12a</code>. Here’s some language to help distinguish those types of elements:</p>
 <ul>
 <li><p><strong>strings:</strong> (also called: character string) elements that contain letters or symbols (anything non-numeric), or numbers that have been coerced to be understood as strings, like <code>"MEDS"</code>, <code>"Bren School"</code>, <code>"plot 17"</code>, and <code>"19.4"</code>. Note that the quotations around the last one is what makes it understood as a string, instead of a number.</p></li>
@@ -276,8 +461,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>doubles / float:</strong> numbers that can have decimal places, like <code>1.275</code>, <code>10.5</code>, and <code>0.068</code>. Double allows for twice the precision of a float. For very small or very large numbers, this designation might be important - or just err on the side of doubles.</p></li>
 </ul>
 </div>
-<div id="atomic-vectors-in-r" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Atomic vectors in R</h3>
+<div id="atomic-vectors-in-r" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Atomic vectors in R</h3>
 <p>Combining elements creates a vector (in R), similar to a list or single-dimensional array (often used in R and Python). We’ll learn later on that <em>lists</em> are vectors that can contain different data types.</p>
 <p>Given our common element types, what type of atomic vector is the outcome of their combination?</p>
 <p>In R, there are four (common) types of atomic vectors: character (contains strings), logical (contains only logicals), and numeric (doubles and integers). Since the entire atomic vector can only be <em>one</em> of these, what is the hierarchy that determines the output vector type? See the schematic from <a href="https://adv-r.hadley.nz/vectors-chap.html#atomic-vectors">Section 3.2 in Advanced R</a>, which visualizes:</p>
@@ -287,8 +472,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A vector with logicals and numeric values will be <em>numeric</em></li>
 <li>A vector with logicals and strings will be <em>character</em></li>
 </ul>
-<div id="try-it-out" class="section level4" number="3.1.2.1">
-<h4><span class="header-section-number">3.1.2.1</span> Try it out</h4>
+<div id="try-it-out" class="section level4" number="3.2.2.1">
+<h4><span class="header-section-number">3.2.2.1</span> Try it out</h4>
 <p>In R, we create a vector using <code>c()</code>, and return the class of an object using <code>class()</code>. For example, in the Console entering <code>class(c(1, 2, "cat"))</code> will return <code>character</code>.</p>
 <p>Similarly, find the class of the following vectors:</p>
 <ul>
@@ -304,8 +489,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For more information, read <a href="https://adv-r.hadley.nz/vectors-chap.html">Chapter 3 in Advanced R</a> by Hadley Wickham</p>
 </div>
 </div>
-<div id="in-python" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> In Python</h3>
+<div id="lists-tuples-and-dictionaries-in-python" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Lists, tuples and dictionaries in Python</h3>
 <p>In the Python interpreter (Terminal &gt; <code>python</code> to start), type <code>help()</code> to bring up the help documentation. From the list, you’ll see that <code>TYPES</code> is an option. Check it out for lots of useful information. Here’s a short version:</p>
 <ul>
 <li><strong>list:</strong> a sequence of elements that you <strong>can</strong> reassign, made with square brackets and elements separated by commas (e.g. <code>vec = ["one", 'angry', "moose"]</code>), or <code>vec = [4, 10, "banana"]</code>. Note that strings can be created using either double or single quotes.</li>
@@ -313,9 +498,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>An example of list creation and reassignment in Python:</p>
 <pre><code>my_list = [1, 5, 8] # Create the list
 
-my_list[1] = 9 # Changes the second element to value 9</code></pre>
+my_list[1] = 9 # Changes the second element to value 9
+
+my_list # See that the list is now [1, 9, 8]</code></pre>
+<p>The ability to change a list directly means that it is a <strong>mutable</strong> object. Some objects (like lists in Python) are mutable, while others (like tuples, introduced below) are not.</p>
 <ul>
-<li><strong>tuple:</strong> a sequence of elements that you <em>can’t</em> reassign, made with parentheses and elements separated by commas (e.g. <code>my_tuple = (1, 2, 10)</code>).</li>
+<li><strong>tuple:</strong> a sequence of elements that you <em>can’t</em> reassign (i.e. they are <strong>immutable</strong>), made with parentheses and elements separated by commas (e.g. <code>my_tuple = (1, 2, 10)</code>).</li>
 </ul>
 <p>What does it mean that elements in a tuple <em>cannot</em> be reassigned? Try running the following and see what happens:</p>
 <pre><code>my_tuple = (19, 45, 218)
@@ -323,12 +511,34 @@ my_list[1] = 9 # Changes the second element to value 9</code></pre>
 my_tuple[2] = 63
 # TypeError: &#39;tuple&#39; object does not support item assignment</code></pre>
 <ul>
-<li><strong>dictionary:</strong> a sequence of elements…</li>
+<li><strong>dictionary:</strong> an unordered collection of key-value pairs</li>
 </ul>
-<p>Some of these will be more clear once we get started working with them, and we’ll also learn more along the way.</p>
+<p>A <strong>dictionary</strong> is created with squiggly brackets (<code>{}</code>), definining elements separated by commas, each containing a key (name of an element that you can refer to later) and a value associated with it.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="types.html#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="types.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the dictionary: </span></span>
+<span id="cb3-3"><a href="types.html#cb3-3" aria-hidden="true" tabindex="-1"></a>dog_weights <span class="op">=</span> {<span class="st">&#39;Khora&#39;</span>:<span class="dv">56</span>, <span class="st">&#39;Teddy&#39;</span>:<span class="dv">49</span>, <span class="st">&#39;Waffle&#39;</span>:<span class="dv">22</span>}</span>
+<span id="cb3-4"><a href="types.html#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="types.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the dictionary:</span></span>
+<span id="cb3-6"><a href="types.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dog_weights) </span></code></pre></div>
+<pre><code>## {&#39;Khora&#39;: 56, &#39;Teddy&#39;: 49, &#39;Waffle&#39;: 22}</code></pre>
+<p>How can we access information from a dictionary?</p>
+<p>Since it’s <em>unordered</em>, you can’t use numeric indexing to access a specific element. For example, we might expect to use <code>dog_weights[0]</code> to access Khora’s weight (remember - Python uses zero-index!). But when we try that…</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="types.html#cb5-1" aria-hidden="true" tabindex="-1"></a>dog_weights[<span class="dv">0</span>]</span></code></pre></div>
+<p>…an error is returned.</p>
+<p>Instead, to pull out a specific element from a dictionary, we will use the key (in this case, the dog names). For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="types.html#cb6-1" aria-hidden="true" tabindex="-1"></a>dog_weights[<span class="st">&#39;Khora&#39;</span>]</span></code></pre></div>
+<pre><code>## 56</code></pre>
+<p>Can you make something like a dictionary in R? The closest is to create a list where each element has a name. For example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="types.html#cb8-1" aria-hidden="true" tabindex="-1"></a>dog_food <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Khora =</span> <span class="st">&quot;bacon&quot;</span>, <span class="at">Teddy =</span> <span class="st">&quot;chicken&quot;</span>, <span class="at">Waffle =</span> <span class="st">&quot;pizza&quot;</span>)</span>
+<span id="cb8-2"><a href="types.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="types.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Then return the value for Waffle:</span></span>
+<span id="cb8-4"><a href="types.html#cb8-4" aria-hidden="true" tabindex="-1"></a>dog_food[<span class="st">&#39;Waffle&#39;</span>]</span></code></pre></div>
+<pre><code>## $Waffle
+## [1] &quot;pizza&quot;</code></pre>
 </div>
-<div id="side-by-side-comparison-of-data-types-in-r-python" class="section level3" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Side-by-side comparison of data types in R &amp; Python</h3>
+<div id="side-by-side-comparison-of-data-types-in-r-python" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Side-by-side comparison of data types in R &amp; Python</h3>
 <ul>
 <li>integer (both): numbers without decimals (whole numbers)</li>
 <li>float (both): numbers with decimals</li>
@@ -340,31 +550,31 @@ my_tuple[2] = 63
 <p>See: <a href="https://r4ds.had.co.nz/vectors.html" class="uri">https://r4ds.had.co.nz/vectors.html</a></p>
 </div>
 </div>
-<div id="data-structures" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Data structures</h2>
-<div id="vectors" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Vectors</h3>
+<div id="data-structures" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Data structures</h2>
+<div id="vectors" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Vectors</h3>
 </div>
-<div id="tibbles" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Tibbles</h3>
+<div id="tibbles" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Tibbles</h3>
 </div>
-<div id="matrices" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Matrices</h3>
+<div id="matrices" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Matrices</h3>
 </div>
-<div id="lists" class="section level3" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> Lists</h3>
+<div id="lists" class="section level3" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Lists</h3>
 </div>
 </div>
-<div id="allison-random-notes" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Allison random notes</h2>
+<div id="allison-random-notes" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Allison random notes</h2>
 <p>See Lubanovic Ch. 2 for Python info</p>
 <ul>
 <li><p>Use <code>=</code> to assign values in Py, more often <code>&lt;-</code> to assign in R</p></li>
 <li><p>Store some simple values in the Py interpreter (Terminal)</p></li>
 <li><p>Add a basic operators section? Only difference of meaningful note is ^ versus ** (Py exponential)</p></li>
 </ul>
-<div id="converting-between-classes" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Converting between classes</h3>
+<div id="converting-between-classes" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Converting between classes</h3>
 <p>Python:</p>
 <ul>
 <li>Numeric to boolean: <code>bool()</code> anything non-zero is TRUE, anything 0 (or “False”) is FALSE</li>
@@ -403,6 +613,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

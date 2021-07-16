@@ -4,14 +4,13 @@
 %
 \documentclass[
 ]{book}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
-  \usepackage{amssymb}
 \else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
@@ -82,7 +81,7 @@
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -208,27 +207,7 @@ Upon the building blocks established in EDS 221, you'll be prepared to increment
 \hypertarget{course-setup}{%
 \section{Course setup}\label{course-setup}}
 
-We will use the following in EDS 221. You should have pre-installed recent versions before starting the course.
-
-\begin{itemize}
-\tightlist
-\item
-  \href{https://www.r-project.org/}{R (Version 4.0.2 ``Taking Off Again'', or higher)}. You need to have an updated version of R installed on your computer - see the course syllabus to see expected minimum version. Get it \href{https://www.r-project.org/}{here} if you haven't already.
-\end{itemize}
-
-Can you write and run R \emph{just} with the \emph{R} console (i.e., by opening the R application)? Yes. In fact, we'll try it. But you'll quickly want to move into an Integrated Development Environment (IDE) with more options and a user-friendly interface. Which is why you'll also need\ldots{}
-
-\begin{itemize}
-\tightlist
-\item
-  \href{https://rstudio.com/products/rstudio/}{RStudio Desktop (version 1.4.1103 ``Wax Begonia'', or higher)}
-\item
-  \href{https://rstudio.cloud/}{RStudio Cloud account}
-\item
-  Python (version XXXXX or higher)
-\item
-  Pycharm (version XXXX or higher)
-\end{itemize}
+In EDS 221 we will write code in R (in scripts and R Markdown) and Python (in scripts and Jupyter Notebooks). You should be set to go if you followed along with the \href{}{MEDS Installation Guide} during orientation.
 
 \hypertarget{course-resources}{%
 \section{Course resources}\label{course-resources}}
@@ -326,11 +305,112 @@ Random things on Allison's to-add list
 \end{itemize}
 
 \hypertarget{types}{%
-\chapter{Data types and structures}\label{types}}
+\chapter{Data representation, types and structures in R \& Python}\label{types}}
 
 How we work with data depends largely on the \emph{type} and \emph{structure} of data we're working with. That's more than just ``is this a number or letters?'' We need to understand how the data are stored so that we know how to access pieces of it, how our code will understand and interact with data, and so we're correctly predicting how data will change based on what we do with it.
 
-In this chapter, we'll learn about different types and structures of data, and some essentials of creating and working with them.
+In this chapter, we'll learn about how data is represented, different types and structures of data, and some essentials of creating and working with them.
+
+\hypertarget{data-representation}{%
+\section{Data representation}\label{data-representation}}
+
+Data representation is how data is stored and processed by a computer. In this section, we'll learn some basics of bits and bytes. Usually when working with data you won't even need to think about this - but when you need to, you'll want to have some basic understanding of how it works.
+
+\textbf{Terms:}
+
+\begin{itemize}
+\item
+  \textbf{data representation:} how data is stored and processed by a computer
+\item
+  \textbf{bit:} the smallest unit of data - a single digit with value 0 or 1
+\item
+  \textbf{byte:} a group of bits (usually 8) to represent a value
+\end{itemize}
+
+\hypertarget{bits.-bytes.-battlestar-galactica.}{%
+\subsection{Bits. Bytes. Battlestar Galactica.}\label{bits.-bytes.-battlestar-galactica.}}
+
+Really more appropriate for EDS 221 \emph{Bits. Bytes. Binary data.} - all terms essential for understanding how data is stored and understood by computers.
+
+\hypertarget{recap-the-decimal-system}{%
+\subsubsection{Recap: the decimal system}\label{recap-the-decimal-system}}
+
+We're used to thinking of numbers in a decimal system. For example, the number 247 has a 7 in the ones place (10\textsuperscript{0}), a 4 in the tens place (10\textsuperscript{1}), and a 2 in the hundreds place (10\textsuperscript{2}). This value is therefore 7×10\textsuperscript{0} + 4×10\textsuperscript{1} + 2×10\textsuperscript{2} = 247.
+
+\hypertarget{binary-values}{%
+\subsubsection{Binary values}\label{binary-values}}
+
+If we only have two numbers to work with - zero and one - how can we represent values? We'll use the \emph{binary} system, where each digit (either a one or zero) - usually called a \emph{bit} (for \textbf{Bi}nary digi\textbf{T})- is multiplied by 2 raised to a power, depending on the position (where the right-most digit is 2\textsuperscript{0}). A bit (a single digit having a value of either zero or one) is the smallest possible unit of data to a computer, and sometimes called an ``atom'' of data.
+
+For example, let's say we have a number in binary represented as \texttt{1101}. The actual value of that number is 1×2\textsuperscript{3} + 1×2\textsuperscript{2} + 0×2\textsuperscript{1} + 1×2\textsuperscript{0} = 13. That means that the \emph{largest} value that can be represented by four binary digits (four bits) is \texttt{1111}, which is 1×2\textsuperscript{3} + 1×2\textsuperscript{2} + 1×2\textsuperscript{1} + 1×2\textsuperscript{0} = 15.
+
+\textbf{Understanding check:} What values do the following represent?
+
+\begin{itemize}
+\item
+  \texttt{0010} =
+\item
+  \texttt{0110} =
+\item
+  \texttt{1001} =
+\end{itemize}
+
+\textbf{Question:} What is the largest numeric value we could represent with 8 digits (8-bits = 1 byte!), using binary?
+
+\texttt{1111\ 1111} = 1×2\textsuperscript{7} + 1×2\textsuperscript{6} + 1×2\textsuperscript{5} + 1×2\textsuperscript{4} + 1×2\textsuperscript{3} + 1×2\textsuperscript{2} + 1×2\textsuperscript{1} + 1×2\textsuperscript{0} = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
+
+\ldots and to represent larger values, we would need more bits. For example, you will usually hear 32-bit or 64-bit operating systems and CPUs (4 or 8 byte, respectively), indicating size of chunks of memory that the processor can handle.
+
+\textbf{Understanding check}:
+
+\begin{itemize}
+\item
+  How would you represent the value 803 in binary?
+\item
+  How would you represent the value 48 in binary?
+\end{itemize}
+
+So we have an idea of how \emph{values} are stored using only 0s and 1s. But there are many other types of data - text, images, maps, sound, etc. Given that data must be stored as 0s and 1s, how are those represented?
+
+\hypertarget{representing-non-integer-and-negative-values}{%
+\subsection{Representing non-integer and negative values}\label{representing-non-integer-and-negative-values}}
+
+TODO
+
+\hypertarget{how-are-characters-stored}{%
+\subsection{How are characters stored?}\label{how-are-characters-stored}}
+
+Characters are also represented with binary, but are associated with a known key that converts them to the correct letter or symbol. There are established keys to help us out, like ASCII (American Standard Code for Information Interchange), Unicode, and UTF-8 (Unicode Transformation Format).
+
+Think of these as different menus to connect bytes to the characters they represent - dependent on what you're trying to do, a different menu may be a better option. For example, ASCII only encodes English letters and a small set of symbols, so for programmers creating content in different languages or with less common symbols, a different character menu might be a better choice.
+
+Let's just consider one: ASCII. In ASCII, here are some decimal values of different capital letters:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Character & Decimal Value \\
+\midrule
+\endhead
+A & 65 \\
+B & 66 \\
+C & 67 \\
+D & 68 \\
+E & 69 \\
+F & 70 \\
+G & 71 \\
+H & 72 \\
+I & 73 \\
+J & 74 \\
+\bottomrule
+\end{longtable}
+
+So, the word CAB is \texttt{67\ 65\ 66} in ASCII. Converted to binary, that is: \texttt{0100\ 0011} \texttt{0100\ 0001} \texttt{0100\ 0010} .
+
+\textbf{Understanding check:} Decipher the following word (ASCII code) written in binary:
+
+\texttt{0100\ 0010} \texttt{0100\ 0101} \texttt{0100\ 0001} \texttt{0100\ 0011} \texttt{0100\ 1000}
+
+Check your answer here using this ASCII to binary converter! \href{https://www.rapidtables.com/convert/number/ascii-to-binary.html}{RapidTables text to binary converter}.
 
 \hypertarget{data-types}{%
 \section{Data types}\label{data-types}}
@@ -403,8 +483,8 @@ Notice in that example we \emph{assign} the list to a name, \texttt{taco\_price}
 
 For more information, read \href{https://adv-r.hadley.nz/vectors-chap.html}{Chapter 3 in Advanced R} by Hadley Wickham
 
-\hypertarget{in-python}{%
-\subsection{In Python}\label{in-python}}
+\hypertarget{lists-tuples-and-dictionaries-in-python}{%
+\subsection{Lists, tuples and dictionaries in Python}\label{lists-tuples-and-dictionaries-in-python}}
 
 In the Python interpreter (Terminal \textgreater{} \texttt{python} to start), type \texttt{help()} to bring up the help documentation. From the list, you'll see that \texttt{TYPES} is an option. Check it out for lots of useful information. Here's a short version:
 
@@ -420,12 +500,16 @@ An example of list creation and reassignment in Python:
 my_list = [1, 5, 8] # Create the list
 
 my_list[1] = 9 # Changes the second element to value 9
+
+my_list # See that the list is now [1, 9, 8]
 \end{verbatim}
+
+The ability to change a list directly means that it is a \textbf{mutable} object. Some objects (like lists in Python) are mutable, while others (like tuples, introduced below) are not.
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{tuple:} a sequence of elements that you \emph{can't} reassign, made with parentheses and elements separated by commas (e.g.~\texttt{my\_tuple\ =\ (1,\ 2,\ 10)}).
+  \textbf{tuple:} a sequence of elements that you \emph{can't} reassign (i.e.~they are \textbf{immutable}), made with parentheses and elements separated by commas (e.g.~\texttt{my\_tuple\ =\ (1,\ 2,\ 10)}).
 \end{itemize}
 
 What does it mean that elements in a tuple \emph{cannot} be reassigned? Try running the following and see what happens:
@@ -440,10 +524,67 @@ my_tuple[2] = 63
 \begin{itemize}
 \tightlist
 \item
-  \textbf{dictionary:} a sequence of elements\ldots{}
+  \textbf{dictionary:} an unordered collection of key-value pairs
 \end{itemize}
 
-Some of these will be more clear once we get started working with them, and we'll also learn more along the way.
+A \textbf{dictionary} is created with squiggly brackets (\texttt{\{\}}), definining elements separated by commas, each containing a key (name of an element that you can refer to later) and a value associated with it.
+
+For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{\# Create the dictionary: }
+\NormalTok{dog\_weights }\OperatorTok{=}\NormalTok{ \{}\StringTok{\textquotesingle{}Khora\textquotesingle{}}\NormalTok{:}\DecValTok{56}\NormalTok{, }\StringTok{\textquotesingle{}Teddy\textquotesingle{}}\NormalTok{:}\DecValTok{49}\NormalTok{, }\StringTok{\textquotesingle{}Waffle\textquotesingle{}}\NormalTok{:}\DecValTok{22}\NormalTok{\}}
+
+\CommentTok{\# Return the dictionary:}
+\BuiltInTok{print}\NormalTok{(dog\_weights) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## {'Khora': 56, 'Teddy': 49, 'Waffle': 22}
+\end{verbatim}
+
+How can we access information from a dictionary?
+
+Since it's \emph{unordered}, you can't use numeric indexing to access a specific element. For example, we might expect to use \texttt{dog\_weights{[}0{]}} to access Khora's weight (remember - Python uses zero-index!). But when we try that\ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dog\_weights[}\DecValTok{0}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\ldots an error is returned.
+
+Instead, to pull out a specific element from a dictionary, we will use the key (in this case, the dog names). For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dog\_weights[}\StringTok{\textquotesingle{}Khora\textquotesingle{}}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 56
+\end{verbatim}
+
+Can you make something like a dictionary in R? The closest is to create a list where each element has a name. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dog\_food }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{Khora =} \StringTok{"bacon"}\NormalTok{, }\AttributeTok{Teddy =} \StringTok{"chicken"}\NormalTok{, }\AttributeTok{Waffle =} \StringTok{"pizza"}\NormalTok{)}
+
+\CommentTok{\# Then return the value for Waffle:}
+\NormalTok{dog\_food[}\StringTok{\textquotesingle{}Waffle\textquotesingle{}}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Waffle
+## [1] "pizza"
+\end{verbatim}
 
 \hypertarget{side-by-side-comparison-of-data-types-in-r-python}{%
 \subsection{Side-by-side comparison of data types in R \& Python}\label{side-by-side-comparison-of-data-types-in-r-python}}
@@ -531,7 +672,7 @@ One of the most common ways that data can be untidy is if a single variable is b
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-3}Dog weight (pounds) in untidy format, where a single variable (weight) is spread out across different levels of the year variable.}
+\caption{\label{tab:unnamed-chunk-7}Dog weight (pounds) in untidy format, where a single variable (weight) is spread out across different levels of the year variable.}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -556,7 +697,7 @@ Later on, we'll hear how to reshape data from wide-to-long format (e.g.~using \t
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-4}Dog weight (pounds) in tidy format, where each variable is in its own column.}
+\caption{\label{tab:unnamed-chunk-8}Dog weight (pounds) in tidy format, where each variable is in its own column.}
 \centering
 \begin{tabular}[t]{l|l|r}
 \hline
@@ -598,7 +739,7 @@ Sometimes raw data will contain multiple values in a single cell. For example, h
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-5}Car descriptions in untidy format.}
+\caption{\label{tab:unnamed-chunk-9}Car descriptions in untidy format.}
 \centering
 \begin{tabular}[t]{l|l|l}
 \hline
@@ -619,7 +760,7 @@ In the future, you'll learn how to separate components of a single column into m
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-6}Car descriptions in tidy format.}
+\caption{\label{tab:unnamed-chunk-10}Car descriptions in tidy format.}
 \centering
 \begin{tabular}[t]{l|l|l|l|l}
 \hline
@@ -640,7 +781,7 @@ Occasionally, you will see environmental data where information for \emph{multip
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-7}Spiny lobster counts by size.}
+\caption{\label{tab:unnamed-chunk-11}Spiny lobster counts by size.}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -661,7 +802,7 @@ spiny lobster & 6.5 & 3\\
 
 So in this case, we have multiple lobster observations occupying single rows (e.g.~the second row actually contains data for four lobsters). On the spectrum of untidy data, this isn't too bad - but it can make it much easier (and less risky) to visualize and analyze the data if each observation is in its own row. We'll learn how to convert a \textbf{frequency table} (like this one, which contains counts) into \textbf{case format} (which does have a single row per observation, so that the data look something like this:
 
-\begin{table}[H]
+\begin{table}
 \centering
 \begin{tabular}{l|r}
 \hline
@@ -692,8 +833,8 @@ spiny lobster & 6.5\\
 
 Now, each individual lobster occupies its own row, and the data are in tidy format.
 
-\hypertarget{tidy-data-for-predictable-input}{%
-\section{Tidy data for predictable input}\label{tidy-data-for-predictable-input}}
+\hypertarget{tidy-data-for-predictable-inputs}{%
+\section{Tidy data for predictable inputs}\label{tidy-data-for-predictable-inputs}}
 
 Tidy data structure will become so ingrained into your brain over the next year that you'll almost forget a universe when you didn't automatically strive to create tidy data. Estimates for the fraction of a data scientist's time spent wrangling and cleaning data (rather than analyzing / modeling / gaining valuable insights from data) ranges from \textasciitilde45 - 80\%. That should make us especially inspired to create the data we hope to see in the world. In other words, on the data collection end of data science we should strive to input data in an organized, predictable format (e.g.~as tidy data), and as cleanly as possible (i.e.~consistent, machine-friendly values).\\
 
@@ -703,7 +844,9 @@ Tidy data structure will become so ingrained into your brain over the next year 
 \textbf{Answer:} Yup. There are very few ``rules'' in data science, and there will certainly be exceptions.
 \end{quote}
 
-Tidy data gives us a predictable, organized data structure to strive for (unless we have good reason not to). Collecting data in tidy format from the get-go can reduce the time spent data wrangling / reshaping, and increase the time we can spend gaining insights to help solve environmental problems.
+Tidy data gives us a predictable, organized data structure to strive for (unless we have good reason not to). Collecting data in tidy format from the get-go can reduce the time spent data wrangling / reshaping, and increase the time we can spend gaining insights to help solve environmental problems. And since all tidy data are similar in important ways, we can use similar tools in similar ways across different datasets, instead of hacking together new tools for each unique untidy dataset.
+
+\includegraphics[width=6.26042in,height=\textheight]{images/tidydata_2.jpg}
 
 An evergreen paper to learn about data organization - in spreadsheets, and anywhere else - is \href{https://www-tandfonline-com.proxy.library.ucsb.edu:9443/doi/full/10.1080/00031305.2017.1375989}{\emph{Data organization in spreadsheets}} by \citet{broman_data_2018}. This is required reading for EDS 221, and beautifully highlights a number of other important considerations for data organization. I recommend you re-read it every year for the rest of your data science life.
 
@@ -723,113 +866,106 @@ OK let's break it down a bit, by considering the different ways we could tackle 
 ~\\
 Here is our mock data for dog hiking mileage and duration:
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtable}[]{@{}lcc@{}}
 \toprule
-\begin{minipage}[b]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-name\strut
-\end{minipage} & \begin{minipage}[b]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-miles\strut
-\end{minipage} & \begin{minipage}[b]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
-time\strut
-\end{minipage}\tabularnewline
+name & miles & time \\
 \midrule
 \endhead
-\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-Teddy\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-6.8\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
-35:02\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-Khora\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-10.3\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
-61:47\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-Teddy\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-3.1\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
-15:28\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-Teddy\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-12.0\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
-87:09\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-Khora\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-4.9\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
-20:56\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-Teddy\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-8.5\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
-63:34\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-Khora\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-2.7\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
-12:01\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-Teddy\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.15}}\raggedright
-5.9\strut
-\end{minipage} & \begin{minipage}[t]{(\columnwidth - 2\tabcolsep) * \real{0.11}}\raggedright
-43:40\strut
-\end{minipage}\tabularnewline
+Teddy & 6.8 & 35:02 \\
+Khora & 10.3 & 61:47 \\
+Teddy & 3.1 & 15:28 \\
+Teddy & 12.0 & 87:09 \\
+Khora & 4.9 & 20:56 \\
+Teddy & 8.5 & 63:34 \\
+Khora & 2.7 & 12:01 \\
+Teddy & 5.9 & 43:40 \\
 \bottomrule
 \end{longtable}
 
-If we want to calculate the mean miles for each dog, how might we go about doing that?
+If we want to calculate the mean miles \emph{for each dog}, how might we go about doing that?
 
-We could manually create individual subsets for each dog (i.e., separate the two groups manually), then calculate the mean for each. That might not seem too bad for just two groups, but what if our data had 5 different dogs? Or 20 dogs? Or 1,000 dogs? Then creating and storing subsets manually before applying a function across all of them quickly becomes a big task.\\
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  We could manually create individual subsets for each dog (i.e., separate the two groups manually), then calculate the mean for each. That might not seem too bad for just two groups, but what if our data had 5 different dogs? Or 20 dogs? Or 1,000 dogs? Then creating and storing subsets manually before applying a function across all of them quickly becomes a big task.
+\item
+  \textbf{Or instead}, we could expect code exists that could automatically recognize then create groups within the \texttt{name} column, and apply a function to each group. The second is more efficient - instead of actually creating separate subsets from the data, we just have our code recognize groups automatically, then apply a function (or functions) to each group, without ever separating the data in the first place. For simplest execution, it does require that your group values (here, dog names) are in a single column, which is one reason why organizing data in tidy format is useful for more efficient coding.
+\end{enumerate}
+
+This isn't just true for finding summary statistics by group. We'll see that we can use groups within a variable to automatically facet graphs (present each group's data in its own plot), e.g.~with \texttt{facet\_wrap()} for data visualization with \texttt{ggplot2}, along with other common use cases for grouping data.
+
+\hypertarget{tidy-data-for-skills-transfer-collaboration}{%
+\section{Tidy data for skills transfer \& collaboration}\label{tidy-data-for-skills-transfer-collaboration}}
+
+Because tidy datasets are fundamentally and predictably similar, it will make it easier for you and your collaborators to repurpose existing tools \& skills to work with new tidy data.\\
 ~\\
-\textbf{Or instead}, we could expect code exists that could automatically recognize then create groups within the \texttt{name} column, and apply a function to each group. The second is more efficient - instead of actually creating separate subsets from the data, we just have our code recognize groups automatically, then apply a function (or functions) to each group, without ever separating the data in the first place. For simplest execution, it does require that your group values (here, dog names) are in a single column, which is one reason why organizing data in tidy format is useful for more efficient coding.
-
-\hypertarget{parse-explore}{%
-\subsection{Parse \& explore}\label{parse-explore}}
-
-\hypertarget{safer-summary-statistics}{%
-\subsection{Safer summary statistics}\label{safer-summary-statistics}}
-
-\includegraphics[width=6.26042in,height=\textheight]{images/tidydata_2.jpg}
+In other words, the data will differ, but the structure will be similar enough that we shouldn't feel like we need to reinvent the wheel every time we get a new tidy dataset.
 
 \includegraphics{images/tidydata_3.jpg}
 
-\hypertarget{tidy-data-for-collaboration}{%
-\section{Tidy data for collaboration}\label{tidy-data-for-collaboration}}
+Not only will tidy data allow you to use similar tools on different datasets, but it also allows \emph{different people} to use similar tools on the same dataset.
 
 \includegraphics[width=5.22917in,height=\textheight]{images/tidydata_4.jpg}
 
+\hypertarget{tidy-data-for-automation-repetition}{%
+\section{Tidy data for automation \& repetition}\label{tidy-data-for-automation-repetition}}
+
+The predictable and consistent structure of tidy data also helps to facilitate automation using pre-built workflows and algorithms. For example, you might imagine a report that needs to be updated annually as new data comes in. If the raw data are in the same structure as those analyzed and reported on for previous years, then you are more likely to be able to fully or partially reuse code from your previous analyses to prepare your new report.
+
 \includegraphics{images/tidydata_5.jpg}
 
-\includegraphics{images/tidydata_6.jpg}
+So think carefully about how you organize your data - whether you're collecting raw data from the field, or trying to clean up data from an external source for easier, more collaborative, and more automated processing. Make the tidy data you hope to see in the world - you, future you, and all of your collaborators will thank you for it.
 
 \includegraphics{images/tidydata_7.jpg}
 
 \hypertarget{basic-wrangling}{%
 \chapter{Basic wrangling}\label{basic-wrangling}}
 
-Indexing, subsetting, converting, etc.
+This chapter just scrapes the surface of data wrangling tools you'll want to become familiar with as an environmental data scientist.
+
+Subsetting, joins, pivots, and working with strings
+
+\hypertarget{subsetting-data}{%
+\section{Subsetting data}\label{subsetting-data}}
+
+\hypertarget{subset-rows-based-on-conditions}{%
+\subsection{Subset rows based on conditions}\label{subset-rows-based-on-conditions}}
+
+\hypertarget{keep-omit-relocate-and-rename-columns-variables}{%
+\subsection{Keep, omit, relocate, and rename columns (variables)}\label{keep-omit-relocate-and-rename-columns-variables}}
+
+\hypertarget{joining-data}{%
+\section{Joining data}\label{joining-data}}
+
+\hypertarget{reshaping-data}{%
+\section{Reshaping data}\label{reshaping-data}}
+
+\begin{itemize}
+\tightlist
+\item
+  Long versus wide data
+\item
+  \texttt{pivot\_longer} and \texttt{pivot\_wider}
+\end{itemize}
+
+\hypertarget{working-with-strings}{%
+\section{Working with strings}\label{working-with-strings}}
 
 \hypertarget{logicals}{%
 \chapter{Logical operators}\label{logicals}}
 
 \hypertarget{conditionals}{%
 \chapter{Conditionals}\label{conditionals}}
+
+\hypertarget{if-else-statements}{%
+\section{if else statements}\label{if-else-statements}}
+
+\hypertarget{if-else-if-else-statements}{%
+\section{if else if else statements}\label{if-else-if-else-statements}}
+
+\hypertarget{while-statements}{%
+\section{while statements}\label{while-statements}}
 
 \hypertarget{iteration}{%
 \chapter{Iteration}\label{iteration}}
@@ -1379,7 +1515,7 @@ Write a function to calculate fish weight based on \(a\), \(b\), and fish length
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-25}Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).}
+\caption{\label{tab:unnamed-chunk-29}Parameter estimates for selected Hawaiian fish from Peyton et al. (2015).}
 \centering
 \begin{tabular}[t]{>{}l|l|c|c}
 \hline
@@ -1491,6 +1627,52 @@ In the examples above, we change input values, but what the function \emph{does}
 
 Sometimes, we'll want our function to do something different (e.g.~a different calculation, use a different constant value) based on the input values.
 
+For example, let's consider the following (made up) scenario: jaguar shark growth follows a linear bimodal pattern. From the age of 0 to 8 years, shark length (meters) is predicted by \(length = 0.41(age)+0.06\), where age is in years. When age is greater than 8 years, growth slows and is predicted by \(length=0.09(age) + 2.65\)
+
+\includegraphics{eds-221_files/figure-latex/unnamed-chunk-33-1.pdf}
+
+Write a function that estimates mean shark length, based on age, using the two models shared above.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{predict\_sharklength }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(age) \{}
+  
+  \ControlFlowTok{if}\NormalTok{ (age }\SpecialCharTok{\textless{}=} \DecValTok{8}\NormalTok{)}
+\NormalTok{    shark\_length }\OtherTok{=} \FloatTok{0.41} \SpecialCharTok{*}\NormalTok{ age }\SpecialCharTok{+} \FloatTok{0.06}
+  
+  \ControlFlowTok{else} 
+\NormalTok{    shark\_length }\OtherTok{=} \FloatTok{0.09} \SpecialCharTok{*}\NormalTok{ age }\SpecialCharTok{+} \FloatTok{2.65}
+  
+  \FunctionTok{print}\NormalTok{(shark\_length)}
+  
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+We can then use the function to estimate the expected shark length for any age, using the correct model:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{predict\_sharklength}\NormalTok{(}\AttributeTok{age =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{predict\_sharklength}\NormalTok{(}\AttributeTok{age =} \FloatTok{11.6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.694
+\end{verbatim}
+
+\textbf{Quick check:} For the example calculations above, do the predicted values align with the model visualization? Always do a quick check - even a back-of-the-envelope calculation or visual check can catch a programming mistake!
+
 \hypertarget{functions-with-iteration}{%
 \section{Functions with iteration}\label{functions-with-iteration}}
 
@@ -1515,10 +1697,352 @@ Sometimes, we'll want our function to do something different (e.g.~a different c
 \hypertarget{wrangling}{%
 \chapter{Data wrangling with tidyverse and pandas}\label{wrangling}}
 
-We've learned some strategies to subset, reshape and update data using base tools and functions. In this chapter, we'll use functions from R packages and Python libraries to wrangle our data in alternative ways that may be more streamlined and/or readable.
+We've learned some strategies to subset, reshape and update data using base tools and functions. In this chapter, we'll use functions from R packages and Python libraries to wrangle our data in alternative ways that may be more efficient, intuitive and/or readable for collaborators.
+
+Throughout this chapter, we'll see examples using the penguins data set in the palmerpenguins R package (make sure you have it installed and attached to follow along).
+
+\hypertarget{meet-the-tidyverse-and-pandas}{%
+\section{Meet the tidyverse and pandas}\label{meet-the-tidyverse-and-pandas}}
+
+Names for things that seem weird now will be come so ingrained in your brain that you won't even realize the nonsense you're spewing to non-R or -Python users (we'll practice avoiding that throughout MEDS, but be warned\ldots). A couple of big ones are \textbf{tidyverse} and \textbf{pandas} - what are they, and how are they useful for us?
+
+\hypertarget{r-wrangling-dplyr-tidyr-packages-in-the-tidyverse}{%
+\subsection{\texorpdfstring{R wrangling: \texttt{dplyr} \& \texttt{tidyr} packages in the tidyverse}{R wrangling: dplyr \& tidyr packages in the tidyverse}}\label{r-wrangling-dplyr-tidyr-packages-in-the-tidyverse}}
+
+The \href{https://www.tidyverse.org/}{tidyverse} is a collection of R packages built to make data wrangling and visualizations easier for everyone. The packages are \emph{opinionated} - meaning that they use similar syntax so that functions from different packages within the \texttt{tidyverse} play nicely together - especially useful once you get into burlier wrangling.
+
+The two tidyverse packages that we'll focus on here are \href{https://dplyr.tidyverse.org/}{dplyr} and \href{https://tidyr.tidyverse.org/}{tidyr}. The \texttt{dplyr} package contains powerful and intuitive functions for wrangling data (subsetting, filtering, choosing or moving columns, finding summary statistics by group, etc.). The \texttt{tidyr} package contains functions useful for reshaping data into tidy structure (e.g.~converting from long-to-wide or wide-to-long format so that each variable is a single column, each row is a single observation, and each cell contains a single value).
+
+To get \texttt{dplyr} and \texttt{tidyr}, along with all other packages in the tidyverse, install the \texttt{tidyverse} by running \texttt{install.packages("tidyverse")} in the R Console.
+
+\hypertarget{python-wrangling-the-pandas-library}{%
+\subsection{\texorpdfstring{Python wrangling: the \texttt{pandas} library}{Python wrangling: the pandas library}}\label{python-wrangling-the-pandas-library}}
+
+The \href{https://pandas.pydata.org/}{pandas} library is a ``fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
+built on top of the Python programming language'' (from \url{https://pandas.pydata.org/}). With tools for reading, wrangling, subsetting, and reshaping data, it is the go-to for data manipulation in Python.
+
+If you already have Anaconda installed, you're all set! The \texttt{pandas} library comes along with it (in addition to a bunch of other libraries useful for data wrangling and analysis, like \texttt{NumPy} and \texttt{matplotlib}).
+
+\hypertarget{selecting-columns}{%
+\section{Selecting columns}\label{selecting-columns}}
+
+Make a subset of \emph{columns} (variables, if data are tidy) using:
+
+\begin{itemize}
+\tightlist
+\item
+  tidyverse: \texttt{dplyr::select()}
+\item
+  pandas:
+\end{itemize}
+
+\hypertarget{dplyrselect}{%
+\subsection{\texorpdfstring{\texttt{dplyr::select()}}{dplyr::select()}}\label{dplyrselect}}
+
+Use \texttt{dplyr::select()} in R to choose columns by numbered position or column name (recall: use \texttt{names()} to return a vector of all column names, or \texttt{View()} to bring up the data frame in a new viewing tab).
+
+\textbf{Example:} Starting with the penguins data frame, create and store a subset that only contains variables \texttt{species} and \texttt{island}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{penguin\_sp\_isl }\OtherTok{\textless{}{-}}\NormalTok{ penguins }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(species, island)}
+
+\CommentTok{\# Alternative (but I like the formatting above...): }
+\NormalTok{penguin\_sp\_isl }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(penguins, species, island)}
+\end{Highlighting}
+\end{Shaded}
+
+Which return a data frame only containing those two variables. Let's check using \texttt{names()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(penguin\_sp\_isl)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "species" "island"
+\end{verbatim}
+
+\hypertarget{selecting-columns-in-python}{%
+\subsection{Selecting columns in Python}\label{selecting-columns-in-python}}
+
+We choose columns in Python using the syntax \texttt{my\_df{[}{[}\textquotesingle{}col\_a\textquotesingle{},\ \textquotesingle{}col\_b\textquotesingle{}{]}{]}}, which will select \texttt{col\_a} and \texttt{col\_b} from a pandas DataFrame stored as \texttt{my\_df}.
+
+In the Python example below, we store the \texttt{penguins} data frame as a Python DataFrame, then create a subset that only contains \texttt{species} and \texttt{island}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Store the existing R object \textasciigrave{}penguins\textasciigrave{} as a Python DataFrame:}
+\NormalTok{py\_penguins }\OperatorTok{=}\NormalTok{ r.penguins}
+
+\CommentTok{\# Then make a subset only containing \textasciigrave{}species\textasciigrave{} and \textasciigrave{}island\textasciigrave{}:}
+\NormalTok{penguin\_sp\_isl }\OperatorTok{=}\NormalTok{ py\_penguins[[}\StringTok{"species"}\NormalTok{, }\StringTok{"island"}\NormalTok{]]}
+
+\CommentTok{\# Check out the first few lines to see variables included:}
+\NormalTok{penguin\_sp\_isl.head()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   species     island
+## 0  Adelie  Torgersen
+## 1  Adelie  Torgersen
+## 2  Adelie  Torgersen
+## 3  Adelie  Torgersen
+## 4  Adelie  Torgersen
+\end{verbatim}
+
+\hypertarget{subsetting-rows-based-on-conditions}{%
+\section{Subsetting rows based on conditions}\label{subsetting-rows-based-on-conditions}}
+
+Creating subsets that match conditions you specify will absolutely be one of the most common data wrangling things you do.
+
+\hypertarget{dplyrfilter}{%
+\subsection{\texorpdfstring{\texttt{dplyr::filter()}}{dplyr::filter()}}\label{dplyrfilter}}
+
+Create subsets of data based on\ldots{}
+
+\hypertarget{subsetting-rows-in-python}{%
+\subsection{Subsetting rows in Python}\label{subsetting-rows-in-python}}
+
+\hypertarget{adding-columns}{%
+\section{Adding columns}\label{adding-columns}}
+
+\hypertarget{dplyrmutate}{%
+\subsection{\texorpdfstring{\texttt{dplyr::mutate()}}{dplyr::mutate()}}\label{dplyrmutate}}
+
+\hypertarget{finding-grouped-statistics}{%
+\section{Finding grouped statistics}\label{finding-grouped-statistics}}
+
+\hypertarget{joining-data-1}{%
+\section{Joining data}\label{joining-data-1}}
 
 \hypertarget{troubleshooting}{%
 \chapter{Troubleshooting}\label{troubleshooting}}
+
+\hypertarget{data-visualization-with-ggplot2-and-seaborn}{%
+\chapter{\texorpdfstring{Data visualization with \texttt{ggplot2} and \texttt{seaborn}}{Data visualization with ggplot2 and seaborn}}\label{data-visualization-with-ggplot2-and-seaborn}}
+
+GET SEABORN WORKING
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# import seaborn as sns}
+\end{Highlighting}
+\end{Shaded}
+
+Visualizing data is a critical skill in every step of data science - from exploratory visualization to look for major patterns, groups or outliers in the data to preparing highly designed infographics for stakeholders, every data scientist must have technical and conceptual skills in data viz.~
+
+In this chapter, we'll learn about two powerful packages for data visualization:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ggplot2}: the go-to data visualization package in R (part of the tidyverse)
+\item
+  \texttt{seaborn}: one of several popular data viz libraries in Python
+\end{itemize}
+
+\hypertarget{the-grammar-of-graphics}{%
+\section{The grammar of graphics}\label{the-grammar-of-graphics}}
+
+The ``gg'' in \texttt{ggplot2} is for the \textbf{grammar of graphics} - a way to describe parts of a graph \citep{layered-grammar}, which in turn provides us an organized and predictable plan to build data visualizations. Understanding the grammar of graphics, and some vocabulary, can help to demystify how we build visualizations with code and the role of some specific functions.
+
+\hypertarget{basic-anatomy-of-graphs-with-ggplot2-in-r-and-seaborn-in-python}{%
+\section{\texorpdfstring{Basic anatomy of graphs with \texttt{ggplot2} in R, and \texttt{seaborn} in Python}{Basic anatomy of graphs with ggplot2 in R, and seaborn in Python}}\label{basic-anatomy-of-graphs-with-ggplot2-in-r-and-seaborn-in-python}}
+
+\hypertarget{ggplot2-bare-minimum}{%
+\subsection{\texorpdfstring{\texttt{ggplot2} bare minimum}{ggplot2 bare minimum}}\label{ggplot2-bare-minimum}}
+
+Making the most basic ggplot requires 3 pieces:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Tell R you're making a ggplot graph (\texttt{ggplot()})
+\item
+  Tell it what data you're plotting (including what the x- and/or y-axis variables are)
+\item
+  Tell it what type of plot you want to make
+\end{enumerate}
+
+\textbf{Note:} it is very important to carefully consider the type of data you're trying to visualize when making a graph. Some visualizations are not appropriate for some types of data. We'll discuss this a bit more throughout the class, but one of my favorite resources to consider appropriate visualizations based on data type is \href{data-to-viz.com}{From Data to Viz}.
+
+For example, let's make a basic scatterplot of bill length versus bill depth from the \texttt{penguins} dataset (in the \texttt{palmerpenguins} package).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ penguins, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ bill\_length\_mm, }\AttributeTok{y =}\NormalTok{ bill\_depth\_mm)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing missing values (geom_point).
+\end{verbatim}
+
+\includegraphics{eds-221_files/figure-latex/unnamed-chunk-43-1.pdf}
+Let's break down how that code maps onto the three essential pieces of a ggplot graph listed above.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  We use \texttt{ggplot()} to let R know we're making a ggplot graph (note: the \emph{package} name is \texttt{ggplot2}, but the function we use is just \texttt{ggplot()}).
+\item
+  Within the \texttt{ggplot()} function, we have two arguments: The first, \texttt{data\ =\ penguins}, specifies which object in our environment (in this case, a data frame called penguins) we will get data from for our plot. The second argument, \texttt{aes(x\ =\ bill\_length\_mm,\ y\ =\ bill\_depth\_mm)}, tells us which variables map on to the x- and y-axis aesthetics (hence the \texttt{aes()}, for aesthetics).
+\item
+  We then add a layer (note the \texttt{+} symbol*) containing the specific geometry, or type of graph we're trying to make. A standard scatterplot is made with \texttt{geom\_point()}.
+\end{enumerate}
+
+*Note: A common mistake is using the pipe operator (\texttt{\%\textgreater{}\%}) between ggplot layers instead of a \texttt{+} sign. Try to remember that we build a ggplot graph by adding layers to it piece by piece (\texttt{+}), not feeding graph pieces \emph{into} a subsequent layer (which the \texttt{\%\textgreater{}\%} implies).
+
+Let's make a few more bare minimum ggplots. For each, ask yourself: how does this example code map onto the three main pieces of a basic ggplot graph listed above?
+
+\textbf{Example:} a jitterplot (\texttt{geom\_jitter()}) of flipper length by penguin species.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ penguins, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ species, }\AttributeTok{y =}\NormalTok{ flipper\_length\_mm)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_jitter}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing missing values (geom_point).
+\end{verbatim}
+
+\includegraphics{eds-221_files/figure-latex/unnamed-chunk-44-1.pdf}
+
+\textbf{Example:} A boxplot of penguin body mass by island.
+
+Let's add some color, too, just for the halibut. Generally:
+
+\begin{itemize}
+\tightlist
+\item
+  Update line and point colors with \texttt{color\ =}
+\item
+  Update shape fill colors with \texttt{fill\ =}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ penguins, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ body\_mass\_g, }\AttributeTok{y =}\NormalTok{ island)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{color =} \StringTok{"purple"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"cyan2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+\end{verbatim}
+
+\includegraphics{eds-221_files/figure-latex/unnamed-chunk-45-1.pdf}
+
+\textbf{Critical thinking:} What might a person unfamiliar with this data conclude if they only saw the boxplot above? Why should this concern us? What critical information is missing that is required for responsible consideration? See also: correlation is not causation, omitted variable bias.
+
+Not all ggplot graph types require two variables. For example, a histogram only wants one numeric variable - it will find the frequencies (plotted on the y-axis) for you. For example, code to make a histogram of penguin flipper lengths is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ penguins, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ flipper\_length\_mm)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing non-finite values (stat_bin).
+\end{verbatim}
+
+\includegraphics{eds-221_files/figure-latex/unnamed-chunk-46-1.pdf}
+
+\hypertarget{seaborn-bare-minimum}{%
+\subsection{\texorpdfstring{\texttt{seaborn} bare minimum}{seaborn bare minimum}}\label{seaborn-bare-minimum}}
+
+NOTE TO SELF: I used reticulate::py\_install(``seaborn'') while in my project to get seaborn in the right place\ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ seaborn }\ImportTok{as}\NormalTok{ sns}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{mapping-variables-onto-graph-aesthetics}{%
+\section{Mapping variables onto graph aesthetics}\label{mapping-variables-onto-graph-aesthetics}}
+
+In the examples above, we specified the x- and/or y- axis variables, but didn't update any other aesthetics that would indicate groupings or values within the data. For example, we may want to:
+
+\begin{itemize}
+\tightlist
+\item
+  Differ point color by penguin \emph{species}
+\item
+  Increase point size by penguin \emph{bill depth}
+\item
+  Change the boxplot fill color by \emph{island}
+\end{itemize}
+
+When we want to change an aesthetic based on variable values (remember: when I say ``values'' here, that can mean characters like penguin species), we are \emph{mapping a variable onto a graph aesthetic}. In other words, we are changing an aesthetic of the graph to depend on values within a variable.
+
+\hypertarget{mapped-variable-aesthetics-in-ggplot2}{%
+\subsection{\texorpdfstring{Mapped variable aesthetics in \texttt{ggplot2}}{Mapped variable aesthetics in ggplot2}}\label{mapped-variable-aesthetics-in-ggplot2}}
+
+We map additional variables onto graph aesthetics with additional \texttt{aes()}.
+
+\textbf{Important: Any time you update a graph aesthetic based on a variable value, it will be within \texttt{aes()}. Any time you update a graph aesthetic based on a constant (e.g.~\texttt{color\ =\ "blue"}), it should NOT be within \texttt{aes()}.}
+
+\textbf{Example:} Create a scatterplot of penguin flipper length versus body mass, with color indicating penguin \emph{species} and with point size changing based on the body mass variable value (using the \texttt{size} element).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ penguins, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ flipper\_length\_mm, }\AttributeTok{y =}\NormalTok{ body\_mass\_g)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ species, }\AttributeTok{size =}\NormalTok{ body\_mass\_g))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing missing values (geom_point).
+\end{verbatim}
+
+\includegraphics{eds-221_files/figure-latex/unnamed-chunk-48-1.pdf}
+\textbf{Example:} Create a violin plot of body mass by species, with the violin fill color dependent on species \emph{and} the violin outline color set to ``red''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ penguins, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ species, }\AttributeTok{y =}\NormalTok{ body\_mass\_g)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_violin}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ species), }\AttributeTok{color =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing non-finite values (stat_ydensity).
+\end{verbatim}
+
+\includegraphics{eds-221_files/figure-latex/unnamed-chunk-49-1.pdf}
+
+\hypertarget{essential-customization}{%
+\section{Essential customization}\label{essential-customization}}
+
+The section above introduces the bare minimum elements needed to create a graph. However, they are far from complete until we update some essential graph elements for clarity.
+
+Those include:
+
+\begin{itemize}
+\tightlist
+\item
+  Update axis labels (include label and units)
+\item
+  If necessary, add a title
+\item
+  Change the theme
+\end{itemize}
 
 \hypertarget{py-r}{%
 \chapter{Py-R differences}\label{py-r}}
